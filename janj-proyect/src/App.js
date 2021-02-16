@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 import './styles /NavBar.css';
 import NavBar from './components /navbar/NavBar';
@@ -12,6 +13,18 @@ function App() {
     </Router>
       
     
+=======
+import {React, Component } from "react";
+import Footer from './Components/Footer'
+function App() {
+  return (
+    <div>
+      <h1>janj</h1>
+
+      
+      <Footer/>
+    </div>
+>>>>>>> Stashed changes
   );
 }
 
