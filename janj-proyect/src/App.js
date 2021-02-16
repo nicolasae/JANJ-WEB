@@ -1,9 +1,17 @@
+import React from 'react';
+import './styles /NavBar.css';
+import NavBar from './components /navbar/NavBar';
+import {BrowserRouter as Router} from 'react-router-dom';
+import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>janj</h1>
-    </div>
+    <Router>
+      <NavBar/>
+    </Router>
+      
+    
   );
 }
 
