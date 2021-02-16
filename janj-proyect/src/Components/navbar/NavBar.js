@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import {Button} from './Button';
 import {Link} from 'react-router-dom';
-import '../../styles /NavBar.css';
+import '../../styles/NavBar.css';
 import DropDown from './DropDown';
+import Image from 'react-bootstrap/Image'
 
 function NavBar(){
     const [click,setClick] = useState(false)
@@ -32,7 +33,7 @@ function NavBar(){
             <nav className='navbar'>
                 <Link to='/'
                 className='navbar-logo'>
-                    JANJ
+                    <Image src="janj-logo-redu.png" />
                 </Link>
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

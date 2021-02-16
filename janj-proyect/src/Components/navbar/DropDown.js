@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItems } from './MenuItems';
-import '../../styles /NavBar.css';
+import '../../styles/NavBar.css';
 import { Link } from 'react-router-dom';
 
 function Dropdown() {
