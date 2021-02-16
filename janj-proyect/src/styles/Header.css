@@ -1,0 +1,12 @@
+.header{
+    margin-bottom: 1rem;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: rgb(134, 224, 153);
+    position: fixed;
+    bottom: 88%;
+    left: 0;
+    width: 100%;
+}
+    
