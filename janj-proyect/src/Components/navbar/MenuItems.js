@@ -1,22 +1,19 @@
 export const MenuItems = [
     {
-      title: 'Marketing',
-      path: '/marketing',
+      title: 'Colombia Historial',
+      path: '/colhistorial',
       cName: 'dropdown-link'
     },
     {
-      title: 'Consulting',
-      path: '/consulting',
+      title: 'Consultas',
+      path: '/consultas',
       cName: 'dropdown-link'
     },
     {
-      title: 'Design',
-      path: '/design',
-      cName: 'dropdown-link'
-    },
-    {
-      title: 'Development',
-      path: '/development',
+      title: 'Gráficos',
+      path: '/graficos',
       cName: 'dropdown-link'
     }
+    
   ];
+  
