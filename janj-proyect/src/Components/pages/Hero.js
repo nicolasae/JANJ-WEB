@@ -13,6 +13,11 @@ import VideoGif from '../../images/video_intro.gif'
         <video autoPlay loop muted  playsInline id='video'>
           <source src={'video_intro.mp4'} type='video/mp4'/>
         </video>
+        <div className="centered" > 
+        <h1> 
+            HOLA BUENAS NOCHES 
+        </h1>
+        </div>
 
 
 
