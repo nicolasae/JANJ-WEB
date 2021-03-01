@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
+// Estilos 
 import '../../styles/navbar/Navbar.css';
+
+// Componentes
 import Dropdown from './Dropdown';
 
 function Navbar() {
@@ -94,7 +97,8 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <Button />
+        
+        <Button/>
       </nav>
     </>
   );
