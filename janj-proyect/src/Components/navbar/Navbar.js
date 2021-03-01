@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button } from './Button';
 import { Link } from 'react-router-dom';
 // Estilos 
 import '../../styles/navbar/Navbar.css';
+import '../../styles/navbar/Button.css';
 
 // Componentes
 import Dropdown from './Dropdown';
@@ -46,16 +46,8 @@ function Navbar() {
               Quienes Somos?  
             </Link>
           </li>
-          <li
-            className='nav-item'
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <Link
-              to='/historial'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
+          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <Link to='/' className='nav-links' onClick={handleClick}>
               Historial <i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
@@ -87,18 +79,12 @@ function Navbar() {
               Inicio de Sesión
             </Link>
           </li>
-          <li>
-            <Link
-              to='/registrarse'
-              className='nav-links-mobile'
-              onClick={closeMobileMenu}
-            >
-              Registrarse
+          <li className='nav-item'>
+            <Link to='sign-up' onClick={closeMobileMenu}>
+            <button className='btn'>Registro</button>
             </Link>
           </li>
         </ul>
-        
-        <Button/>
       </nav>
     </>
   );
