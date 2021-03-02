@@ -12,9 +12,11 @@ function Navbar() {
   const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
+  const handleDrop = () => setDropdown(!dropdown);
   const closeMobileMenu = () => setClick(false);
 
   const onMouseEnter = () => {
+    console.log(window.innerWidth);
     if (window.innerWidth < 960) {
       setDropdown(false);
     } else {
@@ -47,7 +49,7 @@ function Navbar() {
             </Link>
           </li>
           <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Link to='/' className='nav-links' onClick={handleClick}>
+            <Link  to='/'className='nav-links' onClick={handleDrop}>
               Historial <i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
