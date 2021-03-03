@@ -33,12 +33,7 @@ function Register() {
                                 <label> <h6 className="form-group-login">Telefono</h6>  </label>
                                 <input className="mb-4" type="number" name="phone" placeholder="Enter a Phone number"/>
                             </div>
-                            <div class="row px-3 mb-4">
-                                <a href="#" class="ml-auto mb-0 form-group-login-s">Forgot Password?</a>
-                            </div>
                             <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center form-group-login">Register</button></div>
-                            <div class="row mb-4 px-3"> <small class="font-weight-bold form-group-login-s">Don't have an account? <a class="text-danger ">Register</a></small></div>
-
                         </div>
                     </div>
                 </div>

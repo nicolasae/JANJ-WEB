@@ -24,10 +24,10 @@ function Login() {
                                 </div>
 
                                 <div class="row px-3 mb-4">
-                                    <a href="#" class="ml-auto mb-0 form-group-login-s">Forgot Password?</a>
+                                    <a href="#" class="ml-auto mb-0 form-group-login-s">Olvidaste tu contraseña?</a>
                                 </div>
                                 <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center form-group-login">Login</button></div>
-                                <div class="row mb-4 px-3"> <small class="font-weight-bold form-group-login-s">Don't have an account? <a class="text-danger ">Register</a></small></div>
+                                <div class="row mb-4 px-3"> <small class="font-weight-bold form-group-login-s">No tienes cuenta? <a class="text-danger ">Registrate</a></small></div>
 
                             </div>
                         </div>

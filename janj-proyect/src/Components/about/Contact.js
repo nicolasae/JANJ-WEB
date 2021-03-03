@@ -1,42 +1,81 @@
 import React from 'react';
 import '../../App.css';
+import '../../styles/about/Contact.css';
 
 function Contact() {
     return (
         <div>
-            <h1> Contact </h1>
-            <div className="container-login">
-                <div className="card card0 border-0">
-                    <div className="preview-login">
-                        <div className="card1">
-                            <div className="row"> <img src="janj-symbol.png" /> </div>
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            <section class="Material-contact-section section-padding section-dark">
+                <div class="container">
+                    <div class="row">
+            
+                        <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                            <h1 class="section-title">Love to Hear From You</h1>
                         </div>
-                        <div className="preview-login">
-                            <div className="card2 card border-0 px-4 py-5">
-                                <div className="row px-3"> 
-                                    <label> <h6 className="form-group-login">Email Address</h6>  </label>
-                                    <input className="mb-4" type="text" name="email" placeholder="Enter a valid email address"/>
-                                </div>
-                                <div className="row px-3"> 
-                                    <label> <h6 className="form-group-login">Password</h6></label>
-                                    <input type="password" name="password" placeholder="Enter password"/>
-                                </div>
+                    </div>
+                    <div class="row">
+            
+                        <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content.</p>
 
-                                <div class="row px-3 mb-4">
-                                    <a href="#" class="ml-auto mb-0 form-group-login-s">Forgot Password?</a>
-                                </div>
-                                <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center form-group-login">Contact</button></div>
-                                <div class="row mb-4 px-3"> <small class="font-weight-bold form-group-login-s">Don't have an account? <a class="text-danger ">Register</a></small></div>
-
+                            <div class="find-widget">
+                            Company:  <a href="https://hostriver.ro">HostRiver</a>
+                            </div>
+                            <div class="find-widget">
+                            Address: <a href="#">4435 Berkshire Circle Knoxville</a>
+                            </div>
+                            <div class="find-widget">
+                            Phone:  <a href="#">+ 879-890-9767</a>
+                            </div>
+                            
+                            <div class="find-widget">
+                            Website:  <a href="https://uny.ro">www.uny.ro</a>
+                            </div>
+                            <div class="find-widget">
+                            Program: <a href="#">Mon to Sat: 09:30 AM - 10.30 PM</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+                                <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
+                
+                                    <div class="form-group label-floating">
+                                        <label class="control-label" for="name">Name</label>
+                                        <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name"></input>
+                                    </div>
+                
+                                    <div class="form-group label-floating">
+                                        <label class="control-label" for="email">Email</label>
+                                        <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email"></input>
+                                        
+                                    </div>
+                
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Subject</label>
+                                        <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject"></input>
+                                        
+                                    </div>
+                
+                                    <div class="form-group label-floating">
+                                        <label for="message" class="control-label">Message</label>
+                                        <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
+                                        
+                                    </div>
+                
+                                    <div class="form-submit mt-5">
+                                        <button class="btn btn-common" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                                
-                </div>
-            </div>
+                </section>
         </div>
-  
-
     );
   }
   
