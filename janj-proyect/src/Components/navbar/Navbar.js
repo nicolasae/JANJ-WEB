@@ -49,7 +49,7 @@ function Navbar() {
             </Link>
           </li>
           <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Link  to='/services'className='nav-links' onClick={handleDrop}>
+            <Link  to='/services'className='nav-links' onClick={handleClick}>
               Servicios<i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
