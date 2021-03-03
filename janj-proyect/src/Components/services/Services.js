@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../App.css';
-import '../../styles/Login.css'
 
 
-function Login() {
+function Services() {
     return (
         <div>
+            <h1> Servicios</h1>
             <div className="container-login">
                 <div className="card card0 border-0">
                     <div className="preview-login">
@@ -26,7 +26,7 @@ function Login() {
                                 <div class="row px-3 mb-4">
                                     <a href="#" class="ml-auto mb-0 form-group-login-s">Forgot Password?</a>
                                 </div>
-                                <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center form-group-login">Login</button></div>
+                                <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center form-group-login">Services</button></div>
                                 <div class="row mb-4 px-3"> <small class="font-weight-bold form-group-login-s">Don't have an account? <a class="text-danger ">Register</a></small></div>
 
                             </div>
@@ -41,5 +41,5 @@ function Login() {
     );
   }
   
-  export default Login
+  export default Services
   

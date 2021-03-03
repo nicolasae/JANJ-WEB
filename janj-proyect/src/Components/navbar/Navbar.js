@@ -44,19 +44,19 @@ function Navbar() {
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+            <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
               Quienes Somos?  
             </Link>
           </li>
           <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Link  to='/'className='nav-links' onClick={handleDrop}>
-              Historial <i className='fas fa-caret-down' />
+            <Link  to='/services'className='nav-links' onClick={handleDrop}>
+              Servicios<i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
           </li>
           <li className='nav-item'>
             <Link
-              to='/conversor'
+              to='/convert'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -65,7 +65,7 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link
-              to='/contactenos'
+              to='/contact'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -74,7 +74,7 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link
-              to='/iniciosesion'
+              to='/login'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -82,7 +82,7 @@ function Navbar() {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link to='sign-up' onClick={closeMobileMenu}>
+            <Link to='/signup' onClick={closeMobileMenu}>
             <button className='btn'>Registro</button>
             </Link>
           </li>

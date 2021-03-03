@@ -180,7 +180,38 @@ html-login,body-login
 .container-login
 {
     width: 500px;
-    margin: 20px auto;
+    margin: 50px auto;
+}
+
+.row-login
+{
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 5px;
+  list-style: none;
+  text-align: center;
+  width: 90vw;
+  justify-content: end;
+  
+} 
+.col-sm3
+{
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.col-sm2
+
+
+.login-header
+{
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: rgb(70, 126, 82);
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  
 }
 
 .preview-login
