@@ -1,23 +1,19 @@
 
+
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 
   }
 
-
-
-section {
-  padding: 60px 0;
-  overflow: hidden;
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'Fjalla One', sans-serif;
 }
 
-.section-bg {
-  background-color: #1a1814;
-}
-
-.section-title {
-  padding-bottom: 40px;
-}

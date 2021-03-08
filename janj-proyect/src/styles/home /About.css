@@ -1,20 +1,13 @@
-@import url('https://fonts.gstatic.com');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Yusei+Magic&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-
 .body #about {
     color: #000;
     /* overflow-x: hidden; */
     height: 100%;
     background-color:red;
     background-repeat: no-repeat;
-    font-family: 'Noto Sans', sans-serif;
     
   }
   
-  h1,h2,h3,h4,h5,h6{
-    font-family: 'Fjalla One', sans-serif;
-}
+  
 h1{
     color:black;
     text-align: center;

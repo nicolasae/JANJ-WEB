@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import '../styles/Header.css';
 import Image from 'react-bootstrap/Image'
 
 

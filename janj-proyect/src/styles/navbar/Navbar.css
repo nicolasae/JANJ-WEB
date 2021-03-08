@@ -1,3 +1,9 @@
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
+
 .navbar {
     background: linear-gradient(90deg, rgb(170, 169, 169) 0%, rgb(153, 152, 152) 100%); 
     /* background: transparent; */
