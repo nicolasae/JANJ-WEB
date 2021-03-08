@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Image from 'react-bootstrap/Image'
+
 // Estilos 
 import '../../styles/navbar/Navbar.css';
 import '../../styles/navbar/Button.css';
 
 // Componentes
 import Dropdown from './Dropdown';
+import Cover from "../../Components/home/Cover"
+
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -32,12 +36,14 @@ function Navbar() {
     }
   };
 
+
+
   return (
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          JANJ
-          <i class='fab fa-firstdraft' />
+          <Image src="janj-symbol-redu.png" />
+          {/* <i class='fab fa-firstdraft' /> */}
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -45,7 +51,7 @@ function Navbar() {
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
             <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-              Quienes Somos?  
+              ¿Quiénes Somos?  
             </Link>
           </li>
           <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -56,20 +62,11 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link
-              to='/convert'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Conversor
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link
               to='/contact'
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Contactenos
+              Contáctenos
             </Link>
           </li>
           <li className='nav-item'>
@@ -83,11 +80,14 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link to='/signup' onClick={closeMobileMenu}>
-            <button className='btn'>Registro</button>
+              <button className='btn'>Suscripción</button>
             </Link>
           </li>
         </ul>
       </nav>
+      {/* <Testimonios >Testimonios</Testimonios> */}
+      {/* <h1 id="Testimonios"> Si se desplaza</h1> */}
+
     </>
   );
 }

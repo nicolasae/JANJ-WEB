@@ -14,10 +14,10 @@ import Hero from "./Components/pages/Hero";
 import Login from "./Components/login/LoginForm"
 import Register from "./Components/login/RegisterForm"
 import Services from "./Components/services/Services"
-import About from "./Components/about/About"
-import Contact from "./Components/about/Contact"
+import About from "./Components/home/About"
+import Contact from "./Components/home/Contact"
 import Convert from "./Components/services/Convert"
-
+import Cover from "./Components/home/Cover"
 
 
 function App() {
@@ -25,15 +25,14 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' exact component={Hero} />
+        {/* <Route path='/' exact component={Hero} /> */}
         <Route path='/login' exact component={Login} />
         <Route path='/signup' exact component={Register} />
-        <Route path='/about' exact component={About} />
+        {/* <Route path='/about' exact component={About} /> */}
         <Route path='/services' exact component={Services} />
         <Route path='/convert' exact component={Convert} />
         <Route path='/contact' exact component={Contact} />
       </Switch>
-
     </Router>
   );
 }

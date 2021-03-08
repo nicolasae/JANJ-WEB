@@ -10,9 +10,9 @@ import VideoGif from '../../images/video_intro.gif'
 
     <div className="Hero">
       {/* <section id="hero"> */}
-        <video autoPlay loop muted  playsInline id='video'>
+        {/* <video autoPlay loop muted  playsInline id='video'>
           <source src={'video_intro.mp4'} type='video/mp4'/>
-        </video>
+        </video> */}
         <div className="centered" > 
         <h1> 
             HOLA BUENAS NOCHES 

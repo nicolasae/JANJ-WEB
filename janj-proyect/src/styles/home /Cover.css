@@ -1,0 +1,39 @@
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
+.body #cover {
+    color: #000;
+    height: 100%;
+    background-repeat: no-repeat;
+    font-family: 'Noto Sans', sans-serif;
+    
+  }
+
+h1  {
+    color:black;
+    text-align: left;
+    padding-left: 10%;
+    padding-top: 15%;
+    font-size: 5em;
+}
+
+p{
+    color:black;
+    text-align: left; 
+    padding-left: 10%;
+    font-size: 3em;
+}
+
+
+.container-cover img {
+    float: top;
+    float: right;
+    margin-right: 160px;
+
+  }
+
+  .container-cover button{
+    margin-left: 35%;
+  }
