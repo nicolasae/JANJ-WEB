@@ -39,20 +39,19 @@ function Navbar() {
 
 
   return (
-    <>
+    <div>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <Image src="janj-symbol-redu.png" />
-          {/* <i class='fab fa-firstdraft' /> */}
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+            <a href="#About" className='nav-links' onClick={closeMobileMenu}>
               ¿Quiénes Somos?  
-            </Link>
+            </a>
           </li>
           <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <Link  to='/services'className='nav-links' onClick={handleClick}>
@@ -85,10 +84,7 @@ function Navbar() {
           </li>
         </ul>
       </nav>
-      {/* <Testimonios >Testimonios</Testimonios> */}
-      {/* <h1 id="Testimonios"> Si se desplaza</h1> */}
-
-    </>
+    </div>
   );
 }
 

@@ -10,9 +10,14 @@ export default function HomePage(){
     return(
         <div>
             <Navbar/>
+            
             <Cover/>
+            <div id="About">
             <About/>
-            {/* <Testimonios/> */}
+            </div>
+            <div id="Testimonios">
+            <Testimonios/>
+            </div>
         </div>
     );
 }

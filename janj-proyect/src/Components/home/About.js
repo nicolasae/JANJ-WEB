@@ -9,7 +9,16 @@ function About(){
             <div className="zoom">
                 <h2>Misión</h2>
                 <p>
-                    hola
+                    Facilitar el acceso y seguimiento a la información <br/>
+                    de las diferentes divisas para personas no <br/>
+                    expertas en el campo.
+                </p>
+                <h2>Visión</h2>
+                <p>
+                    Nuestra visión es en un futuro normalizar <br/>
+                    el entendimiento de la bolsa de valores y <br/>
+                    prestar consultoría financiera mediante la <br/>
+                    plataforma y los servicios que puede ofrecer.
                 </p>
             </div>
         </div>
