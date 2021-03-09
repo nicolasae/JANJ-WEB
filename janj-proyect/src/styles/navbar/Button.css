@@ -1,5 +1,5 @@
 :root {
-  --primary:rgb(152, 209, 164);
+  --primary:rgb(0,255,119, .50);
 }
 
 .btn {

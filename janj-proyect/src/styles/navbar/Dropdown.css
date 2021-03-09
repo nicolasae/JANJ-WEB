@@ -8,12 +8,12 @@
   }
   
   .dropdown-menu li {
-    background: rgb(152, 209, 164);
+    background: rgb(0,255,119, .50);
     cursor: pointer;
   }
   
   .dropdown-menu li:hover {
-    background: rgb(152, 209, 164);
+    background: rgb(0,255,119, .50);
   }
   
   .dropdown-menu.clicked {
