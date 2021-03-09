@@ -1,10 +1,12 @@
 import React from 'react';
 import '../../App.css';
 import '../../styles/Login.css'
-
+import NavBar from '../navbar/Navbar';
 
 function Register() {
     return (
+        <div>
+            <NavBar/>
         <div className="container-login">
             <div className="card card0 border-0">
                 <div className="preview-login">
@@ -40,7 +42,7 @@ function Register() {
                             
             </div>
         </div>
-  
+        </div>
 
     );
   }

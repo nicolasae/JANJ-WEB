@@ -2,32 +2,17 @@ import React from 'react';
 import '../../App.css';
 import '../../styles/home /About.css'
 
-function About() {
+function About(){
     return (
-        <section className="about">
-            <div className="about">
-                <h1>Testimonios</h1>
-                    <div className="container-about">
-                        <img src="profile-user.png" />   
-                        <span>Chris Fox.</span> 
-                        <p>John Doe saved us from a web disaster.</p>
-                    </div>  
-                    <div className="container-about">
-                        <img src="profile-user.png" />   
-                        <span>Chris Fox.</span> 
-                        <p>John Doe saved us from a web disaster.</p>
-                    </div>
-                    <div className="container-about">
-                        <img src="profile-user.png" />   
-                        <span>Chris Fox.</span> 
-                        <p>John Doe saved us from a web disaster.</p>
-                    </div>  
-                
+        <div className="section-about">
+            <h1>¿Quiénes Somos?</h1>
+            <div className="zoom">
+                <h2>Misión</h2>
+                <p>
+                    hola
+                </p>
             </div>
-        </section>
-
+        </div>
     );
-  }
-  
-  export default About
-  
+}
+export default About

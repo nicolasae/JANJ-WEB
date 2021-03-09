@@ -1,7 +1,8 @@
 import React, {Fragment} from 'react';
 import Navbar from './navbar/Navbar';
 import Cover from './home/Cover';
-import Testimonios from './home/About'
+import About from './home/About'
+import Testimonios from './home/Testimonios'
 
 
 
@@ -10,7 +11,8 @@ export default function HomePage(){
         <div>
             <Navbar/>
             <Cover/>
-            <Testimonios/>
+            <About/>
+            {/* <Testimonios/> */}
         </div>
     );
 }

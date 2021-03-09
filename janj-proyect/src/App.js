@@ -10,8 +10,8 @@ import Navbar from './Components/navbar/Navbar';
 import Header from './Components/Header';
 import './App.css';
 import Footer from './Components/Footer'
-import Login from "./Components/login/LoginForm"
-import Register from "./Components/login/RegisterForm"
+import Login from "./Components/pages/LoginForm"
+import Register from "./Components/pages/RegisterForm"
 import Services from "./Components/services/Services"
 import About from "./Components/home/About"
 import Contact from "./Components/home/Contact"
