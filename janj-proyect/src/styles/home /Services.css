@@ -1,0 +1,11 @@
+.section-services {
+    height:calc(100vh - 50px);
+    padding-top: 5%;
+}
+
+.section-services h1  {
+    color:black;
+    text-align: center;
+    padding-left: 10%;
+    font-size: 5em;
+}

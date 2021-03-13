@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Cover(){
     return(
         <div className="section-cover">               
-                <h1><img src="janj-symbol.png" className="derecha"/>JANJ</h1>
+                <h1><img src="home_img.png" className="derecha"/>JANJ</h1>
                 <p>                    
                     Permitimos el seguimiento,<br/>
                     preddicción, simulación además<br/>

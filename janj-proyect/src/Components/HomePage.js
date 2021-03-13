@@ -2,22 +2,20 @@ import React, {Fragment} from 'react';
 import Navbar from './navbar/Navbar';
 import Cover from './home/Cover';
 import About from './home/About'
-import Testimonios from './home/Testimonios'
-
+import Services from './home/Services';
+import '../styles/HomePage.css'
 
 
 export default function HomePage(){
     return(
         <div>
             <Navbar/>
+            {/* <div className="container"> */}
             
-            <Cover/>
-            <div id="About">
-            <About/>
-            </div>
-            <div id="Testimonios">
-            <Testimonios/>
-            </div>
+                <Cover/>
+                <About/>
+                <Services/>
+            {/* </div> */}
         </div>
     );
 }

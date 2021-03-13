@@ -5,7 +5,7 @@
 
 
 .navbar {
-    background: linear-gradient(90deg, rgb(170, 169, 169) 0%, rgb(153, 152, 152) 100%); 
+    background: linear-gradient(90deg, rgb(0, 255, 119,30%) 0%, rgb(238,238,238) 70%); 
     /* background: transparent; */
     height: 80px;
     display: flex;
@@ -13,6 +13,8 @@
     align-items: center;
     font-size: 1.2rem;
     font-family: 'PT Sans', sans-serif;
+    position: fixed;
+    width: 100%;
 
   }
   
@@ -36,7 +38,7 @@
     grid-gap: 10px;
     list-style: none;
     text-align: center;
-    width: 70vw;
+    width: 90vw;
     justify-content: end;
     margin-right: 2rem;
   }

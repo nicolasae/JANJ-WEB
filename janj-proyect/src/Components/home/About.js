@@ -6,21 +6,24 @@ function About(){
     return (
         <div className="section-about">
             <h1>¿Quiénes Somos?</h1>
-            <div className="zoom">
+            <img src="janj-logo.png" className="derecha"/>
+            <div className="card">
+
                 <h2>Misión</h2>
-                <p>
-                    Facilitar el acceso y seguimiento a la información <br/>
-                    de las diferentes divisas para personas no <br/>
-                    expertas en el campo.
+                <p >
+                    Facilitar el acceso y  seguimiento  a la 
+                    información de las diferentes divisas  
+                    para personas no expertas en el campo.
                 </p>
                 <h2>Visión</h2>
                 <p>
-                    Nuestra visión es en un futuro normalizar <br/>
-                    el entendimiento de la bolsa de valores y <br/>
-                    prestar consultoría financiera mediante la <br/>
-                    plataforma y los servicios que puede ofrecer.
+                    Nuestra visión es en un futuro
+                    normalizar el entendimiento de la
+                    bolsa de valores y prestar consultoría
+                    financiera mediante la plataforma y
+                    los servicios que puede ofrecer.
                 </p>
-            </div>
+            </div>    
         </div>
     );
 }
