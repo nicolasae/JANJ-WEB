@@ -2,33 +2,58 @@
     height:calc(100vh - 50px);
     padding-top: 5%;
 }
-.section-cover h1  {
+/* Parte de información */
+.section-cover-info h1  {
     color:black;
     text-align: left;
-    padding-left: 10%;
-    padding-top: 12%;
-    font-size: 5em;
+    margin-left: 5%;
+    margin-top: 8%;
+    font-size: 4em;
 }
 
-.section-cover p{
+.section-cover-info p{
+    margin-top: 3%;
     color:black;
     text-align: left; 
-    padding-left: 10%;
-    font-size: 3em;
-}
-
-.section-cover button{
-    
-    margin-left: 30%;
+    margin-left: 5%;
     font-size: 2em;
 }
- 
 
-.section-cover img.derecha  {
+.section-cover-info button{
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 2em;  
+    position: static  
+}
+ 
+.section-cover img.central  {
   
   float: right;
   color: black;
-  margin-right: 16%;
+  margin-right: 34%;
   width: 30%;
+  margin-top: 8%; 
+  position: static;
+  border: solid;
 }
 
+.section-cover-correo {
+    border-radius: 5px;
+    background-color: white ;
+    margin-left: 76%;
+    border: solid; 
+    position: static;
+  }
+
+.section-cover-correo p{
+    color: black;
+    font-size: 2em;
+    text-align: center;
+    margin-right: 3%;
+  }
+
+.section-cover-correo input{
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: 10px;
+  }

@@ -7,7 +7,7 @@ function About(){
         <div className="section-about">
             <h1>¿Quiénes Somos?</h1>
             <img src="janj-logo.png" className="derecha"/>
-            <div className="card">
+            <div className="section-about-card">
 
                 <h2>Misión</h2>
                 <p >

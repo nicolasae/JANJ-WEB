@@ -50,24 +50,15 @@ function Navbar() {
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
             <a href="#About" className='nav-links' onClick={closeMobileMenu}>
-              ¿Quiénes Somos?  
+              Conseguir Premium  
             </a>
           </li>
-          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+          {/* <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <Link  to='/services'className='nav-links' onClick={handleClick}>
               Servicios<i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
-          </li>
-          <li className='nav-item'>
-            <Link
-              to='/'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Contáctenos
-            </Link>
-          </li>
+          </li> */}
           <li className='nav-item'>
             <Link
               to='/login'
@@ -79,7 +70,7 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link to='/signup' onClick={closeMobileMenu}>
-              <button className='btn'>Suscripción</button>
+              <button className='btn'>Registrarse</button>
             </Link>
           </li>
         </ul>
