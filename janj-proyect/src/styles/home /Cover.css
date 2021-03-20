@@ -3,6 +3,17 @@
     padding-top: 5%;
 }
 
+.section-cover img.central  {
+  
+  float: right;
+  color: black;
+  margin-right: 34%;
+  width: 30%;
+  margin-top: 8%; 
+  position: static;
+  border: solid;
+}
+
 /* Parte de información */
 .section-cover-info h1  {
     color:black;
@@ -24,36 +35,28 @@
     margin-top: 5%;
     margin-left: 5%;
     font-size: 2em;  
-    position: static  
+    /* position: static   */
 }
  
-.section-cover img.central  {
-  
-  float: right;
-  color: black;
-  margin-right: 34%;
-  width: 30%;
-  margin-top: 8%; 
-  position: static;
-  border: solid;
-}
 
-.section-cover-correo {
+
+.seccion-cover-correo {
     border-radius: 5px;
     background-color: white ;
     margin-left: 76%;
     border: solid; 
-    float: flex;
+    margin-top: 8%;
+    /* float: flex; */
   }
 
-.section-cover-correo p{
+.seccion-cover-correo p{
     color: black;
     font-size: 2em;
     text-align: center;
     margin-right: 3%;
   }
 
-.section-cover-correo input{
+.seccion-cover-correo input{
     border-radius: 4px;
     box-sizing: border-box;
     margin-right: 10px;

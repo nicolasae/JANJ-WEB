@@ -22,7 +22,7 @@ function Cover(){
                 </Link>
             </div>
 
-            <div className="section-cover-correo">
+            <div className="seccion-cover-correo">
                 <p>
                     Mantente al día 
                     con los cambios 
