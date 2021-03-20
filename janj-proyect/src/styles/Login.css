@@ -1,9 +1,10 @@
-body {
+.section-login{
   color: #000;
   overflow-x: hidden;
   height: 100%;
-  background-color: #f9f9fa;
-  background-repeat: no-repeat
+  background-color: white;
+  background-repeat: no-repeatz;
+  padding-top: 8%;
 }
 
 .card0 {
@@ -105,7 +106,7 @@ textarea {
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
-  color: #2C3E50;
+  color: #88a7c5;
   font-size: 14px;
   letter-spacing: 1px
 }
@@ -139,7 +140,7 @@ a {
 }
 
 .btn-blue:hover {
-  background-color: #000;
+  background-color: white;
   cursor: pointer
 }
 

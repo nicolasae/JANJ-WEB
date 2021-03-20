@@ -22,7 +22,7 @@ function Cover(){
                 </Link>
             </div>
 
-            {/* <div className="section-cover-correo">
+            <div className="section-cover-correo">
                 <p>
                     Mantente al día 
                     con los cambios 
@@ -34,7 +34,7 @@ function Cover(){
                 </p>
                 <input type="email" id="corre_notificaciones" placeholder="Correo Electrónico"/>
                 <button className='btn'>Enviar</button>
-            </div> */}
+            </div>
         </div>
         
     );

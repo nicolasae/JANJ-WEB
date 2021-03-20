@@ -2,6 +2,7 @@
     height:calc(100vh - 50px);
     padding-top: 5%;
 }
+
 /* Parte de información */
 .section-cover-info h1  {
     color:black;
@@ -42,7 +43,7 @@
     background-color: white ;
     margin-left: 76%;
     border: solid; 
-    position: static;
+    float: flex;
   }
 
 .section-cover-correo p{
