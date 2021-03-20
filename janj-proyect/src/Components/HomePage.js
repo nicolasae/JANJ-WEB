@@ -14,7 +14,7 @@ export default function HomePage(){
                 <Cover/>
                 <About/>
                 <Services/>
-                {/* <Contact/> */}
+                <Contact/>
         </div>
     );
 }
