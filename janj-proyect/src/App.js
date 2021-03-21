@@ -9,6 +9,7 @@ import HomePage from "./Components/HomePage";
 import Navbar from './Components/navbar/Navbar';
 import Header from './Components/Header';
 import './App.css';
+import './assets/vendor/bootstrap/css/bootstrap.css'
 import Footer from './Components/Footer'
 import Login from "./Components/pages/LoginForm"
 import Register from "./Components/pages/RegisterForm"

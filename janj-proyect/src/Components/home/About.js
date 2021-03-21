@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../App.css';
 import '../../styles/home /About.css'
+import '../../assets/vendor/bootstrap/css/bootstrap.css'
+
 
 function About(){
     return (

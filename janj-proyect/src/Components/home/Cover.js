@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import '../../styles/home /Cover.css'
-import '../../assets/vendor/bootstrap/css/bootstrap.css'
+// import '../../assets/vendor/bootstrap/css/bootstrap.css'
 import { Link } from 'react-router-dom';
 
 

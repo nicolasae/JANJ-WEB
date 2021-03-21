@@ -4,14 +4,15 @@ import Image from 'react-bootstrap/Image'
 
 // Estilos 
 import '../../styles/navbar/Navbar.css';
-import '../../styles/navbar/Button.css';
+import '../../assets/vendor/bootstrap/css/bootstrap.css';
+import Navbar from 'react-bootstrap/Navbar'
 
 // Componentes
 import Dropdown from './Dropdown';
 import Cover from "../../Components/home/Cover"
 
 
-function Navbar() {
+function NavBar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -40,43 +41,31 @@ function Navbar() {
 
   return (
     <div>
-      <nav className='navbar'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <Image src="janj-symbol-redu.png" />
-        </Link>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <a href="#About" className='nav-links' onClick={closeMobileMenu}>
-              Conseguir Premium  
-            </a>
-          </li>
-          {/* <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Link  to='/services'className='nav-links' onClick={handleClick}>
-              Servicios<i className='fas fa-caret-down' />
-            </Link>
-            {dropdown && <Dropdown />}
-          </li> */}
-          <li className='nav-item'>
-            <Link
-              to='/login'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Inicio de Sesión
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/signup' onClick={closeMobileMenu}>
-              <button className='btn'>Registrarse</button>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar fixed="top" collapseOnSelect={true} bg="light" expand="lg">
+          <Navbar.Toggle  eventKey={2} aria-controls="responsive-navbar-nav" />
+          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            <img src="janj-symbol-redu.png" />
+          </Link>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <nav className="nav-menu ">
+                <a href="#About" className='nav-links' onClick={closeMobileMenu}>
+                  Premium  
+                </a>
+                  <Link
+                    to='/login'
+                    className='nav-links'
+                    onClick={closeMobileMenu}
+                  >
+                    Inicio de Sesión
+                </Link>
+              <Link to='/signup' onClick={closeMobileMenu}>
+                <button  className='btn'>Registrarse</button>
+              </Link>
+            </nav>
+          </Navbar.Collapse>
+      </Navbar>
     </div>
   );
 }
 
-export default Navbar;
+export default NavBar;
