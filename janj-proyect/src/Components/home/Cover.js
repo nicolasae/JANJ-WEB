@@ -3,9 +3,10 @@ import '../../App.css';
 import '../../styles/home /Cover.css'
 // import '../../assets/vendor/bootstrap/css/bootstrap.css'
 import { Link } from 'react-router-dom';
-
-
-export default function Cover(){
+import { Line } from '@reactchartjs/react-chart.js'
+import Grafico from './Grafico'
+function Cover(){
+      
     return(
         // {/* ======= Hero Section ======= */}
         <section id="hero">
@@ -24,7 +25,8 @@ export default function Cover(){
                     </Link>
                     </div >
                 <div className="col-sm col-lg-5">
-                    <img src="home_img.png"/>
+                    {/* <img src="home_img.png"/> */}
+                    <Grafico/>
                 </div>
                 <div className="col-sm col-lg-2">
                 <h3>
@@ -47,6 +49,7 @@ export default function Cover(){
     );
 }
 
+export default Cover;
 
 {/* <div className="container">
             <div className="row"> 
