@@ -9,6 +9,7 @@ import '../assets/vendor/bootstrap/css/bootstrap.css'
 import '../assets/vendor/font-awesome/css/font-awesome.min.css'
 import '../assets/vendor/boxicons/css/boxicons.min.css'
 import '../assets/vendor/venobox/venobox.css'
+import { Nav } from 'react-bootstrap';
 
 // import '../assets/vendor/owl.carousel/assets/owl.carousel.min.css'
 // import '../assets/vendor/aos/aos.css'
@@ -25,51 +26,8 @@ export default function HomePage(){
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet" />
             {/* Template Main CSS File */}
             <link href="../assets/css/style.css" rel="stylesheet" />
-            {/* ======= Header ======= */}
-            <header id="header" className="header-transparent">
-            <div className="container">
-                <div id="logo" className="pull-left">
-                <a href="index.html"><img src="../assets/img/logo.png" alt="" /></a>
-                {/* Uncomment below if you prefer to use a text logo */}
-                {/*<h1><a href="#hero">Regna</a></h1>*/}
-                </div>
-                <nav id="nav-menu-container">
-                <ul className="nav-menu">
-                    <li className="menu-active"><a href="index.html">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li className="menu-has-children"><a href>Drop Down</a>
-                    <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li className="menu-has-children"><a href="#">Drop Down 2</a>
-                        <ul>
-                            <li><a href="#">Deep Drop Down 1</a></li>
-                            <li><a href="#">Deep Drop Down 2</a></li>
-                            <li><a href="#">Deep Drop Down 3</a></li>
-                            <li><a href="#">Deep Drop Down 4</a></li>
-                            <li><a href="#">Deep Drop Down 5</a></li>
-                        </ul>
-                        </li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
-                        <li><a href="#">Drop Down 5</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-                </nav>{/* #nav-menu-container */}
-            </div>
-            </header>{/* End Header */}
-            {/* ======= Hero Section ======= */}
-            <section id="hero">
-            <div className="hero-container" data-aos="zoom-in" data-aos-delay={100}>
-                <h1>Welcome to Regna</h1>
-                <h2>We are team of talented designers making websites with Bootstrap</h2>
-                <a href="#about" className="btn-get-started">Get Started</a>
-            </div>
-            </section>{/* End Hero Section */}
+            <NavBar/>
+            <Cover/>
             <main id="main">
             {/* ======= About Section ======= */}
             <section id="about">

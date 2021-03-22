@@ -100,11 +100,15 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
-  background: rgba(52, 59, 64, 0.9);
+  background: linear-gradient(90deg, #00FF77 20%,#FeFeFe 70%); 
 }
 
 #header #logo {
   float: left;
+  margin-left: 1%;
+  margin-top: -0.7%;
+  /* border: solid #FeFeFe; */
+
 }
 
 #header #logo h1 {
@@ -244,6 +248,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu, .nav-menu * {
   margin: 0;
   padding: 0;
+  width: 100%;
   list-style: none;
 }
 
@@ -300,6 +305,7 @@ h1, h2, h3, h4, h5, h6 {
 #nav-menu-container {
   float: right;
   margin: 0;
+  
 }
 
 @media (max-width: 768px) {
@@ -313,7 +319,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 8px 10px 8px;
   text-decoration: none;
   display: inline-block;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -322,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu > li {
-  margin-left: 10px;
+  margin-left: 20%;
 }
 
 .nav-menu > li > a:before {
@@ -332,7 +338,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #2dc997;
+  background-color: #00ff77;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
@@ -344,7 +350,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu ul {
-  margin: 4px 0 0 0;
+  margin-left: 10%;
   border: 1px solid #e7e7e7;
 }
 
@@ -362,6 +368,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
   display: block;
   font-size: 13px;
+  
   text-transform: none;
 }
 
@@ -372,6 +379,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu ul ul {
   margin: 0;
+  margin-left: 20%;
 }
 
 /* Mobile Nav Toggle */

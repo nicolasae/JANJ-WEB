@@ -5,48 +5,45 @@ import '../../styles/home /Cover.css'
 import { Link } from 'react-router-dom';
 
 
-function Cover(){
+export default function Cover(){
     return(
-
-        <div className="section-cover container">
-            <div className="row"> 
-                <div className="seccion-cover-info col-sm col-lg-4">
-                    <h1>JANJ</h1>
-                    <p>                    
-                        Permitimos el seguimiento,
-                        preddicción, simulación además
-                        de brindar información acerca
-                        del estado actual de las divisas
-                    </p>
-                    <Link to='/signup' >
-                        <button className='btn'>Aprende con nosotros</button>
-                    </Link>
-                </div>
-                <div className="col-sm col-lg-4">
-                    <img src="home_img.png" className="central"/>
-                </div>
-                <div className="col-sm col-lg-4">
-                    <p>
-                        Mantente al día 
-                        con los cambios 
-                        en las divisas y 
-                        acciones, y recibe 
-                        actualizaciones 
-                        de nuevo 
-                        contenido
-                    </p>
-                    <input type="email" id="correo_notificaciones" placeholder="Correo Electrónico"/>
-                    <button className='btn'>Enviar</button>
-                </div>
-            </div>        
+        // {/* ======= Hero Section ======= */}
+        <section id="hero">
+        <div className="hero-container" >
+            <div className= "row">
+            <div className="col-sm col-lg-3"> 
+            <h1>JANJ</h1>
+            <h2>                    
+                Permitimos el seguimiento,
+                preddicción, simulación además
+                de brindar información acerca
+                del estado actual de las divisas
+            </h2>            
+            <Link to='/signup' >
+                <a type="button" className='btn-get-started'>Aprende con nosotros</a>
+            </Link>
+            </div >
+            <div className="col-sm col-lg-7">
+            </div>
+            <div className="col-sm col-lg-2">
+            <h2>
+                Mantente al día 
+                con los cambios 
+                en las divisas y 
+                acciones, y recibe 
+                actualizaciones 
+                de nuevo 
+                contenido
+            </h2>
+            <input type="email" id="correo_notificaciones" placeholder="Correo Electrónico"/>
+            <button className='btn'>Enviar</button>
+            </div>    
+            </div>
         </div>
+        </section>
         
     );
 }
-
-
-
-export default Cover
 
 
 {/* <div className="container">
