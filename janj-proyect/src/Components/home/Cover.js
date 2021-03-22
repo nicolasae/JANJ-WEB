@@ -9,37 +9,39 @@ export default function Cover(){
     return(
         // {/* ======= Hero Section ======= */}
         <section id="hero">
-        <div className="hero-container" >
-            <div className= "row">
-            <div className="col-sm col-lg-3"> 
-            <h1>JANJ</h1>
-            <h2>                    
-                Permitimos el seguimiento,
-                preddicción, simulación además
-                de brindar información acerca
-                del estado actual de las divisas
-            </h2>            
-            <Link to='/signup' >
-                <a type="button" className='btn-get-started'>Aprende con nosotros</a>
-            </Link>
-            </div >
-            <div className="col-sm col-lg-7">
+            <div className="hero-container" >
+                <div className= "row">
+                    <div className="col-sm col-lg-4"> 
+                    <h1>JANJ</h1>
+                    <h2>                    
+                        Permitimos el seguimiento,
+                        preddicción, simulación además
+                        de brindar información acerca
+                        del estado actual de las divisas
+                    </h2>            
+                    <Link to='/signup' >
+                        <a type="button" className='btn-get-started'>Aprende con nosotros</a>
+                    </Link>
+                    </div >
+                <div className="col-sm col-lg-5">
+                    <img src="home_img.png"/>
+                </div>
+                <div className="col-sm col-lg-2">
+                <h3>
+                    Mantente al día 
+                    con los cambios 
+                    en las divisas y 
+                    acciones, y recibe 
+                    actualizaciones 
+                    de nuevo 
+                    contenido
+                </h3>
+                <input type="email" id="correo_notificaciones" placeholder="Correo Electrónico"/>
+                <button className='btn-get-started'>Enviar</button>
+                
+                </div>    
+                </div>
             </div>
-            <div className="col-sm col-lg-2">
-            <h2>
-                Mantente al día 
-                con los cambios 
-                en las divisas y 
-                acciones, y recibe 
-                actualizaciones 
-                de nuevo 
-                contenido
-            </h2>
-            <input type="email" id="correo_notificaciones" placeholder="Correo Electrónico"/>
-            <button className='btn'>Enviar</button>
-            </div>    
-            </div>
-        </div>
         </section>
         
     );

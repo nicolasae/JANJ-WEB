@@ -29,37 +29,10 @@ export default function HomePage(){
             <NavBar/>
             <Cover/>
             <main id="main">
-            {/* ======= About Section ======= */}
-            <section id="about">
-                <div className="container" data-aos="fade-up">
-                <div className="row about-container">
-                    <div className="col-lg-6 content order-lg-1 order-2">
-                    <h2 className="title">Few Words About Us</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <div className="icon-box" data-aos="fade-up" data-aos-delay={100}>
-                        <div className="icon"><i className="fa fa-shopping-bag" /></div>
-                        <h4 className="title"><a href>Eiusmod Tempor</a></h4>
-                        <p className="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                    </div>
-                    <div className="icon-box" data-aos="fade-up" data-aos-delay={200}>
-                        <div className="icon"><i className="fa fa-photo" /></div>
-                        <h4 className="title"><a href>Magni Dolores</a></h4>
-                        <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                    <div className="icon-box" data-aos="fade-up" data-aos-delay={300}>
-                        <div className="icon"><i className="fa fa-bar-chart" /></div>
-                        <h4 className="title"><a href>Dolor Sitema</a></h4>
-                        <p className="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                    </div>
-                    </div>
-                    <div className="col-lg-6 background order-lg-2 order-1" data-aos="fade-left" data-aos-delay={100} />
-                </div>
-                </div>
-            </section>{/* End About Section */}
+            <About/>
+            <Services/>
             {/* ======= Facts Section ======= */}
-            <section id="facts">
+            {/* <section id="facts">
                 <div className="container" data-aos="fade-up">
                 <div className="section-header">
                     <h3 className="section-title">Facts</h3>
@@ -84,60 +57,8 @@ export default function HomePage(){
                     </div>
                 </div>
                 </div>
-            </section>{/* End Facts Section */}
-            {/* ======= Services Section ======= */}
-            <section id="services">
-                <div className="container" data-aos="fade-up">
-                <div className="section-header">
-                    <h3 className="section-title">Services</h3>
-                    <p className="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-                </div>
-                <div className="row">
-                    <div className="col-lg-4 col-md-6" data-aos="zoom-in">
-                    <div className="box">
-                        <div className="icon"><a href><i className="fa fa-desktop" /></a></div>
-                        <h4 className="title"><a href>Lorem Ipsum</a></h4>
-                        <p className="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-                    </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6" data-aos="zoom-in">
-                    <div className="box">
-                        <div className="icon"><a href><i className="fa fa-bar-chart" /></a></div>
-                        <h4 className="title"><a href>Dolor Sitema</a></h4>
-                        <p className="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                    </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6" data-aos="zoom-in">
-                    <div className="box">
-                        <div className="icon"><a href><i className="fa fa-paper-plane" /></a></div>
-                        <h4 className="title"><a href>Sed ut perspiciatis</a></h4>
-                        <p className="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                    </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6" data-aos="zoom-in">
-                    <div className="box">
-                        <div className="icon"><a href><i className="fa fa-photo" /></a></div>
-                        <h4 className="title"><a href>Magni Dolores</a></h4>
-                        <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6" data-aos="zoom-in">
-                    <div className="box">
-                        <div className="icon"><a href><i className="fa fa-road" /></a></div>
-                        <h4 className="title"><a href>Nemo Enim</a></h4>
-                        <p className="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-                    </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6" data-aos="zoom-in">
-                    <div className="box">
-                        <div className="icon"><a href><i className="fa fa-shopping-bag" /></a></div>
-                        <h4 className="title"><a href>Eiusmod Tempor</a></h4>
-                        <p className="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </section>{/* End Services Section */}
+            </section>End Facts Section */}
+            
             {/* ======= Call To Action Section ======= */}
             <section id="call-to-action">
                 <div className="container">
