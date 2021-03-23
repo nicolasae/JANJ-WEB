@@ -54,7 +54,7 @@ export default function Services(){
                 </div>
                 <div className="col-lg-6 col-md-6">
                 <div className="box">
-                    <div className="icon"><a href><i className="fa fa-photo"  /> <BsBook/></a></div>
+                    <div className="icon"><a href><i className="fa fa-photo"/></a></div>
                     <h4 className="title"><a href>Educación</a></h4>
                     <p>
                         Con nosotros puedes aprender como

@@ -11,32 +11,47 @@ function Register() {
                 <div className="container-login">
                     <div className="card card0 border-0">
                         <div className="preview-login">
-                            <div className="card1">
-                                <div className="row"> <img src="janj-symbol.png" /> </div>
-                            </div>
+                                 <img src="janj-symbol.png" /> 
                             <div className="preview-login">
                                 <div className="card2 card border-0 px-4 py-5">
                                     <div className="row px-3"> 
-                                        <label> <h6 className="form-group-login">Correo Electronico</h6>  </label>
-                                        <input className="mb-4" type="text" name="email" placeholder="Enter a valid email address"/>
+                                        {/* <label> <h5 className="form-group-login">Nombres</h5>  </label> */}
+                                        <input className="mb-4" type="text" name="name" placeholder="Ingrese Nombre"/>
                                     </div>
                                     <div className="row px-3"> 
-                                        <label> <h6 className="form-group-login">Contraseña</h6></label>
-                                        <input type="password" name="password" placeholder="Enter password"/>
+                                        {/* <label> <h6 className="form-group-login">Apellidos</h6></label> */}
+                                        <input  className="mb-4" type="text" name="lastname" placeholder="Ingrese Apellidos "/>
                                     </div>
                                     <div className="row px-3"> 
-                                        <label> <h6 className="form-group-login">Nombres</h6>  </label>
-                                        <input className="mb-4" type="text" name="name" placeholder="Enter Name"/>
+                                        {/* <label> <h6 className="form-group-login">Apellidos</h6></label> */}
+                                        <input  className="mb-4" type="text" name="telefono" placeholder="Ingrese teléfono "/>
                                     </div>
                                     <div className="row px-3"> 
-                                        <label> <h6 className="form-group-login">Apellidos</h6></label>
-                                        <input type="text" name="Lastname" placeholder="Enter Lastname"/>
+                                        {/* <label> <h6 className="form-group-login">Pregunta de Seguridad</h6>  </label> */}
+                                        <select className="mb-4" type="text" name="question">
+                                            <option>¿En qué ciudad se conocieron tus padres?</option>
+                                            <option>Nombre mejor amigo de la infancia</option>
+                                            <option>Nombre de su primera mascota</option>
+                                            <option>Personaje histórico favorito</option>
+                                            <option>Ocupación de su abuelo</option>
+                                        </select>
                                     </div>
                                     <div className="row px-3"> 
-                                        <label> <h6 className="form-group-login">Telefono</h6>  </label>
-                                        <input className="mb-4" type="number" name="phone" placeholder="Enter a Phone number"/>
+                                        {/* <label> <h6 className="form-group-login">Pregunta de Seguridad</h6>  </label> */}
+                                        <input className="mb-4" type="text" name="answer" placeholder="Respuesta a pregunta de seguridad"/>
                                     </div>
-                                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center form-group-login">Register</button></div>
+
+                                    <div className="row px-3"> 
+                                        {/* <label> <h6 className="form-group-login">Correo Electrónico</h6>  </label> */}
+                                        <input className="mb-4" type="text" name="email" placeholder="Ingrese correo electrónico"/>
+                                    </div>
+                                    <div className="row px-3"> 
+                                        {/* <label> <h6 className="form-group-login">Contraseña</h6></label> */}
+                                        <input type="password" name="password" placeholder="Ingrese contraseña"/>
+                                    </div>
+                                  
+                                    
+                                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center form-group-login">Registrarse</button></div>
                                 </div>
                             </div>
                         </div>
