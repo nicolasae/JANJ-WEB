@@ -6,18 +6,13 @@ import { Switch, Route} from 'react-router-dom'
 
 // Componentes
 import HomePage from "./Components/HomePage";
-import Navbar from './Components/navbar/Navbar';
-import Header from './Components/Header';
 import './App.css';
 import './assets/vendor/bootstrap/css/bootstrap.css'
-import Footer from './Components/Footer'
 import Login from "./Components/pages/LoginForm"
 import Register from "./Components/pages/RegisterForm"
 import Services from "./Components/services/Services"
-import About from "./Components/home/About"
 import Contact from "./Components/home/Contact"
 import Convert from "./Components/services/Convert"
-import Hero from "./Components/home/Hero"
 
 
 function App() {
@@ -26,7 +21,6 @@ function App() {
         <Route exact path='/'  component={HomePage} />
         <Route path='/login' exact component={Login} />
         <Route path='/signup' exact component={Register} />
-        <Route path='/about' exact component={About} />
         <Route path='/services' exact component={Services} />
         <Route path='/convert' exact component={Convert} />
         <Route path='/contact' exact component={Contact} /> 
