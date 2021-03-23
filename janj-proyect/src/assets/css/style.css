@@ -609,7 +609,7 @@ section {
 }
 
 #about .about-container .content {
-  background: #fff;
+  background:transparent;
 }
 
 #about .about-container .title {
@@ -619,6 +619,7 @@ section {
 }
 #about .about-container img{
   margin-left: 4%;
+  border: solid;
 }
 
 @media (max-width: 768px) {

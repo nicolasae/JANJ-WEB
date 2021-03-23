@@ -26,7 +26,7 @@ export default function About(){
                         </p>
                     </div>
                     {/* <div className="col-lg-6 background order-lg-2 order-1" /> */}
-                        <img src="janj-logo-ft.png"/>
+                        <img src="janj-logo.png"/>
                 </div>
             </div>
         </section>
