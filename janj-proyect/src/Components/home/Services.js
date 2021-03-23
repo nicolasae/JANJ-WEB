@@ -1,16 +1,16 @@
 import React from 'react';
 import '../../App.css';
-
+import { BsBook} from "react-icons/bs";
 
 export default function Services(){
     return(
         <section id="services">
-            <div className="container" data-aos="fade-up">
+            <div className="container">
             <div className="section-header">
                 <h3 className="section-title">Nuestros Servicios</h3>
             </div>
             <div className="row">
-                <div className="col-lg-6 col-md-6" data-aos="zoom-in">
+                <div className="col-lg-6 col-md-6" >
                 <div className="box">
                     <div className="icon"><a href><i className="fa fa-desktop" /></a></div>
                     <h4 className="title"><a href>Predicción</a></h4>
@@ -25,7 +25,7 @@ export default function Services(){
                     </p>
                 </div>
                 </div>
-                <div className="col-lg-6 col-md-6" data-aos="zoom-in">
+                <div className="col-lg-6 col-md-6">
                 <div className="box">
                     <div className="icon"><a href><i className="fa fa-bar-chart" /></a></div>
                     <h4 className="title"><a href>Seguimiento</a></h4>
@@ -40,7 +40,7 @@ export default function Services(){
                 </div>
                 </div>
                 
-                <div className="col-lg-6 col-md-6" data-aos="zoom-in">
+                <div className="col-lg-6 col-md-6" >
                 <div className="box">
                     <div className="icon"><a href><i className="fa fa-paper-plane" /></a></div>
                     <h4 className="title"><a href>Simulación</a></h4>
@@ -52,9 +52,9 @@ export default function Services(){
                     </p>
                 </div>
                 </div>
-                <div className="col-lg-6 col-md-6" data-aos="zoom-in">
+                <div className="col-lg-6 col-md-6">
                 <div className="box">
-                    <div className="icon"><a href><i className="fa fa-photo" /></a></div>
+                    <div className="icon"><a href><i className="fa fa-photo"  /> <BsBook/></a></div>
                     <h4 className="title"><a href>Educación</a></h4>
                     <p>
                         Con nosotros puedes aprender como
