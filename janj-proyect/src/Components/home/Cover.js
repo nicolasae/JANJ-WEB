@@ -37,10 +37,10 @@ function Cover(){
                     actualizaciones 
                     de nuevo 
                     contenido
-                </h3>
+                
                 <input type="email" id="correo_notificaciones" placeholder="Correo Electrónico"/>
                 <button className='btn-get-started'>Enviar</button>
-                
+                </h3>
                 </div>    
                 </div>
             </div>

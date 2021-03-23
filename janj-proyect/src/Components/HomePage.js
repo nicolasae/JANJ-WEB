@@ -64,17 +64,22 @@ export default function HomePage(){
                 <div className="container">
                 <div className="row" data-aos="zoom-in">
                     <div className="col-lg-9 text-center text-lg-left">
-                    <h3 className="cta-title">Call To Action</h3>
-                    <p className="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h3 className="cta-title">Suscríbete</h3>
+                    <p className="cta-text"> 
+                    Mantente al día con los cambios en las divisas y acciones, y recibe actualizaciones de nuevo contenido
+                    </p>
                     </div>
-                    <div className="col-lg-3 cta-btn-container text-center">
-                    <a className="cta-btn align-middle" href="#">Call To Action</a>
+
+                    <div className="col-lg-3  text-center">
+                    <input placeholder="Correo Eléctronico"/>
+
+                    <a className="cta-btn align-middle" href="#">Enviar</a>
                     </div>
                 </div>
                 </div>
             </section>{/* End Call To Action Section */}
             {/* ======= Portfolio Section ======= */}
-            <section id="portfolio" className="portfolio">
+            {/* <section id="portfolio" className="portfolio">
                 <div className="container" data-aos="fade-up">
                 <div className="section-header">
                     <h3 className="section-title">Portfolio</h3>
@@ -173,10 +178,11 @@ export default function HomePage(){
                     </div>
                     </div>
                 </div>
-                </div>
-            </section>{/* End Portfolio Section */}
+                </div> 
+            </section> */}
+            {/* End Portfolio Section */}
             {/* ======= Team Section ======= */}
-            <section id="team">
+            {/* <section id="team">
                 <div className="container" data-aos="fade-up">
                 <div className="section-header">
                     <h3 className="section-title">Team</h3>
@@ -237,17 +243,18 @@ export default function HomePage(){
                     </div>
                 </div>
                 </div>
-            </section>{/* End Team Section */}
+            </section> */}
+            {/* End Team Section */}
             {/* ======= Contact Section ======= */}
-            <section id="contact">
+            {/* <section id="contact">
                 <div className="container">
                 <div className="section-header">
                     <h3 className="section-title">Contact</h3>
                     <p className="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
                 </div>
-                </div>
+                </div> */}
                 {/* Uncomment below if you wan to use dynamic maps */}
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height={380} frameBorder={0} style={{border: 0}} allowFullScreen />
+                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height={380} frameBorder={0} style={{border: 0}} allowFullScreen />
                 <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-lg-3 col-md-4">
@@ -303,7 +310,8 @@ export default function HomePage(){
                     </div>
                 </div>
                 </div>
-            </section>{/* End Contact Section */}
+            </section> */}
+            {/* End Contact Section */}
             </main>{/* End #main */}
             {/* ======= Footer ======= */}
             <footer id="footer">

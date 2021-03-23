@@ -7,9 +7,9 @@ import '../../assets/vendor/bootstrap/css/bootstrap.css'
 export default function About(){
     return (
         <section id="about">
-            <div className="container" data-aos="fade-up">
+            <div className="container">
                 <div className="row about-container">
-                    <div className="col-lg-5 content order-lg-1 order-2">
+                    <div className="col-lg-6 content  ">
                     <h2 className="title">¿Quiénes Somos?</h2>
                     <h2>Misión</h2>
                         <p >
