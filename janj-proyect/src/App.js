@@ -17,7 +17,7 @@ import Services from "./Components/services/Services"
 import About from "./Components/home/About"
 import Contact from "./Components/home/Contact"
 import Convert from "./Components/services/Convert"
-import Cover from "./Components/home/Cover"
+import Hero from "./Components/home/Hero"
 
 
 function App() {

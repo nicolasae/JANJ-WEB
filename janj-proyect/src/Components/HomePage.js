@@ -1,9 +1,12 @@
 import React, {Fragment} from 'react';
+// Componentes
 import NavBar from './navbar/Navbar';
-import Cover from './home/Cover';
+import Hero from './home/Hero';
 import About from './home/About'
 import Services from './home/Services';
+import Suscription from './home/Suscription';
 import Contact from './home/Contact';
+//Styles 
 import '../assets/css/style.css'
 import '../assets/vendor/bootstrap/css/bootstrap.css'
 import '../assets/vendor/font-awesome/css/font-awesome.min.css'
@@ -27,10 +30,12 @@ export default function HomePage(){
             {/* Template Main CSS File */}
             <link href="../assets/css/style.css" rel="stylesheet" />
             <NavBar/>
-            <Cover/>
-            <main id="main">
+            <Hero/>
             <About/>
             <Services/>
+            <Suscription/>
+            <Contact/>
+
             {/* ======= Facts Section ======= */}
             {/* <section id="facts">
                 <div className="container" data-aos="fade-up">
@@ -58,26 +63,7 @@ export default function HomePage(){
                 </div>
                 </div>
             </section>End Facts Section */}
-            
-            {/* ======= Call To Action Section ======= */}
-            <section id="call-to-action">
-                <div className="container">
-                <div className="row" data-aos="zoom-in">
-                    <div className="col-lg-9 text-center text-lg-left">
-                    <h3 className="cta-title">Suscríbete</h3>
-                    <p className="cta-text"> 
-                    Mantente al día con los cambios en las divisas y acciones, y recibe actualizaciones de nuevo contenido
-                    </p>
-                    </div>
-
-                    <div className="col-lg-3  text-center">
-                    <input placeholder="Correo Eléctronico"/>
-
-                    <a className="cta-btn align-middle" href="#">Enviar</a>
-                    </div>
-                </div>
-                </div>
-            </section>{/* End Call To Action Section */}
+          
             {/* ======= Portfolio Section ======= */}
             {/* <section id="portfolio" className="portfolio">
                 <div className="container" data-aos="fade-up">
@@ -312,7 +298,7 @@ export default function HomePage(){
                 </div>
             </section> */}
             {/* End Contact Section */}
-            </main>{/* End #main */}
+            
             {/* ======= Footer ======= */}
             <footer id="footer">
             <div className="footer-top">

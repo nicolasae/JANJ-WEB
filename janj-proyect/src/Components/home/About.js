@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../App.css';
-import '../../styles/home /About.css'
 import '../../assets/vendor/bootstrap/css/bootstrap.css'
 
 
@@ -27,7 +26,7 @@ export default function About(){
                         </p>
                     </div>
                     {/* <div className="col-lg-6 background order-lg-2 order-1" /> */}
-                        <img src="janj-logo.png"/>
+                        <img src="janj-logo-ft.png"/>
                 </div>
             </div>
         </section>
