@@ -307,7 +307,7 @@ export default function HomePage(){
             </div>
             <div className="container">
                 <div className="copyright">
-                © Copyright <strong>Regna</strong>. All Rights Reserved
+                © Copyright <strong>JANJ</strong>. All Rights Reserved
                 </div>
             </div>
             </footer>{/* End Footer */}

@@ -27,9 +27,10 @@ function Contact() {
                                     servicios y atención al cliente.
                                 </p>
                                 <div class="social-links">
-              
-                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-linkedin"></i></a>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-8">
@@ -54,7 +55,7 @@ function Contact() {
                                         {/* <a type="button" className='btn-get-started'>   
                                         Send Message </a> */}
                                         <div className="text-center">
-                                            <button type="submit">Enviar</button>
+                                            <button  className="btn-get-started">Enviar</button>
                                         </div>
 
                                     </div>
