@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 24px;
   border-radius: 50px;
   transition: 0.5s;
-  /* margin: 10px; */
+  margin-left: -30%;
   border: 2px solid black;
   color: black;
 }
@@ -1083,6 +1083,11 @@ section {
   font-size: 32px;
   color: #2dc997;
   float: left;
+}
+
+#contact p{
+  text-align: justify;
+  font-size: 1.5em;
 }
 
 #contact .info p {

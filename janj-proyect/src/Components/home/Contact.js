@@ -5,78 +5,64 @@ import '../../assets/vendor/bootstrap/css/bootstrap.css'
 
 function Contact() {
     return (
-        <div>
-            {/* <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> */}
-            
-            <section class="Material-contact-section section-padding section-dark">
+            <section id="contact">
                 <div class="container">
-                    <div class="row">
-            
-                        <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
-                            <h1 class="section-title">Love to Hear From You</h1>
-                        </div>
+                    <div class="section-header">
+                    <h3 class="section-title">Contáctenos</h3>
                     </div>
-                    <div class="row">
-            
-                        <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content.</p>
+                </div>
+                    <div class="container mt-5">
+                        <div class="row justify-content-center">
 
-                            <div class="find-widget">
-                            Company:  <a href="https://hostriver.ro">HostRiver</a>
+                            <div class="col-lg-5 col-md-4">
+                                <p>
+                                    Nos encontramos en una mejora
+                                    continúa por eso nos gustaría
+                                    que nos compartieras tus
+                                    opiniones, experiencias y
+                                    recomendaciones acerca de la
+                                    página, su funcionamiento o
+                                    cualquier cosa que podamos
+                                    hacer para mejorar nuestros
+                                    servicios y atención al cliente.
+                                </p>
+                                <div class="social-links">
+              
+                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                </div>
                             </div>
-                            <div class="find-widget">
-                            Address: <a href="#">4435 Berkshire Circle Knoxville</a>
-                            </div>
-                            <div class="find-widget">
-                            Phone:  <a href="#">+ 879-890-9767</a>
-                            </div>
-                            
-                            <div class="find-widget">
-                            Website:  <a href="https://uny.ro">www.uny.ro</a>
-                            </div>
-                            <div class="find-widget">
-                            Program: <a href="#">Mon to Sat: 09:30 AM - 10.30 PM</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
-                                <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
-                
-                                    <div class="form-group label-floating">
-                                        <label class="control-label" for="name">Name</label>
-                                        <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name"></input>
+                            <div class="col-lg-5 col-md-8">
+                                <div class="form">
+                                    <div className="form-group">
+                                        <input type="text" name="name" className="form-control" id="name" placeholder="Nombre" />
+                                    <div className="validate"></div>
                                     </div>
-                
-                                    <div class="form-group label-floating">
-                                        <label class="control-label" for="email">Email</label>
-                                        <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email"></input>
-                                        
+                                    <div className="form-group">
+                                        <input type="email" className="form-control" name="email" id="email" placeholder="Correo"/>
+                                    <div className="validate"></div>
                                     </div>
-                
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Subject</label>
-                                        <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject"></input>
-                                        
+                                    <div className="form-group">
+                                        <input type="text" className="form-control" name="subject" id="subject" placeholder="Asunto" />
+                                    <div class="validate"></div>
                                     </div>
-                
-                                    <div class="form-group label-floating">
-                                        <label for="message" class="control-label">Message</label>
-                                        <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
-                                        
+                                    <div className="form-group">
+                                        <textarea className="form-control" name="message" rows="7"  placeholder="Comentarios"></textarea>
+                                    <div className="validate"></div>
                                     </div>
-                
-                                    <div class="form-submit mt-5">
-                                        <button class="btn btn-common" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
-                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                        <div class="clearfix"></div>
+                                    <div className="text-center">
+                                        {/* <a type="button" className='btn-get-started'>   
+                                        Send Message </a> */}
+                                        <div className="text-center">
+                                            <button type="submit">Enviar</button>
+                                        </div>
+
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
-                </section>
-        </div>
+            </section>
     );
   }
   
