@@ -11,7 +11,7 @@ import './assets/vendor/bootstrap/css/bootstrap.css'
 import Login from "./Components/pages/LoginForm"
 import Register from "./Components/pages/RegisterForm"
 import Services from "./Components/services/Services"
-import Convert from "./Components/services/Convert"
+import Converter from "./Components/pages/Converter"
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path='/login' exact component={Login} />
         <Route path='/signup' exact component={Register} />
         <Route path='/services' exact component={Services} />
-        <Route path='/convert' exact component={Convert} />
+        <Route path='/converter' exact component={Converter} />
       </Switch>
   );
 }

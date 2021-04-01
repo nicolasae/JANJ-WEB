@@ -11,14 +11,15 @@ export default function NavBar() {
   return (
     /* ======= Header ======= */
     <header id="header">
+      <div className="row">
+      <div className="container col-lg-11">
         <div id="logo">
         <Link to='/' >
           <img src="janj-symbol-redu.png" />
         </Link>
         </div>
-        <div className="container">
           <nav id="nav-menu-container">
-            <ul className="nav-menu">
+            <ul className="nav-menu ">
               <li><Link to="/">Premium</Link></li>
               <li><Link to="/login">Iniciar Sesion</Link></li>
               <li><Link to="/signup">Registrarse</Link></li>
@@ -43,6 +44,7 @@ export default function NavBar() {
             </ul>
           </nav>
             {/* #nav-menu-container */}
+        </div>
         </div>
     </header>
     // End Header
