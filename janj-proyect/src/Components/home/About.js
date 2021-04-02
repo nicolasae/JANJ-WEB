@@ -6,7 +6,7 @@ import '../../assets/vendor/bootstrap/css/bootstrap.css'
 export default function About(){
     return (
         <section id="about">
-            <div className="container">
+            <div className="container" >
                 <div className="row about-container">
                     <div className="col-lg-6 content  ">
                     <h2 className="title">¿Quiénes Somos?</h2>
@@ -26,7 +26,7 @@ export default function About(){
                         </p>
                     </div>
                     {/* <div className="col-lg-6 background order-lg-2 order-1" /> */}
-                        <img src="janj-logo.png"/>
+                    <img src="janj-logo.png"/>
                 </div>
             </div>
         </section>

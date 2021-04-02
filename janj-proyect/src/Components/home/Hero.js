@@ -8,7 +8,7 @@ export default function Hero(){
       
     return(
         <section id="hero">
-            <div className="hero-container" >
+            <div className="hero-container"  >
                 <div className= "row">
                     <div className="col-sm col-lg-6"> 
                     <h1>JANJ</h1>

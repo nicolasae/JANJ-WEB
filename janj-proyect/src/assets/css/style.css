@@ -422,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mobile-nav-toggle i {
-  color: #fff;
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -1253,3 +1253,63 @@ section {
   font-size: 13px;
   color: #ccc;
 }
+
+/*--------------------------------------------------------------
+# Premium 
+--------------------------------------------------------------*/
+
+#premium  {
+  width: 100%;
+  height: 100vh;
+  margin-top: 7%;
+  /* background: url(../img/hero-bg.jpg) top center; */
+}
+
+@media (min-width: 1024px) {
+  #premium  {
+    background-attachment: fixed;
+  }
+}
+
+#premium .premium-container {
+  position: absolute;
+  bottom: 0;
+  top: 16%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#premium h1 {
+  font-size: 48px;
+  /* width: 100%; */
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+@media (max-width: 768px) {
+  #premium h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #premium p{
+    font-size: 8px;
+  }
+}
+
+#premium p {
+  color: black;
+  font-size: 28px;
+  text-align: left;
+  text-align: justify;
+  margin-left: 20%;
+}
+
+#premium .premium-container img{
+  margin-left: 4%;
+}
+
