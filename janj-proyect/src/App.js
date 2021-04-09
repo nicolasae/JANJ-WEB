@@ -16,7 +16,7 @@ import Converter from "./Components/pages/Converter"
 import Premium from "./Components/pages/Premium"
 
 
-function App() {
+const App= props=> {
 
   return (
       <Switch>
@@ -24,7 +24,7 @@ function App() {
         <Route path='/login' exact component={Login} />
         <Route path='/signup' exact component={Register} />
         <Route path='/services' exact component={Services} />
-        <Route path='/converter' exact component={Converter} />
+        <Route path='/converter' exact render={propiedades => (<Converter {...propiedades} />)}/>
         <Route path='/premium' exact component={Premium}/>
       </Switch>
   );
