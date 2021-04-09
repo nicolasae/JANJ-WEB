@@ -15,6 +15,12 @@ import Services from "./Components/services/Services"
 import Converter from "./Components/pages/Converter"
 import Premium from "./Components/pages/Premium"
 
+// USUARIOS
+
+
+// REGISTRADOS
+import HomeR from './Components/users/registered/home'
+
 
 const App= props=> {
 
@@ -26,6 +32,7 @@ const App= props=> {
         <Route path='/services' exact component={Services} />
         <Route path='/converter' exact render={propiedades => (<Converter {...propiedades} />)}/>
         <Route path='/premium' exact component={Premium}/>
+        <Route path='/homeR' exact component={HomeR}/>
       </Switch>
   );
 }
