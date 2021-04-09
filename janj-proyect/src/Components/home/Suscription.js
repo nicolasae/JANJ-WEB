@@ -7,7 +7,7 @@ export default function Suscription(){
     return (
         <section id="call-to-action">
             <div className="container">
-                <div className="row" data-aos="zoom-in">
+                <div className="row" >
                     <div className="col-lg-9 text-center text-lg-left">
                     <h3 className="cta-title">Suscríbete</h3>
                     <p className="cta-text"> 
