@@ -1255,20 +1255,37 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Educacion
+--------------------------------------------------------------*/
+
+#carrousel  {  
+  width: 100%;
+  height: 100vh + 100px;
+  margin-top: 7%;
+  display: block;
+}
+
+#carrousel .carrousel  {  
+  background: rgba(210, 210, 210);
+}
+
+#carrousel a {  
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#carrousel li {  
+  background: rgba(0, 0, 0, 0.5);
+}
+/*--------------------------------------------------------------
 # Premium 
 --------------------------------------------------------------*/
 
 #premium  {
   width: 100%;
-  height: 100vh;
+  height: 100vh + 100px;
   margin-top: 7%;
+  display: block;
   /* background: url(../img/hero-bg.jpg) top center; */
-}
-
-@media (min-width: 1024px) {
-  #premium  {
-    background-attachment: fixed;
-  }
 }
 
 #premium .premium-container {
@@ -1277,7 +1294,7 @@ section {
   top: 16%;
   left: 0;
   right: 0;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   text-align: center;
 }
@@ -1290,28 +1307,41 @@ section {
   margin-bottom: 3%;
   margin-top: 3%;
 }
-
-@media (max-width: 768px) {
-  #premium h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-  #premium p{
-    font-size: 8px;
-  }
-}
-
 #premium p {
   color: black;
   font-size: 28px;
   text-align: left;
   text-align: justify;
   margin-left: 20%;
+  margin-bottom: 10%;
 }
 
 #premium .premium-container img{
   margin-left: 4%;
 }
+@media (max-width: 768px) {
+  #premium h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #premium p{
+  color: black;
+  font-size:12px;
+  text-align: left;
+  text-align: justify;
+  margin-left: 10%;
+  margin-right: 10%;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  #premium  {
+    background-attachment: fixed;
+  }
+}
+
+
 
 /*--------------------------------------------------------------
 # Converter

@@ -4,7 +4,7 @@ import '../../styles/home /Testimonios.css'
 
 function Testimonios() {
     return (
-        <section className="about">
+        <div className="about">
             <div className="about">
                 <h1>Testimonios</h1>
                     <div className="container-about">
@@ -24,7 +24,7 @@ function Testimonios() {
                     </div>  
                 
             </div>
-        </section>
+        </div>
 
     );
   }
