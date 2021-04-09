@@ -8,6 +8,49 @@ function Premium() {
         <div>
             <Navbar/>
             <section id="premium">
+                <div className="table-responsive">
+                    <table className="table table-striped bordered">
+                        <thead className="table-light">
+                            <tr>
+                                <th>Servicios</th>
+                                <th>Básicos</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Recibir información por correo</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Eduación Básica</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Educación Plus</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Seguimiento</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Predicción</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Simulación</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                     <div className="section-header">
                         <h3 className="section-title">¿Cómo conseguir Premium?</h3>
                     </div>  
