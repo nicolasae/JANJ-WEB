@@ -11,11 +11,17 @@ import './App.css';
 import './assets/vendor/bootstrap/css/bootstrap.css'
 import Login from "./Components/pages/LoginForm"
 import Register from "./Components/pages/RegisterForm"
-import Services from "./Components/services/Services"
 import Converter from "./Components/pages/Converter"
 import Premium from "./Components/pages/Premium"
+//SERVICIOS
+import Educacion from "./Components/Services /Educacion"
+import Simulacion from "./Components/Services /Simulacion"
+import Prediccion from "./Components/Services /Prediccion"
+import Seguimiento from "./Components/Services /Seguimiento"
 
 // USUARIOS
+
+
 
 
 // REGISTRADOS
@@ -29,10 +35,15 @@ const App= props=> {
         <Route exact path='/'  component={HomePage} />
         <Route path='/login' exact component={Login} />
         <Route path='/signup' exact component={Register} />
-        <Route path='/services' exact component={Services} />
         <Route path='/converter' exact render={propiedades => (<Converter {...propiedades} />)}/>
         <Route path='/premium' exact component={Premium}/>
         <Route path='/homeR' exact component={HomeR}/>
+        {/* SERVICIOS */}
+        <Route path='/educacion' exact component={Educacion}/>
+        <Route path='/simulacion' exact component={Simulacion}/>
+        <Route path='/prediccion' exact component={Prediccion}/>
+        <Route path='/seguimiento' exact component={Seguimiento}/>
+
       </Switch>
   );
 }
