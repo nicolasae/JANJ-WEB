@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // Estilos 
 import '../../styles/navbar/Navbar.css';
 import '../../assets/vendor/bootstrap/css/bootstrap.css';
-import Navbar from 'react-bootstrap/Navbar'
+
 
 
 export default function NavBar(idpermisos) {
@@ -21,7 +21,10 @@ export default function NavBar(idpermisos) {
           </div>
             <nav id="nav-menu-container">
               <ul className="nav-menu ">
-                <li><Link to="/servicios">Servicios</Link></li>
+                <li ><Link to="/prediccion">Predicción</Link></li>
+                <li ><Link to="/simulacion">Simulación</Link></li>
+                <li ><Link to="/seguimiento">Seguimiento</Link></li>
+                <li ><Link to="/educacion">Educación</Link></li>
                 <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
               </ul>
             </nav>
