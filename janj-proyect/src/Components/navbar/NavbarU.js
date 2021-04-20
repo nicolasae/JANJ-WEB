@@ -4,10 +4,34 @@ import { Link } from 'react-router-dom';
 // Estilos 
 import '../../styles/navbar/Navbar.css';
 import '../../assets/vendor/bootstrap/css/bootstrap.css';
-
+// Dropdown
+import Dropdown from './Dropdown';
 
 
 export default function NavBar(idpermisos) {
+
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+
   if(idpermisos==1){
     return (
       /* ======= Header ======= */
@@ -21,10 +45,17 @@ export default function NavBar(idpermisos) {
           </div>
             <nav id="nav-menu-container">
               <ul className="nav-menu ">
-                <li ><Link to="/prediccion">Predicción</Link></li>
+                {/* <li ><Link to="/prediccion">Predicción</Link></li>
                 <li ><Link to="/simulacion">Simulación</Link></li>
                 <li ><Link to="/seguimiento">Seguimiento</Link></li>
-                <li ><Link to="/educacion">Educación</Link></li>
+                <li ><Link to="/educacion">Educación</Link></li> */}
+                <li 
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave} >
+                    <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
+                    {dropdown && <Dropdown />}
+                </li> 
+
                 <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
               </ul>
             </nav>
