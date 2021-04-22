@@ -20,7 +20,7 @@ export default function NavBar() {
             <nav id="nav-menu-container">
               <ul className="nav-menu ">
                 <li><Link to="/premium">Premium</Link></li>
-                <li><Link to="/converter">Convertidor</Link></li>
+                <li><Link to="/converter">Conversor</Link></li>
                 <li><Link to="/login">Iniciar Sesion</Link></li>
                 <li><Link to="/signup">Registrarse</Link></li>
               </ul>

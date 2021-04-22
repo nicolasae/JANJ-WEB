@@ -13,9 +13,11 @@ function Navbar(){
 
 export default function Educacion(){
     return(
-        <div>
+        <section id="educacion">
             <Navbar/>
-            <h1>Educación</h1>
-        </div>
+            <>
+                <h1>Educación</h1>
+            </>
+        </section>
     );
 }

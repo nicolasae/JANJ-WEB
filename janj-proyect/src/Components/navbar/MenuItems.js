@@ -1,19 +1,25 @@
 export const MenuItems = [
     {
-      title: 'Colombia Historial',
-      path: '/colhistorial',
+      title: 'Predicción',
+      path: '/prediccion',
       cName: 'dropdown-link'
     },
     {
-      title: 'Consultas',
-      path: '/consultas',
+      title: 'Simulación',
+      path: '/simulación',
       cName: 'dropdown-link'
     },
     {
-      title: 'Gráficos',
-      path: '/graficos',
+      title: 'Simulación',
+      path: '/Seguimiento',
+      cName: 'dropdown-link'
+    },
+    {
+      title: 'Educación',
+      path: '/educacion',
       cName: 'dropdown-link'
     }
+    
     
   ];
   
