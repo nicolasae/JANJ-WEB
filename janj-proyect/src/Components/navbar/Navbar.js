@@ -1,82 +1,33 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Image from 'react-bootstrap/Image'
 
 // Estilos 
 import '../../styles/navbar/Navbar.css';
-import '../../styles/navbar/Button.css';
-
-// Componentes
-import Dropdown from './Dropdown';
-import Cover from "../../Components/home/Cover"
+import '../../assets/vendor/bootstrap/css/bootstrap.css';
+import Navbar from 'react-bootstrap/Navbar'
 
 
-function Navbar() {
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
-
-  const handleClick = () => setClick(!click);
-  const handleDrop = () => setDropdown(!dropdown);
-  const closeMobileMenu = () => setClick(false);
-
-  const onMouseEnter = () => {
-    console.log(window.innerWidth);
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
-
-
+export default function NavBar() {
   return (
-    <div>
-      <nav className='navbar'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <Image src="janj-symbol-redu.png" />
-        </Link>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+    <header id="header">
+      <div className="row">
+        <div className="container col-lg-11">
+          <div id="logo">
+            <Link to='/' >
+              <img src="janj-symbol-redu.png" />
+            </Link>
+          </div>
+            <nav id="nav-menu-container">
+              <ul className="nav-menu ">
+                <li><Link to="/premium">Premium</Link></li>
+                <li><Link to="/converter">Conversor</Link></li>
+                <li><Link to="/login">Iniciar Sesion</Link></li>
+                <li><Link to="/signup">Registrarse</Link></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <a href="#About" className='nav-links' onClick={closeMobileMenu}>
-              Conseguir Premium  
-            </a>
-          </li>
-          {/* <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Link  to='/services'className='nav-links' onClick={handleClick}>
-              Servicios<i className='fas fa-caret-down' />
-            </Link>
-            {dropdown && <Dropdown />}
-          </li> */}
-          <li className='nav-item'>
-            <Link
-              to='/login'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Inicio de Sesión
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/signup' onClick={closeMobileMenu}>
-              <button className='btn'>Registrarse</button>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    </header>
+   
   );
 }
-
-export default Navbar;

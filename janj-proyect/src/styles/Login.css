@@ -299,3 +299,16 @@ html-login,body-login
 {
     font-size: 25px;
 }
+
+select{
+  padding: 10px 12px 10px 12px;
+  border: 1px solid;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: white;
+}

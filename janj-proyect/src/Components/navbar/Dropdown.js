@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItems } from './MenuItems';
-import '../../styles/navbar/Dropdown.css';
+// import '../../styles/navbar/Dropdown.css';
 
 import { Link } from 'react-router-dom';
 
