@@ -10,8 +10,8 @@ export const MenuItems = [
       cName: 'dropdown-link'
     },
     {
-      title: 'Simulación',
-      path: '/Seguimiento',
+      title: 'Seguimiento',
+      path: '/seguimiento',
       cName: 'dropdown-link'
     },
     {

@@ -24,6 +24,7 @@
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "react-update": "^0.4.4",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

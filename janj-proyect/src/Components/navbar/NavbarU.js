@@ -57,6 +57,9 @@ export default function NavBar(idpermisos) {
                 </li> 
 
                 <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
+                <li>
+                  <Link to="#"><i  className="fas fa-user-circle"></i></Link>
+                </li>
               </ul>
             </nav>
           </div>
