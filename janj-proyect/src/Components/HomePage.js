@@ -19,7 +19,7 @@ const axios = require('axios')
 // import '../assets/vendor/aos/aos.css'
 
 function Query_text(){
-    var baseurl = process.env.REACT_APP_API_URL
+    var baseurl = String(process.env.REACT_APP_API_URL)
 	var url = baseurl+'/prueba'
     var json = {
         'hola':'que buena tula bro'
@@ -27,11 +27,10 @@ function Query_text(){
 	var data = JSON.stringify(json)
 	var config = {
 		method: 'get',
-		url: url,
+		url: 'http://localhost:5000/prueba',
 		headers: { 
 		'Content-Type': 'application/json'
 		},
-		withCredentials:true,
 	};
 	axios(config)
 	.then(response => {
@@ -59,7 +58,7 @@ export default function HomePage(){
             <NavBar/>
             <Hero/>
             <div className="col-xl-12"> 
-                <button onClick={Query_text()}> MIDE TU TULA BRO: </button>
+                <button onClick={Query_text}> MIDE TU TULA BRO: </button>
             </div>
             <About/>
             <Services/>
