@@ -57,6 +57,9 @@ export default function NavBar(idpermisos) {
                 </li> 
 
                 <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
+                <li>
+                  <Link to="#"><i  className="fas fa-user-circle"></i></Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -114,29 +117,3 @@ export default function NavBar(idpermisos) {
   }
   
 }
-// End Header
-// <div>
-//   <Navbar fixed="top" collapseOnSelect={true} bg="light" expand="lg">
-//       <Navbar.Toggle  eventKey={2} aria-controls="responsive-navbar-nav" />
-      // <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-      //   <img src="janj-symbol-redu.png" />
-      // </Link>
-//       <Navbar.Collapse id="responsive-navbar-nav">
-//         <nav className="nav-menu ">
-//             <a href="#About" className='nav-links' onClick={closeMobileMenu}>
-//               Premium  
-//             </a>
-//               <Link
-//                 to='/login'
-//                 className='nav-links'
-//                 onClick={closeMobileMenu}
-//               >
-//                 Inicio de Sesión
-//             </Link>
-//           <Link to='/signup' onClick={closeMobileMenu}>
-//             <button  className='btn'>Registrarse</button>
-//           </Link>
-//         </nav>
-//       </Navbar.Collapse>
-//   </Navbar>
-// </div>
