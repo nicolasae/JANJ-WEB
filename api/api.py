@@ -7,11 +7,11 @@ def hello():
     return "Hello World!"
 
 @app.route('/login')
-def hello():
+def login():
     return "Hello World!"
 
 @app.route('/register')
-def hello():
+def register():
     return "Hello World!"
 
 @app.route("/<name>")              # at the end point /<name>
