@@ -1,16 +1,11 @@
 import React,{useState} from 'react';
 import { Switch, Route} from 'react-router-dom'
 
-import Aos from 'aos';
-
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 // Componentes
 import HomePage from "./Components/HomePage";
 import './App.css';
 import './assets/vendor/bootstrap/css/bootstrap.css'
-import Login from "./Components/pages/LoginForm"
-import Register from "./Components/pages/RegisterForm"
 import Converter from "./Components/pages/Converter"
 import Premium from "./Components/pages/Premium"
 //SERVICIOS
@@ -33,8 +28,6 @@ const App= props=> {
   return (
       <Switch>
         <Route exact path='/'  component={HomePage} />
-        <Route path='/login' exact component={Login} />
-        <Route path='/signup' exact component={Register} />
         <Route path='/converter' exact render={propiedades => (<Converter {...propiedades} />)}/>
         <Route path='/premium' exact component={Premium}/>
         <Route path='/homeR' exact component={HomeR}/>
