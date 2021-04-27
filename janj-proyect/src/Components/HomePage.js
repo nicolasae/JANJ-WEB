@@ -12,11 +12,7 @@ import '../assets/vendor/bootstrap/css/bootstrap.css'
 import '../assets/vendor/font-awesome/css/font-awesome.min.css'
 import '../assets/vendor/boxicons/css/boxicons.min.css'
 import '../assets/vendor/venobox/venobox.css'
-import { Nav } from 'react-bootstrap';
-const axios = require('axios')
 
-// import '../assets/vendor/owl.carousel/assets/owl.carousel.min.css'
-// import '../assets/vendor/aos/aos.css'
 
 function Query_text(){
     var baseurl = String(process.env.REACT_APP_API_URL)
@@ -32,13 +28,7 @@ function Query_text(){
 		'Content-Type': 'application/json'
 		},
 	};
-	axios(config)
-	.then(response => {
-        console.log(response)
-		if(response.status == 200){
-			alert('buena tula bro')
-		}
-	})    
+
 
 
 }
@@ -57,9 +47,6 @@ export default function HomePage(){
             <link href="../assets/css/style.css" rel="stylesheet" />
             <NavBar/>
             <Hero/>
-            <div className="col-xl-12"> 
-                <button onClick={Query_text}> MIDE TU TULA BRO: </button>
-            </div>
             <About/>
             <Services/>
             <Suscription/>
