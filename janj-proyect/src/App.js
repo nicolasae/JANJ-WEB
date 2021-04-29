@@ -8,6 +8,7 @@ import './App.css';
 import './assets/vendor/bootstrap/css/bootstrap.css'
 import Converter from "./Components/pages/Converter"
 import Premium from "./Components/pages/Premium"
+import RecoverPassword from "./Components/pages/RecoverPassword"
 //SERVICIOS
 import Educacion from "./Components/Services /Educacion"
 import Simulacion from "./Components/Services /Simulacion"
@@ -31,6 +32,7 @@ const App= props=> {
         <Route path='/converter' exact render={propiedades => (<Converter {...propiedades} />)}/>
         <Route path='/premium' exact component={Premium}/>
         <Route path='/homeR' exact component={HomeR}/>
+        <Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} />)}/>
         {/* SERVICIOS */}
         <Route path='/educacion' exact component={Educacion}/>
         <Route path='/simulacion' exact component={Simulacion}/>

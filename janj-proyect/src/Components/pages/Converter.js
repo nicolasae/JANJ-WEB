@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import Navbar from '../navbar/Navbar';
 import '../../assets/css/style.css'
+import Collapse from 'react-bootstrap/Collapse'
+
 
 const { convert } = require('exchange-rates-api');
+
 
 class Converter extends React.Component{
     
     constructor(props){
       super(props);
       this.state={  
+        isOpen : false,
         form:{
           desde: '',
           hacia: '',
@@ -28,18 +32,31 @@ class Converter extends React.Component{
       console.log(e.target.name);
     }
 
+    toggle = () => {
+      this.setState({isOpen: !this.state.isOpen});
+    }
     
     render(){          
 
       const conversor=()=>{
-        var date = new Date()
-        console.log(date);
+        var date = new Date();
+        // console.log(date);
         (async () => {
-          let amount = await convert(Number(this.state.form.cantidad), String(this.state.form.desde), String(this.state.form.hacia),'2021-04-18' );
-          // '2018-01-01'
+
+          if ( this.state.form.desde == ""){
+            await this.setState({form:{ ...this.state.form, desde: "USD"}})
+          };
+          console.log(this.state.form.desde);
+
+          if (this.state.form.hacia == ""){
+            await this.setState({form:{ ...this.state.form, hacia: "EUR"}})
+          };
+          console.log(this.state.form.hacia);
+
+          let amount = await convert(Number(this.state.form.cantidad), String(this.state.form.desde), String(this.state.form.hacia),'2021-04-18' );          // '2018-01-01'
           this.setState({valor_convertido:amount})
           console.log(amount);    // 1667.6394564000002
-          
+          this.toggle();
         })();
       }
 
@@ -145,13 +162,14 @@ class Converter extends React.Component{
                       </div>
                     </div>
                       <div className="col-lg-12 text-center">
-                        <button className="btn-get-started" onClick={conversor}>Convertir</button>
-                      </div>
-                      <div>
-                        <h2>El valor es: {this.state.valor_convertido}</h2>
+                        <button className="btn-get-started" onClick={conversor} aria-controls="example-collapse-text" aria-expanded={this.state.isOpen}>Convertir</button>
+                        </div>
+                      <Collapse in={this.state.isOpen}>
+                        <div id="example-collapse-text">
+                          <h2>El valor es: {this.state.valor_convertido}</h2>
+                        </div>
+                      </Collapse>
 
-
-                      </div>
                   </div>  
               
                   {/* PARTE DE INSTRUCCIONES */}

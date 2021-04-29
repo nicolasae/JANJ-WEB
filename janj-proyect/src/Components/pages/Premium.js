@@ -84,7 +84,7 @@ function Premium() {
 
                 </div>
             </section>
-            <Testimonios/>
+            {/* <Testimonios/> */}
         </div>
 
     );

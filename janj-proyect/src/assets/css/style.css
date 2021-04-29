@@ -601,6 +601,9 @@ section {
   background: #f7f7f7;
   padding: 80px 0;
 }
+#about h1,h2,h3,h4,h5,h6 {
+  text-align: left;
+}
 
 #about .about-container .background {
   min-height: 300px;
@@ -1416,4 +1419,44 @@ select:focus> option:checked{
 }
 
 
-/* EDUCACIÓN */
+/*--------------------------------------------------------------
+# Recover
+--------------------------------------------------------------*/
+.recover{
+  margin-top:2%;
+}
+.recover h1,h2{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+}
+.recover input{
+  padding: 10px 12px 10px 12px;
+  border: 1px solid rgb(0,255,119,0.5);
+  border-radius: 2px;
+  margin-bottom: 5px;
+  /* margin-top: 2px; */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: white;
+}
+
+.recover .btn-get-started{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 3%;
+}
+
+.recover .btn-get-started:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
+}
