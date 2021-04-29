@@ -12,10 +12,26 @@ import '../assets/vendor/bootstrap/css/bootstrap.css'
 import '../assets/vendor/font-awesome/css/font-awesome.min.css'
 import '../assets/vendor/boxicons/css/boxicons.min.css'
 import '../assets/vendor/venobox/venobox.css'
-import { Nav } from 'react-bootstrap';
 
-// import '../assets/vendor/owl.carousel/assets/owl.carousel.min.css'
-// import '../assets/vendor/aos/aos.css'
+
+function Query_text(){
+    var baseurl = String(process.env.REACT_APP_API_URL)
+	var url = baseurl+'/prueba'
+    var json = {
+        'hola':'que buena tula bro'
+    }
+	var data = JSON.stringify(json)
+	var config = {
+		method: 'get',
+		url: 'http://localhost:5000/prueba',
+		headers: { 
+		'Content-Type': 'application/json'
+		},
+	};
+
+
+
+}
 
 
 export default function HomePage(){
