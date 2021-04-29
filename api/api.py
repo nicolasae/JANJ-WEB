@@ -2,29 +2,15 @@ from flask import Flask, request, make_response, redirect, render_template,jsoni
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 # initialization
 app = Flask(__name__)
 cors = CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-
-class correo(db.Model):
-    __tablename__='Correos'
-    id = db.Column(db.Integer, primary_key=True)
-    correo = db.Column(db.String(128))
-
-
-class contacto(db.Model):
-    __tablename__='Contactos'
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(128))
-    correo = db.Column(db.String(128))
-    asunto = db.Column(db.String(128))
-    mensaje = db.Column(db.String(500))
-
+#migrate = Migrate(app, db)
 
 
 
