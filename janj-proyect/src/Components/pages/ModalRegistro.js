@@ -55,31 +55,31 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-export const Modal = ({ showModal, setShowModal }) => {
+export const ModalRegistro = ({ showModalRegistro, setShowModalRegistro }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
     config: {
       duration: 250
     },
-    opacity: showModal ? 1 : 0,
-    transform: showModal ? `translateY(-50%)` : `translateY(-100%)`
+    opacity: showModalRegistro ? 1 : 0,
+    transform: showModalRegistro ? `translateY(-50%)` : `translateY(-100%)`
   });
 
   const closeModal = e => {
     if (modalRef.current === e.target) {
-      setShowModal(false);
+      setShowModalRegistro(false);
     }
   };
 
   const keyPress = useCallback(
     e => {
-      if (e.key === 'Escape' && showModal) {
-        setShowModal(false);
+      if (e.key === 'Escape' && showModalRegistro) {
+        setShowModalRegistro(false);
         console.log('I pressed');
       }
     },
-    [setShowModal, showModal]
+    [setShowModalRegistro, showModalRegistro]
   );
 
   useEffect(
@@ -92,17 +92,17 @@ export const Modal = ({ showModal, setShowModal }) => {
 
   return (
     <>
-      {showModal ? (
+      {showModalRegistro ? (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper showModal={showModal}>
+            <ModalWrapper showModal={showModalRegistro}>
               <ModalImg src={'/janj-logo.png'} alt='logo' />
               <ModalContent>
                 <RegisterForm/>
               </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'
-                onClick={() => setShowModal(prev => !prev)}
+                onClick={() => setShowModalRegistro(prev => !prev)}
               />
             </ModalWrapper>
           </animated.div>
