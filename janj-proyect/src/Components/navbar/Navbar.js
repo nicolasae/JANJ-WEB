@@ -13,21 +13,16 @@ import Navbar from 'react-bootstrap/Navbar'
 
 
 export default function NavBar() {
-
   const [showModalRegistro, setShowModalRegistro] = useState(false);
-
   const openModalRegistro = () => {
     setShowModalRegistro(prev => !prev);
     setShowModalLogin(false);
   };
-  
   const [showModalLogin, setShowModalLogin] = useState(false);
-
   const openModalLogin = () => {
     setShowModalLogin(prev => !prev);
     setShowModalRegistro(false);
   };
- 
   return (
     <header id="header">
       <div className="row">

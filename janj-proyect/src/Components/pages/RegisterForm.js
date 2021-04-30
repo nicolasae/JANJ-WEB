@@ -31,7 +31,7 @@ export default class Register extends React.Component {
     register=async()=>{
         if(this.state.register.question === "")
             await this.setState({ register:{ ...this.state.register, question: "¿En qué ciudad se conocieron tus padres?"}})
-        var data = JSON.stingfy({
+        var data = JSON.stringify({
             nombre:this.state.name,
             apellido:this.state.lastname,
             telefono:this.state.phone,
@@ -41,7 +41,7 @@ export default class Register extends React.Component {
             password:this.state.password,
         })
         var baseurl = String(process.env.REACT_APP_API_URL)
-        const url = baseurl+'/signup'
+        const url = baseurl+'/auth/signup'
         var config = {
             method: 'post',
             url: url,
