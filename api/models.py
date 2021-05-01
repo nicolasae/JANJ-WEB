@@ -30,4 +30,4 @@ class User(UserMixin, db.Model):
     telefono = db.Column(db.String(1000), nullable=True)
     pregunta = db.Column(db.String(1000), nullable=True)
     respuesta = db.Column(db.String(1000), nullable=True)
-    esPremium
+    esPremium = db.Column(db.Boolean, default=False, nullable=False)

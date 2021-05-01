@@ -4,7 +4,8 @@ from flask_login import login_user, logout_user, login_required
 from .models import User
 from . import db
 
-auth = Blueprint('auth', __name__, url_prefix='/auth')
+#auth = Blueprint('auth', __name__, url_prefix='/auth')
+auth = Blueprint('auth', __name__, url_prefix="/auth")
 
 '''
 @auth.route('/login')
@@ -45,29 +46,61 @@ def signup():
 @auth.route('/signup', methods=['POST'])
 def signup_post():
 
-    email = request.form.get('email')
-    password = request.form.get('password')
-    nombre = request.form.get('nombre')
-    apellido = request.form.get('apellido')
-    telefono = request.form.get('telefono')
-    pregunta = request.form.get('pregunta')
-    respuesta = request.form.get('respuesta')
+    try:
+        email = request.form.get('email')
+        password = request.form.get('password')
+        nombre = request.form.get('nombre')
+        apellido = request.form.get('apellido')
+        telefono = request.form.get('telefono')
+        pregunta = request.form.get('pregunta')
+        respuesta = request.form.get('respuesta')
 
-    user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
+        user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
 
-    if user: # if a user is found, we want to redirect back to signup page so user can try again
-        flash('Email address already exists')
-        return redirect(url_for('auth.signup'))
+        if user: # if a user is found, we want to redirect back to signup page so user can try again
+            flash('Email address already exists')
+            return redirect(url_for('auth.signup'))
 
-    # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(email=email, nombre=nombre, password=generate_password_hash(password, method='sha256'), apellido=apellido, telefono=telefono, pregunta=pregunta, respuesta=respuesta)
+        new_user = User(email=email, nombre=nombre, password=generate_password_hash(password, method='sha256'), apellido=apellido, telefono=telefono, pregunta=pregunta, respuesta=respuesta)
+
+        # add the new user to the database
+        db.session.add(new_user)
+        db.session.commit()
+
+        #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
+        return "Se agrego el usuario con exito"
+
+
+    except:
+        email = request.form.get('email')
+        password = request.form.get('password')
+        nombre = request.form.get('nombre')
+        apellido = request.form.get('apellido')
+
+        user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
+
+        if user: # if a user is found, we want to redirect back to signup page so user can try again
+            flash('Email address already exists')
+            return redirect(url_for('auth.signup'))
+
+        new_user = User(email=email, nombre=nombre, password=generate_password_hash(password, method='sha256'), apellido=apellido)
+
+        # add the new user to the database
+        db.session.add(new_user)
+        db.session.commit()
+
+        #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
+        return "Se agrego el usuario con exito"
+
+    else:
+        return "Error en el sistema" #Se pone por el momento de esta manera
 
     # add the new user to the database
     db.session.add(new_user)
     db.session.commit()
 
     #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
-    return "Se agrego el usuario con exito"
+    return "Hubo un problema al agregar"
 
 @auth.route('/logout')
 @login_required
