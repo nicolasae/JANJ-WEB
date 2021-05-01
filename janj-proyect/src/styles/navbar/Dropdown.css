@@ -8,12 +8,12 @@
   }
   
   .dropdown-menu li {
-    background: rgb(0,255,119, .50);
+    background: #00FF77;
     cursor: pointer;
   }
   
   .dropdown-menu li:hover {
-    background: rgb(0,255,119, .50);
+    background: #00FF77;
   }
   
   .dropdown-menu.clicked {
@@ -27,6 +27,7 @@
     text-decoration: none;
     color: black;
     padding: 16px;
+    
   }
   
   @media screen and (max-width: 960px) {

@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
       title: 'Simulación',
-      path: '/simulación',
+      path: '/simulacion',
       cName: 'dropdown-link'
     },
     {
@@ -18,8 +18,7 @@ export const MenuItems = [
       title: 'Educación',
       path: '/educacion',
       cName: 'dropdown-link'
-    }
-    
+    } 
     
   ];
   

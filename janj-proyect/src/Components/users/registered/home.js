@@ -4,6 +4,7 @@ import '../../../assets/css/style.css';
 import NavBar from '../../navbar/NavbarU'
 import Carousel from 'react-bootstrap/Carousel'
 
+
 function Navbar(){
     var html= NavBar(1);
     return(
@@ -55,20 +56,17 @@ function ControlledCarousel() {
 export default function home(){
 
     return(
-        <>
+        <div>
         <Navbar/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <h1>Bienvenido</h1>
-        <section id="carrousel"> 
-            <div> 
-                <ControlledCarousel />
-            </div>
-        </section>
-        </>
+        <div id="carrousel">
+            <h1><strong>Bienvenido</strong></h1>
+            <section id="carrousel"> 
+                <div> 
+                    <ControlledCarousel />
+                </div>
+            </section>
+        </div>
+        </div>
 
     )
 

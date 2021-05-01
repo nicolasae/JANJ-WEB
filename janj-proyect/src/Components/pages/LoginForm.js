@@ -114,7 +114,7 @@ export default class Login extends React.Component {
                                 <input type="password" onChange={this.onChange} name="password" placeholder="Ingrese su contraseña"/>
                             </div>
                             <div className="row px-3 mb-4">
-                                <a href="#" className="ml-auto mb-0 form-group-login-s">Olvidaste tu contraseña?</a>
+                                <a href="/recover" className="ml-auto mb-0 form-group-login-s">Olvidaste tu contraseña?</a>
                             </div>
                             <div className="row mb-3 px-3">
                                 <button onClick={this.directLogin} type="submit" className="btn btn-blue text-center form-group-login">Ingresar</button>

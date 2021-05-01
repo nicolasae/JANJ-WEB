@@ -10,13 +10,13 @@ export default function About(){
                 <div className="row about-container">
                     <div className="col-lg-6 content  ">
                     <h2 className="title">¿Quiénes Somos?</h2>
-                    <h2>Misión</h2>
+                    <h3>Misión</h3>
                         <p >
                             Facilitar el acceso y  seguimiento  a la 
                             información de las diferentes divisas  
                             para personas no expertas en el campo.
                         </p>
-                        <h2>Visión</h2>
+                        <h3>Visión</h3>
                         <p>
                             Nuestra visión es en un futuro
                             normalizar el entendimiento de la
