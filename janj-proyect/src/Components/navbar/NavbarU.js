@@ -54,7 +54,7 @@ export default function NavBar(idpermisos) {
                 onMouseLeave={onMouseLeave} 
                 >
                     <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
-                    {dropdown && {Dropdown ('premium') }}
+                    {dropdown && <Dropdown permiso={'premium'}/>}
                 </li> 
                 <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
                 {/* <li 

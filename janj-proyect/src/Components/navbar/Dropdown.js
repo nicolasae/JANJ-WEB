@@ -3,12 +3,11 @@ import { MenuItemsRegister,MenuItemsPremium } from './MenuItems';
 // import '../../styles/navbar/Dropdown.css';
 import { Link } from 'react-router-dom';
 
-function Dropdown(permiso) {
+function Dropdown(data) {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
-
-  if (permiso === 'premium'){
+  if (data.permiso === 'premium'){
     return (
       <>
         <ul
@@ -32,7 +31,7 @@ function Dropdown(permiso) {
       </>
     );
   }
-  if (permiso === 'register'){
+  if (data.permiso === 'register'){
     return (
       <>
         <ul
