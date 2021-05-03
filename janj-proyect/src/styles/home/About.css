@@ -1,0 +1,52 @@
+
+.section-about {
+  height:calc(100vh - 10%);
+  padding-top: 3%;
+}
+
+.section-about h1  {
+  color:black;
+  font-size: 2em;
+  text-align: center; 
+}
+
+.section-about h2{
+  color:black;
+  font-size: 2em;
+  padding-top: 8%;
+  margin-left: 10%;
+}
+
+.section-about img.derecha  {
+ 
+  float: right;
+  color: black;
+  margin-right: 16%;
+  margin-top: 3%;
+  padding-left: 10%;
+  width: 750px;
+  height: 680px;
+}
+
+.section-about p{
+  color:black;
+  text-align: justify; 
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 2em;
+  margin-top: 2%;
+  margin-right: 2%; 
+}
+
+.section-about-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 33%;
+  margin-left: 15%;
+  border-radius: 5px;
+  background-color: rgb(17, 17, 17,10%) ;
+  margin-top: 3%;
+}
+
+
+

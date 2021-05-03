@@ -1,0 +1,144 @@
+  
+  @media (max-width:1920px) and (min-width:1500px){
+    .section-cover{
+      
+      padding-top: 5%;
+  }
+  
+  /* Parte de información */
+  .section-cover-info h1  {
+      color:black;
+      text-align: left;
+      margin-left: 5%;
+      margin-top: 8%;
+      font-size: 5em;
+  }
+  
+  .section-cover-info p{
+      margin-top: 3%;
+      color:black;
+      text-align: left; 
+      margin-left: 5%;
+      font-size: 2em;
+  }
+  
+  .section-cover-info button{
+      margin-top: 5%;
+      margin-left: 5%;
+      font-size: 2em;  
+      position: static  
+  }
+   
+  .section-cover img.central  {
+    
+    float: right;
+    color: black;
+    margin-right: 34%;
+    width: 30%;
+    margin-top: 8%; 
+    position: static;
+    border: solid;
+  }
+  
+  .section-cover-inof-correo {
+      border-radius: 5px;
+      background-color: white ;
+      margin-left: 75%;
+      border: solid; 
+      float: flex;
+    }
+  
+  .section-cover-info-correo p{
+      color: black;
+      font-size: 2em;
+      text-align: center;
+      margin-right: 3%;
+    }
+  
+  .section-cover-info-correo input{
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-right: 10px;
+    }
+    
+  }
+
+
+@media (max-width:1366px) and (min-width:800px){
+.section-cover{
+  height: calc(100vh - 10%);
+  padding-top: 7%;
+}
+
+.section-cover img.central  {
+  
+  float: right;
+  color: black;
+  margin-right: 34%;
+  width: 30%;
+  margin-top: 8%; 
+  position: static;
+  border: solid;
+}
+
+/* Parte de información */
+
+.section-cover-info{
+  border-radius: 5px;
+  background-color: white ;
+  width: 30%;
+}
+.section-cover-info h1  {
+    color:black;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 8%;
+    font-size: 4em;
+}
+
+.section-cover-info p{
+    margin-top: 3%;
+    color:black;
+    text-align: left; 
+    margin-left: 5%;
+    font-size: 1.5em;
+}
+
+.section-cover-info button{
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 1.5em;  
+    position: static  
+}
+ 
+
+
+.seccion-cover-correo {
+    border-radius: 5px;
+    background-color: white ;
+    margin-left: 75%;
+    border: solid; 
+    margin-top: 8%;
+    /* float: flex; */
+    
+  }
+
+.seccion-cover-correo p{
+    color: black;
+    font-size: 1.5em;
+    text-align: center;
+    margin-right: 3%;
+  }
+
+.seccion-cover-correo input{
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: 10px;
+  }
+  
+}
+
+@media (max-width:800px) and (min-width:600px){
+
+  
+}

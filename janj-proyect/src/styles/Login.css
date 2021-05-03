@@ -1,0 +1,280 @@
+.section-login{
+  color: #000;
+  overflow-x: hidden;
+  height: 100%;
+  background-color: white;
+  background-repeat: no-repeatz;
+}
+
+.card0 {
+  box-shadow: 0px 4px 8px 0px #757575;
+  border-radius: 0px
+}
+
+.card2 {
+  margin: 0px 40px
+}
+
+.logo {
+  width: 200px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 35px
+}
+
+.image {
+  width: 360px;
+  height: 280px
+}
+
+.border-line {
+  border-right: 1px solid #EEEEEE
+}
+
+.line {
+  height: 1px;
+  width: 45%;
+  background-color: #E0E0E0;
+  margin-top: 10px
+}
+
+.or {
+  width: 10%;
+  font-weight: bold
+}
+
+.text-sm {
+  font-size: 14px !important
+}
+
+::placeholder {
+  color: #BDBDBD;
+  opacity: 1;
+  font-weight: 300
+}
+
+:-ms-input-placeholder {
+  color: #BDBDBD;
+  font-weight: 300
+}
+
+::-ms-input-placeholder {
+  color: #BDBDBD;
+  font-weight: 300
+}
+
+input,
+textarea {
+  padding: 10px 12px 10px 12px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #88a7c5;
+  font-size: 14px;
+  letter-spacing: 1px
+}
+
+input:focus,
+textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgb(0,255,119, .50);
+  outline-width: 0
+}
+
+button:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0
+}
+
+a {
+  color: inherit;
+  cursor: pointer
+}
+
+.btn-blue {
+  background-color: rgb(0,255,119, .50);
+  width: 150px;
+  color: #fff;
+  border-radius: 2px
+}
+
+.btn-blue:hover {
+  background-color: white;
+  cursor: pointer
+}
+
+.bg-blue {
+  color: #fff;
+  background-color: rgb(0,255,119, .50)
+}
+
+@media screen and (max-width: 991px) {
+  .logo {
+      margin-left: 0px
+  }
+
+  .image {
+      width: 300px;
+      height: 220px
+  }
+
+  .border-line {
+      border-right: none
+  }
+
+  .card2 {
+      border-top: 1px solid #EEEEEE !important;
+      margin: 0px 15px
+  }
+}
+
+/* ................................................................... */
+
+/* Copy this code in your css file. */
+
+html-login,body-login
+{
+    width: 500px;
+    margin: auto;
+}
+.container-login
+{
+    width: 500px;
+    margin: 50px auto;
+}
+
+.row-login
+{
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 5px;
+  list-style: none;
+  text-align: center;
+  width: 90vw;
+  justify-content: end;
+  
+} 
+.col-sm3
+{
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.col-sm2
+
+
+.login-header
+{
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: rgb(0,255,119, .50);
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  
+}
+
+.preview-login
+{
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+.previewi-login
+{
+    color: white;
+    font-size: 35px;
+    transform: translate(50px,130px);
+}
+
+.preview-img-login
+{
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.7);
+}
+
+.browse-button-login
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    position: absolute; /* Tweak the position property if the element seems to be unfit */
+    top: 10px;
+    left: 132px;
+    background: linear-gradient(180deg, transparent, black);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.browse-button-login:hover
+{
+    opacity: 1;
+}
+
+.browse-input-login
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    transform: translate(-1px,-26px);
+    opacity: 0;
+}
+
+.form-group-login
+{
+    width:  250px;
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+.form-group-login-s
+{
+    width:  250px;
+    margin: 10px auto;
+    font-size: 15px;
+}
+
+
+.form-group input-login
+{
+    transition: 0.3s linear;
+}
+
+.form-group-login input:focus
+{
+    border: 1px solid crimson;
+    box-shadow: 0 0 0 0;
+}
+
+.Error-login
+{
+    color: crimson;
+    font-size: 13px;
+}
+
+.Back-login
+{
+    font-size: 25px;
+}
+
+select{
+  padding: 10px 12px 10px 12px;
+  border: 1px solid;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: white;
+}

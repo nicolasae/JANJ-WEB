@@ -1,0 +1,49 @@
+.section-services {
+    height:calc(100vh - 50px);
+    padding-top: 5%;
+}
+
+.section-services h1  {
+    color:black;
+    text-align: center;
+    font-size: 4em;
+}
+
+.section-services h2{
+    color:black;
+    font-size: 2em;
+    padding-top: 2%;
+    padding-left: 10%;
+    text-align: center;
+  }
+
+.section-services p{
+    color:black;
+    text-align: justify; 
+    padding-left: 6%;
+    padding-right: 6%;
+    font-size: 1.5em;
+  }
+  /* Card arriba a la izquierda (prediccion)*/
+  .section-services-card1 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 35%;
+    margin-left: 10%;
+    border-radius: 5px;
+    background-color: rgb(17, 17, 17,10%) ;
+    margin-top: 2%;
+    float: left;
+  }
+  
+  .section-services-card1:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .section-services-card1 img.centro{
+    width: 20%;
+    margin-left: 280px;
+
+  }
+
+  
