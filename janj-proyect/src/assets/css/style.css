@@ -1497,6 +1497,25 @@ select:focus> option:checked{
   font-weight: bolder;
 }
 
-#eduación .root {
+#eduacion .root {
   border: solid;
+}
+
+.educacion-popover{
+  background-color:white;
+  margin-left: 5%;
+  width: 50%;
+  border: 2px solid #2dc997;
+}
+
+.educacion-popover-title{
+  background-color: #2dc997;
+  padding-bottom: 2%;
+  height: 20%;
+}
+
+.educacion-popover-content{
+  text-align: left;
+  color: black;
+  padding: 2%;
 }

@@ -16,8 +16,6 @@ db = SQLAlchemy(app)
 
 @app.route('/correos', methods=['POST'])
 def add_correo():
-    print("El correo que llego es:", request.json)
-    break
     correoLlegada = request.json["correo"]
     persona = correo(correo=correoLlegada)
 
