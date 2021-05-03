@@ -9,11 +9,6 @@ import './assets/vendor/bootstrap/css/bootstrap.css'
 import Converter from "./Components/pages/Converter"
 import Premium from "./Components/pages/Premium"
 import RecoverPassword from "./Components/pages/RecoverPassword"
-//SERVICIOS
-import Educacion from "./Components/Services /Educacion"
-import Simulacion from "./Components/Services /Simulacion"
-import Prediccion from "./Components/Services /Prediccion"
-import Seguimiento from "./Components/Services /Seguimiento"
 
 // USUARIOS
 
@@ -43,22 +38,18 @@ const App= props=> {
         <Route path='/premium' exact component={Premium}/>
         <Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} />)}/>
         {/* USUARIO REGISTRADO */}
-        <Route path='/homeR' exact component={Homer}/>
+        <Route path='/homer' exact component={Homer}/>
         <Route path='/educacionr' exact render={propiedades => (  <Educacionr {...propiedades} />)}/>
         <Route path='/seguimientor' exact render={propiedades => (<Seguimientor {...propiedades} />)}/>
         <Route path='/simulacionr' exact render={propiedades => ( <Simulacionr {...propiedades} />)}/>
         <Route path='/prediccionr' exact render={propiedades => ( <Prediccionr {...propiedades} />)}/>
         {/* USUARIO PREMIUM */}
-        <Route path='/homeP' exact render={propiedades => (<Homep {...propiedades} />)}/>
+        <Route path='/homep' exact render={propiedades => (<Homep {...propiedades} />)}/>
         <Route path='/educacionp' exact render={propiedades => (<Educacionp {...propiedades} />)}/>
         <Route path='/seguimientop' exact render={propiedades => (<Seguimientop {...propiedades} />)}/>
         <Route path='/simulacionp' exact render={propiedades => (<Simulacionp {...propiedades} />)}/>
         <Route path='/prediccionp' exact render={propiedades => (<Prediccionp {...propiedades} />)}/>
-        {/* SERVICIOS */}
-        <Route path='/educacion' exact component={Educacion}/>
-        <Route path='/simulacion' exact component={Simulacion}/>
-        <Route path='/prediccion' exact component={Prediccion}/>
-        <Route path='/seguimiento' exact component={Seguimiento}/>
+
 
       </Switch>
   );

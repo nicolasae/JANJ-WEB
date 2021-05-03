@@ -34,6 +34,8 @@ export default function NavBar(idpermisos) {
     }
   };
 
+
+  // Usuario Premium 
   if(idpermisos==1){
     return (
       /* ======= Header ======= */
@@ -41,7 +43,7 @@ export default function NavBar(idpermisos) {
         <div className="row">
         <div className="container col-lg-11">
           <div id="logo">
-          <Link to='/homeR' >
+          <Link to='/homep' >
             <img src="janj-symbol-redu.png" />
           </Link>
           </div>
@@ -52,7 +54,7 @@ export default function NavBar(idpermisos) {
                 onMouseLeave={onMouseLeave} 
                 >
                     <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
-                    {dropdown && <Dropdown />}
+                    {dropdown && {Dropdown ('premium') }}
                 </li> 
                 <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
                 {/* <li 
@@ -66,7 +68,7 @@ export default function NavBar(idpermisos) {
                   onMouseLeave={onMouseLeave} 
                 >
                     <Link to="#"><i className='fas fa-user-circle' /></Link>
-                    {dropdown && <DropdownProfile />}
+                    {dropdown && <DropdownProfile  />}
                 </li> 
               </ul>
             </nav>
@@ -75,29 +77,42 @@ export default function NavBar(idpermisos) {
       </header>
     );
   }
+
+  // Usuario Registrado
   if(idpermisos==2){
     return (
-      /* ======= Header ======= */
-      <header id="header">
-        <div className="row">
-        <div className="container col-lg-11">
-          <div id="logo">
-          <Link to='/' >
-            <img src="janj-symbol-redu.png" />
-          </Link>
-          </div>
-            <nav id="nav-menu-container">
-              <ul className="nav-menu ">
-                <li><Link to="/">Premium</Link></li>
-                <li><Link to="/login">Iniciar Sesion</Link></li>
-                <li><Link to="/signup">Registrarse</Link></li>
-              </ul>
-            </nav>
-              {/* #nav-menu-container */}
-          </div>
-          </div>
-      </header>
-    );
+       /* ======= Header ======= */
+       <header id="header">
+       <div className="row">
+       <div className="container col-lg-11">
+         <div id="logo">
+         <Link to='/homer' >
+           <img src="janj-symbol-redu.png" />
+         </Link>
+         </div>
+           <nav id="nav-menu-container">
+             <ul className="nav-menu ">
+               <li 
+               onMouseEnter={onMouseEnter}
+               onMouseLeave={onMouseLeave} 
+               >
+                   <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
+                   {dropdown && <Dropdown permiso='register' />}
+               </li> 
+               <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
+               <li 
+                 onMouseEnter={onMouseEnter}
+                 onMouseLeave={onMouseLeave} 
+               >
+                   <Link to="#"><i className='fas fa-user-circle' /></Link>
+                   {dropdown && <DropdownProfile  />}
+               </li> 
+             </ul>
+           </nav>
+         </div>
+         </div>
+     </header>
+   );
   }
   if(idpermisos==3){
     return (

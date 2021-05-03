@@ -4,7 +4,7 @@ import { ItemsProfile } from './ItemsProfile';
 
 import { Link } from 'react-router-dom';
 
-function DropdownProfile() {
+function DropdownProfile(permiso) {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
