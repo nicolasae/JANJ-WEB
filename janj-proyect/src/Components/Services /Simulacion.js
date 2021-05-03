@@ -14,6 +14,7 @@ function Navbar(){
 export default function Simulacion(){
     return(
         <div>
+            
             <Navbar/>
             <h1>Simulacion</h1>
         </div>

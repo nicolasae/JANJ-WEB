@@ -5,7 +5,7 @@ import { BsBook} from "react-icons/bs";
 export default function Services(){
     return(
         <section id="services">
-            <div className="container">
+            <div className="container">  
             <div className="section-header">
                 <h3 className="section-title">Nuestros Servicios</h3>
             </div>
