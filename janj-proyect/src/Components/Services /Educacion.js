@@ -41,22 +41,22 @@ const tutorialSteps = [
         info: 'El mercado de divisas es donde los compradores y vendedores se unen para negocias acciones de empresas elegibles.'
     },
     {
-        label: '¿Qué operaciones hacemos en el trading ?',
+        label: '¿Qué operaciones se hacen en el trading ?',
         imgPath: operaciones,
         title: 'Definición:',
-        info: '',
+        info: 'Comprar un activo para venderlo a un precio superior (Largos) y vender un activo, para comprarlo de nuevo por un coste más bajo (Cortos)',
     },
     {
         label: '¿Qué es el S&P 500 ?',
         imgPath: sp,
         title: 'Definición:',
-        info: '',
+        info: 'El índice Standard & Poors 500, también conocido como S&P 500, es uno de los índices bursátiles más importantes de Estados Unidos. Al S&P 500 se lo considera el índice más representativo de la situación real del mercado.El índice se basa en la capitalización bursátil de 500 grandes empresas que poseen acciones que cotizan en las bolsas NYSE o NASDAQ.',
     },
     {
         label: '¿Qué es un índice bursátil ?',
         imgPath: bursatil,
         title: 'Definición:',
-        info: '',
+        info: 'Un índice bursátil es un valor numérico, que se calcula según los precios de mercado de cada uno de los valores que componen ese índice en un momento determinado. La rentabilidad de un índice es la variación de su valor de un periodo a otro.',
       },
   ];
 
@@ -112,9 +112,9 @@ export default function Educacion(){
     };
 
     const popover = (
-        <Popover id="popover-basic" style={{"width":"50%", "height":"80%"}}>
-          <Popover.Title as="h3"><h1><strong>{tutorialSteps[activeStep].title}</strong></h1></Popover.Title>
-          <Popover.Content>
+        <Popover bsPrefix="educacion-popover" >
+          <Popover.Title bsPrefix="educacion-popover-title"><h1><strong>{tutorialSteps[activeStep].title}</strong></h1></Popover.Title>
+          <Popover.Content bsPrefix ="educacion-popover-content" >
             <h2>{tutorialSteps[activeStep].info}</h2>
         </Popover.Content>
         </Popover>
@@ -132,7 +132,8 @@ export default function Educacion(){
                     <Paper square elevation={6} className={classes.header}>
                         <Typography style={{"font-size":"2rem"}}>{tutorialSteps[activeStep].label}</Typography>
                     </Paper>
-                    <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                    <OverlayTrigger trigger="click" placement="right" overlay={popover}
+                    >
                         <img
                             style={{"margin-left":"2%"}}
                             className={classes.img}
