@@ -6,7 +6,7 @@ export const ItemsProfile = [
     },
     {
       title: 'Editar Perfil',
-      path: '#',
+      path: '/editprofile',
       cName: 'dropdown-link'
     },  
   ];

@@ -39,7 +39,7 @@ const App= props=> {
         <Route path='/premium' exact component={Premium}/>
         <Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} />)}/>
         {/* USUARIOs*/}
-        <Route path='/e' exact render={propiedades => (  <EditProfile {...propiedades} />)}/>
+        <Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} />)}/>
         {/* USUARIO REGISTRADO */}
         <Route path='/homer' exact component={Homer}/>
         <Route path='/educacionr' exact render={propiedades => (  <Educacionr {...propiedades} />)}/>
