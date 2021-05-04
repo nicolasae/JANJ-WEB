@@ -13,21 +13,21 @@ import RecoverPassword from "./Components/pages/RecoverPassword"
 // USUARIOS
 
 // PREMIUM
-import Homep from './Components/users/premium/home'
-import Educacionp from './Components/users/premium/services/Educacion'
-import Prediccionp from './Components/users/premium/services/Prediccion'
-import Seguimientop from './Components/users/premium/services/Seguimiento'
-import Simulacionp from './Components/users/premium/services/Simulacion'
+import Homep from './Components/Users/Premium/Home'
+import Educacionp from './Components/Users/Premium/Services/Educacion'
+import Prediccionp from './Components/Users/Premium/Services/Prediccion'
+import Seguimientop from './Components/Users/Premium/Services/Seguimiento'
+import Simulacionp from './Components/Users/Premium/Services/Simulacion'
 import Subscriptionp from './Components/users/premium/Subscription'
 
 
 
 // REGISTRADOS
-import Homer from './Components/users/registered/home'
-import Educacionr from './Components/users/registered/services/Educacion'
-import Prediccionr from './Components/users/registered/services/Prediccion'
-import Seguimientor from './Components/users/registered/services/Seguimiento'
-import Simulacionr from './Components/users/registered/services/Simulacion'
+import Homer from './Components/Users/Registered/Home'
+import Educacionr from './Components/Users/Registered/Services/Educacion'
+import Prediccionr from './Components/Users/Registered/Services/Prediccion'
+import Seguimientor from './Components/Users/Registered/Services/Seguimiento'
+import Simulacionr from './Components/Users/Registered/Services/Simulacion'
 import Subscriptionr from './Components/users/registered/Subscription'
 
 const App= props=> {
