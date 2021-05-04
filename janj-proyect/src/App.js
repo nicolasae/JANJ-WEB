@@ -18,6 +18,7 @@ import Educacionp from './Components/users/premium/services/Educacion'
 import Prediccionp from './Components/users/premium/services/Prediccion'
 import Seguimientop from './Components/users/premium/services/Seguimiento'
 import Simulacionp from './Components/users/premium/services/Simulacion'
+import Subscriptionp from './Components/users/premium/Subscription'
 
 
 
@@ -27,7 +28,7 @@ import Educacionr from './Components/users/registered/services/Educacion'
 import Prediccionr from './Components/users/registered/services/Prediccion'
 import Seguimientor from './Components/users/registered/services/Seguimiento'
 import Simulacionr from './Components/users/registered/services/Simulacion'
-
+import Subscriptionr from './Components/users/registered/Subscription'
 
 const App= props=> {
 
@@ -43,12 +44,14 @@ const App= props=> {
         <Route path='/seguimientor' exact render={propiedades => (<Seguimientor {...propiedades} />)}/>
         <Route path='/simulacionr' exact render={propiedades => ( <Simulacionr {...propiedades} />)}/>
         <Route path='/prediccionr' exact render={propiedades => ( <Prediccionr {...propiedades} />)}/>
+        <Route path='/subscriptionr' exact render={propiedades => ( <Subscriptionr {...propiedades}/>)}/>
         {/* USUARIO PREMIUM */}
         <Route path='/homep' exact render={propiedades => (<Homep {...propiedades} />)}/>
         <Route path='/educacionp' exact render={propiedades => (<Educacionp {...propiedades} />)}/>
         <Route path='/seguimientop' exact render={propiedades => (<Seguimientop {...propiedades} />)}/>
         <Route path='/simulacionp' exact render={propiedades => (<Simulacionp {...propiedades} />)}/>
         <Route path='/prediccionp' exact render={propiedades => (<Prediccionp {...propiedades} />)}/>
+        <Route path='/subscriptionp' exact render={propiedades => ( <Subscriptionp {...propiedades}/>)}/>
 
 
       </Switch>

@@ -56,7 +56,7 @@ export default function NavBar(idpermisos) {
                     <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
                     {dropdown && <Dropdown permiso={'premium'}/>}
                 </li> 
-                <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
+                <li><Link to="/subscriptionp">Suscripción A Divisas</Link></li>
                 {/* <li 
                   onMouseEnter={onMouseEnter}
                   onMouseLeave={onMouseLeave}>
@@ -99,7 +99,7 @@ export default function NavBar(idpermisos) {
                    <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
                    {dropdown && <Dropdown permiso='register' />}
                </li> 
-               <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
+               <li><Link to="/subscriptionr">Suscripción A Divisas</Link></li>
                <li 
                  onMouseEnter={onMouseEnter}
                  onMouseLeave={onMouseLeave} 
