@@ -11,14 +11,14 @@ import Premium from "./Components/pages/Premium"
 import RecoverPassword from "./Components/pages/RecoverPassword"
 
 // USUARIOS
-
+import EditProfile from './Components/Users/EditProfile'
 // PREMIUM
 import Homep from './Components/Users/Premium/Home'
 import Educacionp from './Components/Users/Premium/Services/Educacion'
 import Prediccionp from './Components/Users/Premium/Services/Prediccion'
 import Seguimientop from './Components/Users/Premium/Services/Seguimiento'
 import Simulacionp from './Components/Users/Premium/Services/Simulacion'
-import Subscriptionp from './Components/users/premium/Subscription'
+import Subscriptionp from './Components/Users/Premium/Subscription'
 
 
 
@@ -28,7 +28,7 @@ import Educacionr from './Components/Users/Registered/Services/Educacion'
 import Prediccionr from './Components/Users/Registered/Services/Prediccion'
 import Seguimientor from './Components/Users/Registered/Services/Seguimiento'
 import Simulacionr from './Components/Users/Registered/Services/Simulacion'
-import Subscriptionr from './Components/users/registered/Subscription'
+import Subscriptionr from './Components/Users/Registered/Subscription'
 
 const App= props=> {
 
@@ -38,6 +38,8 @@ const App= props=> {
         <Route path='/converter' exact render={propiedades => (<Converter {...propiedades} />)}/>
         <Route path='/premium' exact component={Premium}/>
         <Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} />)}/>
+        {/* USUARIOs*/}
+        <Route path='/e' exact render={propiedades => (  <EditProfile {...propiedades} />)}/>
         {/* USUARIO REGISTRADO */}
         <Route path='/homer' exact component={Homer}/>
         <Route path='/educacionr' exact render={propiedades => (  <Educacionr {...propiedades} />)}/>
