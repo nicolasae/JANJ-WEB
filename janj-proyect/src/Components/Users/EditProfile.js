@@ -191,7 +191,12 @@ export default class Editprofile extends React.Component{
         return(<>
             <this.Navbar/>
             <section id="editarperfil"> 
-                <h1>Bienvenido {UserData.nombre}</h1>
+                <div className="row">
+                    <div className="col-lg-4"/>
+                    <div className="col-lg-6">
+                        <h1>Bienvenido {UserData.nombre}</h1>
+                    </div>
+                </div>
                 <div className="row"> 
                 {this.renderEditarPerfil()}
                 <div className="col-lg-2"/>
