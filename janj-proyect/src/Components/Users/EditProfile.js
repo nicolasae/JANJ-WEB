@@ -52,7 +52,7 @@ const UserData={
     nombre:"Jorge Orobio Auz",
     correo:"jorge@gmail.com",
     contraseña:"password",
-    pregunta:1,
+    pregunta:'buenas',
     respuesta:"hola",
 }
 
@@ -91,8 +91,13 @@ export default class Editprofile extends React.Component{
             }
         })
     }
-    onSelect=()=>{
-
+    onSelect=(e)=>{
+        this.setState({
+            userData:{
+                ...this.state.userData,
+                pregunta:e.target.value
+            }
+        })
     }
     handleSelectCarrousel=(selectedIndex,e)=>{
         this.setState({ index:selectedIndex})
@@ -152,6 +157,7 @@ export default class Editprofile extends React.Component{
         alert("se envió")
     }
     sendPassword=()=>{
+        console.log(this.state)
         alert("se envió")
     }
     renderEditarPerfil=()=>{
@@ -171,13 +177,24 @@ export default class Editprofile extends React.Component{
         
         </>)
     }
+    renderOpcionesPreguntas=()=>{
+        if(Preguntas.length > 0){
+            var html=[]
+            for(const i in Preguntas){
+                html.push(<option value={Preguntas[i]}> {Preguntas[i]}</option> )
+            }
+            return html
+        }else{
+            return <></>
+        }
+    }
     renderPreguntaSeguridad=()=>{
         return(<>
             <div className="col-lg-3" style={{border: "1px solid"}}> 
                 <h3> Pregunta de seguridad</h3>
                 <br/>
-                <select className="form-control" value={Preguntas[this.state.userData.pregunta]} onSelect={this.onSelect} >
-                    
+                <select className="form-control" name="pregunta" value={this.state.userData.pregunta} onChange={this.onSelect} >
+                    {this.renderOpcionesPreguntas()}
                 </select>
                 <br/>
                 <input className="form-control" type="text" value={this.state.userData.nombre}  name="nombre" onChange={this.onChange} />
