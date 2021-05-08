@@ -1360,13 +1360,11 @@ section {
   }
 }
 
-
-
 /*--------------------------------------------------------------
 # Converter
 --------------------------------------------------------------*/
 #converter{
-  margin-top:4%; 
+  margin-top:6%; 
 }
 
 #converter h1{
@@ -1433,7 +1431,6 @@ select:focus> option:checked{
   background: #2dc997;
   border: 2px solid #2dc997;
 }
-
 
 /*--------------------------------------------------------------
 # Recover
@@ -1615,4 +1612,70 @@ select:focus> option:checked{
   margin-top:15%;
   display: block;
 
+}
+
+/*--------------------------------------------------------------
+# Seguimiento
+--------------------------------------------------------------*/
+
+.seguimiento{
+  margin-top: 8%;
+}
+
+.seguimiento-grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: 65% 25% ;
+  padding: 10px;
+  margin-left: 5%;
+  margin-right: 3%;
+
+}
+
+.seguimiento-grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: rgb(250,250,250);
+}
+
+.seguimiento h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+  color: black;
+}
+
+.seguimiento h2{
+  text-align: center;
+  font-size: 1em;
+  font-weight: bolder;
+  color: black;
+}
+
+.seguimiento p{
+  padding: 2%;
+  font-size: 1.5rem;
+  color: black;
+  text-align: justify;
+}
+
+.seguimiento .btn-get-started-right{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.seguimiento .btn-get-started-right:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
 }

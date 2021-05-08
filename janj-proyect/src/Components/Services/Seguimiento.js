@@ -11,7 +11,7 @@ function Navbar(){
     </>)
 }
 
-export default function Educacion(){
+export default function Seguimiento(){
     return(
         <div>
             <Navbar/>
