@@ -3,7 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 from flask_login import UserMixin
-from .__init__ import db
+from aplicacion.app import db
+
+from sqlalchemy import Boolean, Column, ForeignKey
+from sqlalchemy import DateTime, Integer, String, Text, Float
+from sqlalchemy.orm import relationship
+
 
 
 class correo(db.Model):
@@ -22,6 +27,7 @@ class contacto(db.Model):
 
 
 class User(UserMixin, db.Model):
+    __tablename__='Usuarios'
     id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))

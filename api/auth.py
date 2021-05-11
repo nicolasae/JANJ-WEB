@@ -68,6 +68,7 @@ def signup_post():
         db.session.commit()
 
         #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
+        print("Se agrego el usuario con exito")
         return "Se agrego el usuario con exito"
 
 
