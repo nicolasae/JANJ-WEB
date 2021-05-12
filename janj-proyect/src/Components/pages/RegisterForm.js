@@ -28,20 +28,20 @@ export default class Register extends React.Component {
              }
         })
     }
-    register=async()=>{
+    register=()=>{
         if(this.state.register.question === "")
-            await this.setState({ register:{ ...this.state.register, question: "¿En qué ciudad se conocieron tus padres?"}})
+            this.setState({ register:{ ...this.state.register, question: "¿En qué ciudad se conocieron tus padres?"}})
         var data = JSON.stringify({
-            nombre:this.state.name,
-            apellido:this.state.lastname,
-            telefono:this.state.phone,
-            pregunta:this.state.question,
-            respuesta:this.state.answer,
-            email:this.state.email,
-            password:this.state.password,
+            nombre:this.state.register.name,
+            apellido:this.state.register.lastname,
+            telefono:this.state.register.phone,
+            pregunta:this.state.register.question,
+            respuesta:this.state.register.answer,
+            email:this.state.register.email,
+            password:this.state.register.password,
         })
         var baseurl = String(process.env.REACT_APP_API_URL)
-        const url = baseurl+'/auth/signup'
+        const url = baseurl+'/signup'
         var config = {
             method: 'post',
             url: url,
