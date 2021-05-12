@@ -211,6 +211,13 @@ export default class Simulacion extends React.Component{
                                 manera directa con el valor de las divisas y
                                 hacerte a la idea del impacto que hubieran tenido
                                 ciertas inversiones en tu utilidad
+                                <ol style={{"margin-left":"10%","margin-top":"5%","text-align":"justify"}}>
+                                    <li>Seleccione una de las divisas</li>
+                                    <li>Oprima el botón de "Gráficar"</li>
+                                    <li>Seleccione una fecha anterior a la actual y un valor invertido</li>
+                                    <li>Oprima el botón de "Calcular"</li>
+                                    
+                                </ol>
                                 
                             </p>
                         </div>
