@@ -2,13 +2,65 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from aplicacion import config
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash,safe_str_cmp
 from flask import Flask,request,make_response,redirect,jsonify
+
+from flask_jwt_extended import create_access_token,current_user,jwt_required,JWTManager
+
+
 
 app = Flask(__name__)
 app.config.from_object(config)
 Bootstrap(app)
 db = SQLAlchemy(app)
+
+app.config["JWT_SECRET_KEY"] = "A0Zr98j/3yX R~XLH!tmN]LWk/,?RT"
+
+jwt = JWTManager(app)
+
+@jwt.user_identity_loader
+def user_identity_lookup(user):
+    return user.id
+
+@jwt.user_lookup_loader
+def user_lookup_callback(_jwt_header, jwt_data):
+    from aplicacion.models import User
+    identity = jwt_data["sub"]
+    return User.query.filter_by(id=identity).one_or_none()
+
+
+@app.route("/login", methods=["POST"])
+def login():
+    from aplicacion.models import User
+    usuario = request.get_json()
+    email = usuario.get('email')
+    password = usuario.get('password')
+
+    passwordFinal=generate_password_hash(password, method='sha256')
+
+    user = User.query.filter_by(email=email).one_or_none()
+    print(user.email)
+    print(user.password)
+    print(passwordFinal)
+    if not user or not check_password_hash(user.password,password):
+        return jsonify("Unauthorized"), 401
+
+    # Notice that we are passing in the actual sqlalchemy user object here
+    access_token = create_access_token(identity=user)
+    return jsonify(access_token=access_token)
+
+@app.route("/who_am_i", methods=["GET"])
+@jwt_required()
+def protected():
+    from aplicacion.models import User
+    # We can now access our sqlalchemy User object via `current_user`.
+    print("Se entro")
+    return jsonify(
+        id=current_user.id,
+        nombre=current_user.nombre,
+        email=current_user.email,
+    )
+
 
 
 @app.route('/')
@@ -66,7 +118,7 @@ def signup_post():
 
     except:
         usuario = request.get_json()
-        
+
         email = request.form.get('email')
         password = request.form.get('password')
         nombre = request.form.get('nombre')

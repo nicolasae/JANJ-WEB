@@ -9,6 +9,8 @@ from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import DateTime, Integer, String, Text, Float
 from sqlalchemy.orm import relationship
 
+from werkzeug.security import safe_str_cmp
+
 
 
 class correo(db.Model):
@@ -37,3 +39,7 @@ class User(UserMixin, db.Model):
     pregunta = db.Column(db.String(1000), nullable=True)
     respuesta = db.Column(db.String(1000), nullable=True)
     esPremium = db.Column(db.Boolean, default=False, nullable=False)
+    rol = db.Column(db.String(1000),default="register", nullable=False)
+
+    def check_password(self, password):
+        return safe_str_cmp(password, "password")
