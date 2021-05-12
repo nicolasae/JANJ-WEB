@@ -45,7 +45,7 @@ def signup_post():
         telefono = usuario.get('telefono')
         pregunta = usuario.get('pregunta')
         respuesta = usuario.get('respuesta')
-
+        print(email, password,nombre,apellido,telefono,pregunta,respuesta)
         user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
 
         if user: # if a user is found, we want to redirect back to signup page so user can try again
@@ -97,3 +97,12 @@ def signup_post():
 
     #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
     return "Hubo un problema al agregar"
+
+@app.after_request
+def after_request(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Credentials"] = "false"
+    response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
+    response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
+    return response
+

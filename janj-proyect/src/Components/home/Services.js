@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
-import { BsBook} from "react-icons/bs";
+import { BiBrain , BiBookAlt} from "react-icons/bi";
+import { BsSearch, BsPuzzle} from "react-icons/bs";
 
 export default function Services(){
     return(
@@ -12,7 +13,7 @@ export default function Services(){
             <div className="row">
                 <div className="col-lg-6 col-md-6" >
                 <div className="box">
-                    <div className="icon"><a href><i className="fa fa-desktop" /></a></div>
+                    <div className="icon"><BiBrain size="3em" style={{color:'#EEE'}}  /></div>
                     <h4 className="title"><a href>Predicción</a></h4>
                     <p>
                         Utilizando redes neuronales y
@@ -27,7 +28,7 @@ export default function Services(){
                 </div>
                 <div className="col-lg-6 col-md-6">
                 <div className="box">
-                    <div className="icon"><a href><i className="fa fa-bar-chart" /></a></div>
+                    <div className="icon"><BsSearch size="3em" style={{color:'#EEE'}}/></div>
                     <h4 className="title"><a href>Seguimiento</a></h4>
                     <p>
                         Se podrá observar el comportamiento
@@ -42,7 +43,7 @@ export default function Services(){
                 
                 <div className="col-lg-6 col-md-6" >
                 <div className="box">
-                    <div className="icon"><a href><i className="fa fa-paper-plane" /></a></div>
+                    <div className="icon"><BsPuzzle size="3em" style={{color:'#EEE'}}/></div>
                     <h4 className="title"><a href>Simulación</a></h4>
                     <p>
                         Se accederá al simulador de inversión
@@ -54,7 +55,7 @@ export default function Services(){
                 </div>
                 <div className="col-lg-6 col-md-6">
                 <div className="box">
-                    <div className="icon"><a href><i className="fa fa-photo"/></a></div>
+                    <div className="icon"><BiBookAlt size="3em" style={{color:'#EEE'}}  /></div>
                     <h4 className="title"><a href>Educación</a></h4>
                     <p>
                         Con nosotros puedes aprender como

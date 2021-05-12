@@ -119,10 +119,6 @@ export default class Login extends React.Component {
                             <div className="row mb-3 px-3">
                                 <button onClick={this.directLogin} type="submit" className="btn btn-blue text-center form-group-login">Ingresar</button>
                             </div>
-                            <div className="row mb-4 px-3">
-                                
-                                <small className="font-weight-bold form-group-login-s">No tienes cuenta? <a className="text-danger" href="/signup">Registrate</a></small>
-                            </div>
                             <div className ="text-center">
                                 <GoogleLogin
                                     clientId="952616300736-u6cn526c802tefo4nm28sucaqcgad9sg.apps.googleusercontent.com"

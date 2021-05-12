@@ -76,7 +76,7 @@ export default class home extends React.Component{
           }
         for(const i in carrousel){
             var item = 
-            <Carousel.Item>
+            <Carousel.Item className="item">
                 <div className="row">
                     <div className="col-lg-2"/> 
                     <div className="col-lg-4"> 
@@ -91,13 +91,13 @@ export default class home extends React.Component{
             html.push(item)
         }
         return (<>
-        <Carousel className="border" activeIndex={this.state.index} onSelect={this.handleSelectCarrousel}>
+        <Carousel className="border carrousel" activeIndex={this.state.index} onSelect={this.handleSelectCarrousel}>
             {html}
-            <Carousel.Item>
+            <Carousel.Item className="item">
                 <h1>Second slide label</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className="item">
                 <h1>Third slide label</h1>
                 <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur</p>
             </Carousel.Item>
@@ -114,8 +114,8 @@ export default class home extends React.Component{
     render() {
         return(<>
             <this.Navbar/>
-            <h1>Bienvenido</h1>
             <section id="carrousel"> 
+                <h1>Bienvenido</h1>
                 <div> 
                     <this.ControlledCarousel />
                 </div>

@@ -74,7 +74,7 @@ class Converter extends React.Component{
                   
                   <div className="row">
                     {/* PARTE DE CONVERSIÓN */}
-                    <div className="col-lg-6 text-center">
+                    <div className="col-lg-5 text-center">
                       <div className="col-lg-12 ">
                         <h2>Cantidad a Convertir:</h2>
                       </div> 
@@ -171,18 +171,18 @@ class Converter extends React.Component{
                       </Collapse>
 
                   </div>  
-              
+                  <div className="col-lg-2"/>
                   {/* PARTE DE INSTRUCCIONES */}
-                  <div className="col-lg-6 ">
+                  <div className="col-lg-5 ">
                     <div className="col-lg-12 text-center">
                       <h3>¿Cómo utilizar el conversor?</h3>
                     </div>
-                    <ol>
+                    <ul>
                       <li>Ingrese la cantidad a <b>convertir</b></li>
                       <li>Seleccione en <b>“Desde la divisa”</b> la moneda que representa la cantidad a convertir</li>
                       <li>Seleccione en <b>“A la divisa” la moneda a la cual desea covertir la cantidad ingresada</b></li>
                       <li>Presione el botón <b>"Convertir"</b></li>
-                    </ol>
+                    </ul>
                   </div>
 
                 </div>
