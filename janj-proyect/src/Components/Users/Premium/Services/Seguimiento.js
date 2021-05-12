@@ -97,27 +97,36 @@ export default class Seguimiento extends React.Component{
 
     RenderAutoCompleted = () =>{
 
-        return ( 
-            <Autocomplete
-                value={this.state.value}
-                onChange={(event, newValue) => {
-                this.setValue(newValue);
-                }}
-                inputValue={this.state.inputValue}
-                onInputChange={(event, newInputValue) => {
-                this.setInputValue(newInputValue);
-                }}
-                id="controllable-states-demo"
-                options={currencyAvailable}
-                style={{ "width": "25%"}}
-                renderInput={(params) =><TextField
-                    // classes={{ 
-                    //     root:classes.root, 
-                    //     label: classes.label,
-                    // }}
-                    style={{"border":"none","margin-bottom":"10%"}}
-                    {...params} label="Buscar Divisa"  />}
-            />
+        return (
+            <> 
+            <div className="row"> 
+                <div className="col-lg-6">
+                    <Autocomplete
+                        value={this.state.value}
+                        onChange={(event, newValue) => {
+                        this.setValue(newValue);
+                        }}
+                        inputValue={this.state.inputValue}
+                        onInputChange={(event, newInputValue) => {
+                        this.setInputValue(newInputValue);
+                        }}
+                        id="controllable-states-demo"
+                        options={currencyAvailable}
+                        renderInput={(params) =><TextField
+                            // classes={{ 
+                            //     root:classes.root, 
+                            //     label: classes.label,
+                            // }}
+                            style={{"border":"none","margin-bottom":"10%"}}
+                            {...params} label="Buscar Divisa"  />}
+                    />    
+                </div>
+                <div className="col-lg-6">
+                    <button className="btn-get-started-right" onClick={this.graphController}>Graficar
+                    </button>
+                </div>
+            </div>
+            </> 
         );
         
     }
@@ -169,8 +178,7 @@ export default class Seguimiento extends React.Component{
                     <div className="seguimiento-grid-container">
                         <div className="seguimiento-grid-item">
                             <this.RenderAutoCompleted/>
-                            <button className="btn-get-started-right" onClick={this.graphController}>Graficar
-                            </button>
+                            
                             {this.state.grafico}
 
                         </div>
