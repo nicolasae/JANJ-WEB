@@ -36,18 +36,16 @@ def login():
     email = usuario.get('email')
     password = usuario.get('password')
 
-    passwordFinal=generate_password_hash(password, method='sha256')
-
     user = User.query.filter_by(email=email).one_or_none()
-    print(user.email)
-    print(user.password)
-    print(passwordFinal)
+    print(user)
     if not user or not check_password_hash(user.password,password):
         return jsonify("Unauthorized"), 401
 
     # Notice that we are passing in the actual sqlalchemy user object here
     access_token = create_access_token(identity=user)
-    return jsonify(access_token=access_token)
+    return jsonify(access_token=access_token,id_usuario=user.id,email=user.email,nombre=user.nombre,apellido=user.apellido,rol=user.rol)
+
+
 
 @app.route("/who_am_i", methods=["GET"])
 @jwt_required()
@@ -63,16 +61,42 @@ def protected():
 
 
 
-@app.route('/')
-def inicio():
+@app.route('/forgot_password_respuesta', methods=["POST"])
+def forgot_password_respuesta():
     from aplicacion.models import User
+    usuario = request.get_json()
+
+    email = usuario.get("email")
+    respuesta = usuario.get("respuesta")
+    new_password = usuario.get("new_password")
+
+    user = User.query.filter_by(email=email).one_or_none()
+
+    if not user or not (respuesta == user.respuesta):
+        return jsonify("El email o la respuesta dada no coinciden, intentelo de nuevo"),401
+
+    user.password = generate_password_hash(new_password, method='sha256')
+
+    return jsonify('Se cambio la contraseña con exito')
+
+
+
+@app.route('/forgot_password_pregunta', methods=["POST"])
+def forgot_password_pregunta():
+    from aplicacion.models import User
+    usuario = request.get_json()
+
+    email = usuario.get('email')
+
+    user = User.query.filter_by(email=email).one_or_none()
+
+    if user:
+        return jsonify(pregunta=user.pregunta)
+
     #articulos = Articulos.query.all()
     #return render_template("inicio.html", articulos=articulos)
-    return "Pagina de inicio"
+    return jsonify("El usuario con ese correo no existe"),401
 
-@app.route('/consultar')
-def consultar():
-    from aplicacion.models import User
 
 
 @app.route('/signup', methods=['POST'])
@@ -80,15 +104,6 @@ def signup_post():
     from aplicacion.models import User
     try:
         usuario = request.get_json()
-        '''
-        email = request.args.get('email')
-        password = request.args.get('password')
-        nombre = request.args.get('nombre')
-        apellido = request.args.get('apellido')
-        telefono = request.args.get('telefono')
-        pregunta = request.args.get('pregunta')
-        respuesta = request.args.get('respuesta')
-        '''
 
         email = usuario.get('email')
         password = usuario.get('password')
@@ -97,13 +112,11 @@ def signup_post():
         telefono = usuario.get('telefono')
         pregunta = usuario.get('pregunta')
         respuesta = usuario.get('respuesta')
-        print(email, password,nombre,apellido,telefono,pregunta,respuesta)
+
         user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
 
         if user: # if a user is found, we want to redirect back to signup page so user can try again
-            flash('Email address already exists')
-            #return redirect(url_for('app.signup'))
-            return "Existe el usuario"
+            return jsonify("Existe el usuario"),401
 
         new_user = User(email=email, nombre=nombre, password=generate_password_hash(password, method='sha256'), apellido=apellido, telefono=telefono, pregunta=pregunta, respuesta=respuesta)
 
@@ -111,9 +124,7 @@ def signup_post():
         db.session.add(new_user)
         db.session.commit()
 
-        #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
-        print("Se agrego el usuario con exito")
-        return "Se agrego el usuario con exito"
+        return jsonify("Se agrego el usuario con exito")
 
 
     except:
@@ -129,7 +140,7 @@ def signup_post():
         if user: # if a user is found, we want to redirect back to signup page so user can try again
             #flash('Email address already exists')
             #return redirect(url_for('app.signup'))
-            return "El correo del usuario ya existe"
+            return jsonify("El correo del usuario ya existe"),401
 
         new_user = User(email=email, nombre=nombre, password=generate_password_hash(password, method='sha256'), apellido=apellido)
 
@@ -137,18 +148,12 @@ def signup_post():
         db.session.add(new_user)
         db.session.commit()
 
-        #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
-        return "Se agrego el usuario con exito"
+        return jsonify("Se agrego el usuario con exito")
 
     else:
-        return "Error en el sistema" #Se pone por el momento de esta manera
+        return jsonify("No se mandaron los datos correctos"),401
 
-    # add the new user to the database
-    #db.session.add(new_user)
-    #db.session.commit()
-
-    #return redirect(url_for('auth.login')) #HAY QUE DEFINIR UNA RUTA VALIDA
-    return "Hubo un problema al agregar"
+    return jsonify("Hubo un problema al agregar"),401
 
 @app.after_request
 def after_request(response):
@@ -157,4 +162,3 @@ def after_request(response):
     response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
     response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
     return response
-
