@@ -43,3 +43,11 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return safe_str_cmp(password, "password")
+
+'''
+class tickets(db.Model):
+    __tablename__='tickets'
+    id = db.Column(db.Integer, primary_key=True)
+    ticket = db.Column(db.String(1000))
+    nombre
+'''

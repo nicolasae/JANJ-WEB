@@ -77,6 +77,9 @@ def forgot_password_respuesta():
 
     user.password = generate_password_hash(new_password, method='sha256')
 
+    db.session.add(user)
+    db.session.commit()
+
     return jsonify('Se cambio la contraseña con exito')
 
 
