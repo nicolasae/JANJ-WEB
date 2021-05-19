@@ -104,7 +104,7 @@ export default class Subscription extends React.Component {
     }  
 
     Navbar=()=>{
-        var html= NavBar(1);
+        var html= NavBar(this.props.rol);
         return(
         <>
         {html}

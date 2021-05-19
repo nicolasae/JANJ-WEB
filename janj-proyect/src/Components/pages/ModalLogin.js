@@ -55,10 +55,10 @@ const CloseModalLoginButton = styled(MdClose)`
   z-index: 10;
 `;
 
-export const ModalLogin = ({ showModalLogin, setShowModalLogin }) => {
+export const ModalLogin = ({props, showModalLogin, setShowModalLogin }) => {
   const ModalLoginRef = useRef();
 
-
+  console.log(props)
 
   const animation = useSpring({
     config: {
@@ -100,7 +100,7 @@ export const ModalLogin = ({ showModalLogin, setShowModalLogin }) => {
             <ModalLoginWrapper showModalLogin={showModalLogin}>
               <ModalLoginImg src={'/janj-logo.png'} alt='logo' />
               <ModalLoginContent>
-                <LoginForm/>
+                <LoginForm {...props}/>
               </ModalLoginContent>
               <CloseModalLoginButton
                 aria-label='Close ModalLogin'

@@ -12,7 +12,7 @@ import Navbar from 'react-bootstrap/Navbar'
 
 
 
-export default function NavBar() {
+const NavBar = props => {
   const [showModalRegistro, setShowModalRegistro] = useState(false);
   const openModalRegistro = () => {
     setShowModalRegistro(prev => !prev);
@@ -42,10 +42,11 @@ export default function NavBar() {
             </nav>
           </div>
         </div>
-        <ModalRegistro showModalRegistro={showModalRegistro} setShowModalRegistro={setShowModalRegistro} />
-        <ModalLogin showModalLogin={showModalLogin} setShowModalLogin={setShowModalLogin} />
+        <ModalRegistro props={props} showModalRegistro={showModalRegistro} setShowModalRegistro={setShowModalRegistro} />
+        <ModalLogin    props={props} showModalLogin={showModalLogin} setShowModalLogin={setShowModalLogin} />
     </header>
     
    
   );
 }
+export default NavBar

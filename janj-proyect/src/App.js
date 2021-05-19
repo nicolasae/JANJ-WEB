@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Switch, Route} from 'react-router-dom'
+import { Switch, Route, Redirect} from 'react-router-dom'
 
 
 // Componentes
@@ -31,32 +31,38 @@ import Simulacionr from './Components/Users/Registered/Services/Simulacion'
 import Subscriptionr from './Components/Users/Registered/Subscription'
 
 const App= props=> {
-
+  const [token, setToken] = useState("")
+  const [idusuario, setIdusuario] = useState("")
+  const [nombre, setNombre] = useState("")
+  const [rol, setRol] = useState("")
   return (
-      <Switch>
-        <Route exact path='/'  component={HomePage} />
-        <Route path='/converter' exact render={propiedades => (<Converter {...propiedades} />)}/>
-        <Route path='/premium' exact component={Premium}/>
-        <Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} />)}/>
-        {/* USUARIOs*/}
-        <Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} />)}/>
-        {/* USUARIO REGISTRADO */}
-        <Route path='/homer' exact component={Homer}/>
-        <Route path='/educacionr' exact render={propiedades => (  <Educacionr {...propiedades} />)}/>
-        <Route path='/seguimientor' exact render={propiedades => (<Seguimientor {...propiedades} />)}/>
-        <Route path='/simulacionr' exact render={propiedades => ( <Simulacionr {...propiedades} />)}/>
-        <Route path='/prediccionr' exact render={propiedades => ( <Prediccionr {...propiedades} />)}/>
-        <Route path='/subscriptionr' exact render={propiedades => ( <Subscriptionr {...propiedades}/>)}/>
-        {/* USUARIO PREMIUM */}
-        <Route path='/homep' exact render={propiedades => (<Homep {...propiedades} />)}/>
-        <Route path='/educacionp' exact render={propiedades => (<Educacionp {...propiedades} />)}/>
-        <Route path='/seguimientop' exact render={propiedades => (<Seguimientop {...propiedades} />)}/>
-        <Route path='/simulacionp' exact render={propiedades => (<Simulacionp {...propiedades} />)}/>
-        <Route path='/prediccionp' exact render={propiedades => (<Prediccionp {...propiedades} />)}/>
-        <Route path='/subscriptionp' exact render={propiedades => ( <Subscriptionp {...propiedades}/>)}/>
+	  <div>
+		{ idusuario !== "" ?( rol !== "" ? <Redirect push to={"/"+rol}/> : null): null}
+		<Switch>
+			<Route exact path='/' exact render={propiedades => (<HomePage {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
+			<Route path='/converter' exact render={propiedades => (<Converter {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
+			<Route path='/premium' exact component={Premium}/>
+			<Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			{/* USUARIOs*/}
+			<Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			{/* USUARIO REGISTRADO */}
+			<Route path='/register' exact component={Homer}/>
+			<Route path='/register/educacion' exact render={propiedades => (  <Educacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
+			<Route path='/register/seguimiento' exact render={propiedades => (<Seguimientor {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/register/simulacion' exact render={propiedades => ( <Simulacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/register/prediccion' exact render={propiedades => ( <Prediccionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/register/subscription' exact render={propiedades => ( <Subscriptionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
+			{/* USUARIO PREMIUM */}
+			<Route path='/premium' exact render={propiedades => (<Homep {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/premium/educacion' exact render={propiedades => (<Educacionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/premium/seguimiento' exact render={propiedades => (<Seguimientop {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/premium/simulacion' exact render={propiedades => (<Simulacionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/premium/prediccion' exact render={propiedades => (<Prediccionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/premium/subscription' exact render={propiedades => ( <Subscriptionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
 
 
-      </Switch>
+		</Switch>
+	  </div>
   );
 }
 

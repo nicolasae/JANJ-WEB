@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/Carousel'
 
 
 function Navbar(){
-    var html= NavBar(1);
+    var html= NavBar('register');
     return(
     <>
     {html}
