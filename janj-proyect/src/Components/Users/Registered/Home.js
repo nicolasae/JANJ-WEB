@@ -12,6 +12,8 @@ function Navbar(){
     {html}
     </>)
 }
+
+
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
   
@@ -53,21 +55,25 @@ function ControlledCarousel() {
   }
 
 
-export default function home(){
+class home extends React.Component{
+    
+    
+    render(){
+        return(
+            <div>
+            <Navbar/>
+            <div id="carrousel">
+                <h1><strong>Bienvenido</strong></h1>
+                <section id="carrousel"> 
+                    <div> 
+                        <ControlledCarousel />
+                    </div>
+                </section>
+            </div>
+            </div>
 
-    return(
-        <div>
-        <Navbar/>
-        <div id="carrousel">
-            <h1><strong>Bienvenido</strong></h1>
-            <section id="carrousel"> 
-                <div> 
-                    <ControlledCarousel />
-                </div>
-            </section>
-        </div>
-        </div>
+            )
 
-    )
-
-}
+        }
+    }
+export default home;
