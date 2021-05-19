@@ -102,6 +102,53 @@ def forgot_password_pregunta():
 
 
 
+@app.route('/contactenos', methods=["POST"])
+def contactenos():
+    from aplicacion.models import contacto
+    datos = request.get_json()
+
+    nombre = datos.get("nombre")
+    email = datos.get("email")
+    asunto = datos.get("asunto")
+    mensaje = datos.get("mensaje")
+
+    if email is None:
+        return jsonify("No ingreso un correo al cual dar respuesta"),401
+
+    mensaje = contacto(nombre=nombre, email=email, asunto=asunto, mensaje=mensaje)
+    db.session.add(mensaje)
+    db.session.commit()
+
+    return jsonify("Mensaje enviado con exito")
+
+@app.route('/listar_contactenos')
+def listar_contactenos():
+    from aplicacion.models import contacto
+
+    consulta = contacto.query.all()
+    contactos = []
+
+    for dato in consulta:
+        temporal = []
+        temporal.append(dato.nombre)
+        temporal.append(dato.email)
+        temporal.append(dato.asunto)
+        temporal.append(dato.mensaje)
+        contactos.append(temporal)
+
+    return jsonify(contactos)
+
+@app.route('/datos_usuario', methods=["POST"])
+def datos_usuario():
+    from aplicacion.models import User
+
+    usuario = request.get_json()
+    email = usuario.get("email")
+
+    usuario = User.query.filter_by(email=email).first()
+    return jsonify(email=usuario.email, nombre=usuario.nombre, pregunta=usuario.pregunta, respuesta=usuario.respuesta)
+
+
 @app.route('/signup', methods=['POST'])
 def signup_post():
     from aplicacion.models import User
