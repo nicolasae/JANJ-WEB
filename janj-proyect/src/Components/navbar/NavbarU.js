@@ -86,7 +86,7 @@ export default function NavBar(idpermisos) {
        <div className="row">
        <div className="container col-lg-11">
          <div id="logo">
-         <Link to='/homer' >
+         <Link to='/register' >
            <img src="janj-symbol-redu.png" />
          </Link>
          </div>

@@ -40,9 +40,9 @@ const App= props=> {
 		{ idusuario !== "" ?( rol !== "" ? <Redirect push to={"/"+rol}/> : null): null}
 		<Switch>
 			<Route exact path='/' exact render={propiedades => (<HomePage {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
-			<Route path='/converter' exact render={propiedades => (<Converter {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
-			<Route path='/premium' exact component={Premium}/>
-			<Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/converter' exact render={propiedades => (<Converter {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
+			<Route path='/premium' exact render={propiedades => (<Premium {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
+			<Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
 			{/* USUARIOs*/}
 			<Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
 			{/* USUARIO REGISTRADO */}

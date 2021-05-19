@@ -5,10 +5,10 @@ import Navbar from '../navbar/Navbar';
 import Testimonios from '../home/Testimonios';
 import Table from 'react-bootstrap/Table'
 
-function Premium() {
+const Premium=(props)=> {
     return (
         <div>
-            <Navbar/>
+            <Navbar {...props}/>
             <section id="premium">
                 <div className="row">
                     <div className="col-lg-1"/>

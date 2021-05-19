@@ -63,7 +63,7 @@ class Converter extends React.Component{
       return (
         <section id="converter">          
           <div>
-          <Navbar/> 
+          <Navbar {...this.props}/> 
           </div>      
             <div className="container">                  
                 <div className="section-header">

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../App.css';
 import Collapse from 'react-bootstrap/Collapse'
-
 import NavBar from '../navbar/Navbar'
+const axios= require('axios')
 
 class RecoverPassword extends React.Component{
 
@@ -11,20 +11,45 @@ class RecoverPassword extends React.Component{
         this.state={  
           isOpenQuestion : false,
           isOpenPassword : false,
+          form:{
+            email:"",
+            answer:"",
+            question:"",
+            newpass:""
+          }
         }
       }
 
-      handleChange=async e=>{
+      onChange=async e=>{
         this.setState({
             form:{
                 ...this.state.form,
                 [e.target.name]:e.target.value
             }
         })
-        console.log(e.target.name);
       }
 
-      toggleQuestion = () => {
+      toggleQuestion =async () => {
+        var data = JSON.stringify({
+          email:this.state.form.email,
+      });
+      var baseurl = String(process.env.REACT_APP_API_URL)
+      const url = baseurl+'/datos_usuario'
+      var config = {
+          method: 'post',
+          url: url,
+          headers: { 
+            'Content-Type': 'application/json'
+          },
+          data: data
+        };
+      console.log(config)
+      await axios(config)
+      .then(response => {
+          this.setState({
+            form:{ ...this.state.form, question:response.data.pregunta,} 
+          })
+      		})
         this.setState({isOpenQuestion: !this.state.isOpenQuestion});
       }
 
@@ -32,18 +57,37 @@ class RecoverPassword extends React.Component{
         this.setState({isOpenPassword: !this.state.isOpenPassword});
       }
 
-
+      enviar=async() => {
+        var data = JSON.stringify({
+          email:this.state.form.email,
+          respuesta:this.state.form.answer,
+          new_password:this.state.form.newpass,
+      });
+      var baseurl = String(process.env.REACT_APP_API_URL)
+      const url = baseurl+'/forgot_password_respuesta'
+      var config = {
+          method: 'post',
+          url: url,
+          headers: { 
+            'Content-Type': 'application/json'
+          },
+          data: data
+        };
+      console.log(config)
+      await axios(config)
+      .then(response => console.log(response))        
+      }
     render(){
     return (
         <div>
-            <NavBar/>
+            <NavBar {...this.props}/>
             <div>
             <section id="recover">
                 <div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4 text-center"> 
                         <h1>¿Olvidaste tu contraseña</h1>
-                        <input placeholder="Ingresa el Correo Electrónico registrado" type="email"/>
+                        <input placeholder="Ingresa el Correo Electrónico registrado" name='email' value={this.state.form.email} onChange={this.onChange} type="email"/>
                         <button className="btn-get-started" onClick={this.toggleQuestion} aria-controls="example-collapse-text" aria-expanded={this.state.isOpenQuestion}>Enviar</button>
                     </div>
                 </div>
@@ -52,10 +96,13 @@ class RecoverPassword extends React.Component{
                         <div className="row">
                             <div className="col-lg-4"></div>
                             <div className="col-lg-4 text-center"> 
-                                <h1>Responda la siguiente pregunta de seguridad</h1>
-                                <h2>Acá va la pregunta</h2>
-                                <input type="text" placeholder="Respuesta"></input>
-                                <button className="btn-get-started">Enviar</button>
+                                <h3>
+                                  Responda la siguiente pregunta de seguridad y escriba su nueva contraseña
+                                  {this.state.form.question}
+                                </h3>
+                                <input type="text" name='answer' onChange={this.onChange} placeholder="Respuesta"></input>
+                                <input type="password" name='newpass' onChange={this.onChange} placeholder="Nueva Contraseña"></input>
+                                <button onClick={(e)=>this.enviar()} className="btn-get-started">Enviar</button>
                             </div>
                         </div>
                         </div>
