@@ -88,7 +88,7 @@ class Contact extends React.Component {
                             <div class="col-lg-5 col-md-8">
                                 <div class="form">
                                     <div className="form-group">
-                                        <input type="text" name="name" onChange={this.onChange} className="form-control" id="name" placeholder="Nombre" />
+                                        <input type="text" name="name"  onChange={this.onChange} className="form-control" id="name" placeholder="Nombre" />
                                     <div className="validate"></div>
                                     </div>
                                     <div className="form-group">
