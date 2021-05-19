@@ -35,6 +35,7 @@ function Query_text(){
 
 
 const HomePage=props=>{
+    
     console.log(props)
     return(
         <div>
