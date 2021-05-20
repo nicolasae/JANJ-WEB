@@ -6,8 +6,9 @@ from werkzeug.security import generate_password_hash, check_password_hash,safe_s
 from flask import Flask,request,make_response,redirect,jsonify
 
 from flask_jwt_extended import create_access_token,current_user,jwt_required,JWTManager
-
-
+import pandas as pd
+import os
+import csv
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -15,6 +16,10 @@ Bootstrap(app)
 db = SQLAlchemy(app)
 
 app.config["JWT_SECRET_KEY"] = "A0Zr98j/3yX R~XLH!tmN]LWk/,?RT"
+
+UPLOAD_FOLDER = 'static/files'
+app.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
+
 
 jwt = JWTManager(app)
 
@@ -138,6 +143,19 @@ def listar_contactenos():
 
     return jsonify(contactos)
 
+@app.route('/listar_tickets')
+def listar_tickets():
+    from aplicacion.models import tickets
+
+    consulta = tickets.query.all()
+    resultados = []
+
+    for dato in consulta:
+        temporal = {"ticket":dato.ticket}
+        resultados.append(temporal)
+
+    return jsonify(resultados)
+
 @app.route('/datos_usuario', methods=["POST"])
 def datos_usuario():
     from aplicacion.models import User
@@ -147,6 +165,31 @@ def datos_usuario():
 
     usuario = User.query.filter_by(email=email).first()
     return jsonify(email=usuario.email, nombre=usuario.nombre, pregunta=usuario.pregunta, respuesta=usuario.respuesta)
+
+@app.route('/agregar_tickets')
+def agregar_tickets():
+    from aplicacion.models import tickets
+
+    #THIS_FOLDER = os.path.dirname(os.path.abspath('sp_500_stocks.csv'))
+    #filename_path = os.path.join(THIS_FOLDER,'sp_500_stocks.csv')
+    #print(filename_path)
+    #stocks = pd.read_csv(filename_path)
+
+    stocks = pd.read_csv('/home/alejo/Escritorio/JANJ-WEB/back/aplicacion/sp_500_stocks.csv')
+
+    try:
+        for stock in stocks['Ticker']:
+            new_ticket = tickets(ticket=stock)
+            db.session.add(new_ticket)
+            db.session.commit()
+
+        return jsonify("Se agregaron los tickets con exito")
+
+    except:
+        return jsonify("Hubo un error al agregar"),501
+
+    return jsonify("Algo sucedio en el proceso"),501
+
 
 
 @app.route('/signup', methods=['POST'])
