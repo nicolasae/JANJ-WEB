@@ -6,7 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash,safe_s
 from flask import Flask,request,make_response,redirect,jsonify
 
 from flask_jwt_extended import create_access_token,current_user,jwt_required,JWTManager
-import pandas as pd
 import os
 import csv
 
@@ -143,6 +142,26 @@ def listar_contactenos():
 
     return jsonify(contactos)
 
+
+@app.route('/listar_usuarios')
+def listar_usuarios():
+    from aplicacion.models import User
+
+    consulta = User.query.all()
+    usuarios = []
+
+    for usuario in consulta:
+        temporal = []
+        temporal.append(usuario.nombre)
+        temporal.append(usuario.apellido)
+        temporal.append(usuario.email)
+        temporal.append(usuario.telefono)
+        temporal.append(usuario.pregunta)
+        temporal.append(usuario.respuesta)
+        usuarios.append(temporal)
+
+    return jsonify(usuarios)
+
 @app.route('/listar_tickets')
 def listar_tickets():
     from aplicacion.models import tickets
@@ -169,7 +188,7 @@ def datos_usuario():
 @app.route('/agregar_tickets')
 def agregar_tickets():
     from aplicacion.models import tickets
-
+    import pandas as pd
     #THIS_FOLDER = os.path.dirname(os.path.abspath('sp_500_stocks.csv'))
     #filename_path = os.path.join(THIS_FOLDER,'sp_500_stocks.csv')
     #print(filename_path)
