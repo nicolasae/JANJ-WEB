@@ -9,6 +9,7 @@ from flask_jwt_extended import create_access_token,current_user,jwt_required,JWT
 import os
 import pandas as pd
 import csv
+import random
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -175,6 +176,24 @@ def listar_tickets():
         resultados.append(temporal)
 
     return jsonify(resultados)
+
+@app.route('/aleatorio_ticket')
+def aleatorio_ticket():
+    from aplicacion.models import tickets
+
+    consulta = tickets.query.all()
+
+    rand = random.randrange(0,len(consulta)-1)
+
+    try:
+        accion = consulta[rand].ticket
+        return jsonify(ticket=accion)
+    except:
+        return jsonify("Hubo un error en el sistetma")
+
+
+
+
 
 @app.route('/datos_usuario', methods=["POST"])
 def datos_usuario():
