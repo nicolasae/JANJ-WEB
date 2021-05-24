@@ -10,6 +10,7 @@ import os
 import pandas as pd
 import csv
 import random
+import requests
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -64,7 +65,6 @@ def protected():
         nombre=current_user.nombre,
         email=current_user.email,
     )
-
 
 
 @app.route('/forgot_password_respuesta', methods=["POST"])
@@ -164,7 +164,7 @@ def listar_usuarios():
 
     return jsonify(usuarios)
 
-@app.route('/listar_tickets')
+@app.route('/listar_tickets') ##REFERENCIA PARA ACOMODAR LOS JSON DE LAS ACCIONES
 def listar_tickets():
     from aplicacion.models import tickets
 
@@ -176,6 +176,26 @@ def listar_tickets():
         resultados.append(temporal)
 
     return jsonify(resultados)
+
+
+@app.route('/consulta_historial', methods=['POST'])
+def consulta_historial():
+    IEX_CLOUD_API_TOKEN = 'Tpk_059b97af715d417d9f49f50b51b1c448'
+    informacion = request.get_json()
+    ticket = informacion.get('ticket')
+    periodo = informacion.get('periodo')
+    historico = []
+
+    api_url = f'https://sandbox.iexapis.com/stable/stock/{ticket}/chart/{periodo}?token={IEX_CLOUD_API_TOKEN}'
+    data = requests.get(api_url).json()
+    for row in data:
+        temporal = {row['date']:row['open']}
+        historico.append(temporal)
+
+    return jsonify(historico)
+
+
+
 
 @app.route('/aleatorio_ticket')
 def aleatorio_ticket():
