@@ -57,10 +57,10 @@ function Premium() {
                     </div>
                 </div>
                 <div className="section-header">
-                    <h3 className="section-title">¿Cómo conseguir Premium?</h3>
+                    <h1><strong>¿Cómo conseguir Premium?</strong></h1>
                 </div>
                 <div className="row">
-                    <div className="col-lg-5 ">    
+                    <div className="col-lg-6 ">    
                         <p className = " responsive">
                         Puedes hacer muchas cosas con nosotros, nuestros
                         servicios disponibles actualmente mediante una
@@ -77,14 +77,14 @@ function Premium() {
                         servicios de la plataforma.
                         </p>
                     </div>
-                    <div className="col-lg-2"></div>
+                    <div className="col-lg-1"></div>
                     <div className="col-lg-5 col-md-8">
                         <img src="janj-logo.png"/>
                     </div>
 
                 </div>
             </section>
-            <Testimonios/>
+            {/* <Testimonios/> */}
         </div>
 
     );

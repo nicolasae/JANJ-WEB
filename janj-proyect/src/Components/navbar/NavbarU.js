@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Estilos 
-import '../../styles/navbar/Navbar.css';
+// import '../../styles/navbar/Navbar.css';
 import '../../assets/vendor/bootstrap/css/bootstrap.css';
 // Dropdown
 import Dropdown from './Dropdown';
-
+import DropdownProfile from './DropdownProfile';
 
 export default function NavBar(idpermisos) {
 
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
+
+  
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -32,6 +34,8 @@ export default function NavBar(idpermisos) {
     }
   };
 
+
+  // Usuario Premium 
   if(idpermisos==1){
     return (
       /* ======= Header ======= */
@@ -39,27 +43,33 @@ export default function NavBar(idpermisos) {
         <div className="row">
         <div className="container col-lg-11">
           <div id="logo">
-          <Link to='/' >
+          <Link to='/homep' >
             <img src="janj-symbol-redu.png" />
           </Link>
           </div>
             <nav id="nav-menu-container">
               <ul className="nav-menu ">
-                {/* <li ><Link to="/prediccion">Predicción</Link></li>
-                <li ><Link to="/simulacion">Simulación</Link></li>
-                <li ><Link to="/seguimiento">Seguimiento</Link></li>
-                <li ><Link to="/educacion">Educación</Link></li> */}
+                <li 
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave} 
+                >
+                    <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
+                    {dropdown && <Dropdown permiso={'premium'}/>}
+                </li> 
+                <li><Link to="/subscriptionp">Suscripción A Divisas</Link></li>
+                {/* <li 
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}>
+                  <Link to="#"><i  className="fas fa-user-circle"/></Link>
+                  {dropdown && <Dropdown />}
+                </li> */}
                 <li 
                   onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave} >
-                    <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
-                    {dropdown && <Dropdown />}
+                  onMouseLeave={onMouseLeave} 
+                >
+                    <Link to="#"><i className='fas fa-user-circle' /></Link>
+                    {dropdown && <DropdownProfile  />}
                 </li> 
-
-                <li><Link to="/suscripcion">Suscripción A Divisas</Link></li>
-                <li>
-                  <Link to="#"><i  className="fas fa-user-circle"></i></Link>
-                </li>
               </ul>
             </nav>
           </div>
@@ -67,29 +77,42 @@ export default function NavBar(idpermisos) {
       </header>
     );
   }
+
+  // Usuario Registrado
   if(idpermisos==2){
     return (
-      /* ======= Header ======= */
-      <header id="header">
-        <div className="row">
-        <div className="container col-lg-11">
-          <div id="logo">
-          <Link to='/' >
-            <img src="janj-symbol-redu.png" />
-          </Link>
-          </div>
-            <nav id="nav-menu-container">
-              <ul className="nav-menu ">
-                <li><Link to="/">Premium</Link></li>
-                <li><Link to="/login">Iniciar Sesion</Link></li>
-                <li><Link to="/signup">Registrarse</Link></li>
-              </ul>
-            </nav>
-              {/* #nav-menu-container */}
-          </div>
-          </div>
-      </header>
-    );
+       /* ======= Header ======= */
+       <header id="header">
+       <div className="row">
+       <div className="container col-lg-11">
+         <div id="logo">
+         <Link to='/homer' >
+           <img src="janj-symbol-redu.png" />
+         </Link>
+         </div>
+           <nav id="nav-menu-container">
+             <ul className="nav-menu ">
+               <li 
+               onMouseEnter={onMouseEnter}
+               onMouseLeave={onMouseLeave} 
+               >
+                   <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
+                   {dropdown && <Dropdown permiso='register' />}
+               </li> 
+               <li><Link to="/subscriptionr">Suscripción A Divisas</Link></li>
+               <li 
+                 onMouseEnter={onMouseEnter}
+                 onMouseLeave={onMouseLeave} 
+               >
+                   <Link to="#"><i className='fas fa-user-circle' /></Link>
+                   {dropdown && <DropdownProfile  />}
+               </li> 
+             </ul>
+           </nav>
+         </div>
+         </div>
+     </header>
+   );
   }
   if(idpermisos==3){
     return (

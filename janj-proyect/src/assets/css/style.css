@@ -339,7 +339,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Nav Meu Styling */
 .nav-menu a {
-  padding: 0 8px 10px 8px;
+  /* padding: 0 8px 10px 8px; */
+  padding-left: 20px;
+  padding-right: 20px;
   text-decoration: none;
   display: inline-block;
   color: rgb(0, 0, 0);
@@ -348,6 +350,10 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   font-size: 18px;
   outline: none;
+}
+
+.nav-menu i{
+  width:40px;
 }
 
 .nav-menu > li {
@@ -391,7 +397,6 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
   display: block;
   font-size: 13px;
-  
   text-transform: none;
 }
 
@@ -601,10 +606,15 @@ section {
   background: #f7f7f7;
   padding: 80px 0;
 }
+#about h1,h2,h3,h5,h6 {
+  text-align: left;
+}
+#about h2 {
+  text-align: center;
+}
 
 #about .about-container .background {
   min-height: 300px;
-  /* background: url(../img/about-img.jpg) center top no-repeat; */
   margin-bottom: 10px;
 }
 
@@ -719,6 +729,10 @@ section {
   background: #fafafa;
 }
 
+#services h4 {
+  text-align: center;
+}
+
 #services .icon {
   position: absolute;
   top: -36px;
@@ -767,6 +781,7 @@ section {
 
 #services .title a {
   color: #111;
+  align-items: center;
 }
 
 #services .description {
@@ -1255,20 +1270,29 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Educacion
+# Página Principal 
 --------------------------------------------------------------*/
 
 #carrousel  {  
   width: 100%;
   height: 100vh + 100px;
-  margin-top: 7%;
+  margin-top: 12%;
   display: block;
 }
 
-#carrousel .carrousel  {  
-  background: rgba(210, 210, 210);
+#carrousel h1{
+  font-size: 4em;
 }
 
+#carrousel .carrousel  {  
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background: #FFF;
+}
+
+#carrousel .item {  
+  margin-bottom: 5%;
+}
 #carrousel a {  
   background: rgba(0, 0, 0, 0.5);
 }
@@ -1301,11 +1325,11 @@ section {
 
 #premium h1 {
   font-size: 48px;
-  /* width: 100%; */
   color: rgb(0, 0, 0);
   text-align: center;
-  margin-bottom: 3%;
-  margin-top: 3%;
+  margin-bottom: 2%;
+  margin-top: 1%;
+  
 }
 #premium p {
   color: black;
@@ -1341,13 +1365,11 @@ section {
   }
 }
 
-
-
 /*--------------------------------------------------------------
 # Converter
 --------------------------------------------------------------*/
 #converter{
-  margin-top:4%; 
+  margin-top:15%; 
 }
 
 #converter h1{
@@ -1415,5 +1437,357 @@ select:focus> option:checked{
   border: 2px solid #2dc997;
 }
 
+/*--------------------------------------------------------------
+# Recover
+--------------------------------------------------------------*/
+#recover{
+  margin-top:2%;
 
-/* EDUCACIÓN */
+}
+#recover h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+}
+#recover h2{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+}
+#recover input{
+  padding: 10px 12px 10px 12px;
+  border: 1px solid rgb(0,255,119,0.5);
+  border-radius: 2px;
+  margin-bottom: 5px;
+  /* margin-top: 2px; */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: white;
+}
+
+#recover .btn-get-started{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 3%;
+}
+
+#recover .btn-get-started:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
+}
+
+
+/*--------------------------------------------------------------
+# Eduacion
+--------------------------------------------------------------*/
+#educacion{
+  margin-top: 5%;
+}
+
+#educacion h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+}
+
+#eduacion .root {
+  border: solid;
+}
+
+.educacion-popover{
+  background-color:white;
+  margin-left: 5%;
+  width: 50%;
+  border: 2px solid #2dc997;
+}
+
+.educacion-popover-title{
+  background-color: #2dc997;
+  padding-bottom: 2%;
+  height: 20%;
+}
+
+.educacion-popover-content{
+  text-align: left;
+  color: black;
+  padding: 2%;
+}
+
+
+/*--------------------------------------------------------------
+# Subscription
+--------------------------------------------------------------*/
+.subscription{
+  margin-top: 6%;
+}
+
+.subscription h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+  color: black;
+}
+.subscription h2{
+  text-align: center;
+  font-size: 1em;
+  color: black;
+  font-weight: bolder;
+  padding:2%
+}
+
+.subscription-grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: 45% 45% ;
+  padding: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
+
+.subscription-grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: rgb(250,250,250);
+}
+
+
+.subscription p{
+  margin-top: 3%;
+  font-size:20px;
+  color: black;
+  text-align: left;
+}
+.subscription li{
+  padding:2%;
+  font-size:20px;
+  color: black;
+  text-align: left;
+}
+
+.subscription .btn-get-started{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.subscription .btn-get-started-center{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.subscription .btn-get-started-center:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
+}
+
+.subscription .btn-get-started:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
+}
+
+#editarperfil{
+  margin-top:15%;
+  display: block;
+
+}
+
+/*--------------------------------------------------------------
+# Seguimiento
+--------------------------------------------------------------*/
+
+.seguimiento{
+  margin-top: 8%;
+}
+
+.seguimiento-grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: 65% 25% ;
+  padding: 10px;
+  margin-left: 5%;
+  margin-right: 3%;
+
+}
+
+.seguimiento-grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: rgb(250,250,250);
+}
+
+.seguimiento h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+  color: black;
+}
+
+.seguimiento h2{
+  text-align: center;
+  font-size: 1em;
+  font-weight: bolder;
+  color: black;
+}
+
+.seguimiento p{
+  padding: 2%;
+  font-size: 1.5rem;
+  color: black;
+  text-align: justify;
+}
+
+.seguimiento .btn-get-started-right{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.seguimiento .btn-get-started-right:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
+}
+
+
+/*--------------------------------------------------------------
+#Predicción
+--------------------------------------------------------------*/
+#prediccion{
+  margin-top: 8%;
+}
+
+#prediccion .btn-get-started{
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+}
+
+#prediccion .btn-get-started:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
+}
+
+
+/*--------------------------------------------------------------
+#Simulación
+--------------------------------------------------------------*/
+
+.simulacion{
+  margin-top: 8%;
+}
+
+.simulacion-grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: 65% 25% ;
+  padding: 10px;
+  margin-left: 5%;
+  margin-right: 3%;
+
+}
+
+.simulacion-grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: rgb(250,250,250);
+}
+
+.simulacion h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+  color: black;
+}
+
+.simulacion h2{
+  text-align: center;
+  font-size: 1em;
+  font-weight: bolder;
+  color: black;
+}
+
+.simulacion p{
+  padding: 2%;
+  font-size: 1.5rem;
+  color: black;
+  text-align: justify;
+}
+
+.simulacion .btn-get-started{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.simulacion .btn-get-started:hover {
+  background: #2dc997;
+  border: 2px solid #2dc997;
+}
+
+.simulacion .input-start{
+  padding: 10px 12px 10px 12px;
+  border: 1px solid rgb(0,255,119,0.5);
+  border-radius: 2px;
+  margin-bottom: 3%;
+  /* margin-top: 2px; */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: white;
+}
