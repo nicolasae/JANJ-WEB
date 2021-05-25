@@ -22,10 +22,11 @@ export default class Login extends React.Component {
              }
         })
     }
-    directLogin=()=>{
+    directLogin=async()=>{
+        console.log(this.props)
         var data = JSON.stringify({
-            email:this.state.email,
-            password:this.state.password
+            email:this.state.login.email,
+            password:this.state.login.password
         });
         var baseurl = String(process.env.REACT_APP_API_URL)
         const url = baseurl+'/login'
@@ -37,8 +38,15 @@ export default class Login extends React.Component {
             },
             data: data
           };
-        axios(config)
-        .then(response => console.log(response))
+        console.log(config)
+        await axios(config)
+        .then(response => {
+			this.props.setNombre(response.data.nombre + ' ' + response.data.apellido)
+			this.props.setIdusuario(response.data.id_usuario)
+			this.props.setToken(response.data.access_token)
+			this.props.setRol(response.data.rol)
+			
+		})
     }
     responseGoogleSuccess=async(response)=>{
         console.log(response.profileObj)
@@ -117,7 +125,7 @@ export default class Login extends React.Component {
                                 <a href="/recover" className="ml-auto mb-0 form-group-login-s">Olvidaste tu contraseña?</a>
                             </div>
                             <div className="row mb-3 px-3">
-                                <button onClick={this.directLogin} type="submit" className="btn btn-blue text-center form-group-login">Ingresar</button>
+                                <button onClick={(e)=>this.directLogin()} type="submit" className="btn btn-blue text-center form-group-login">Ingresar</button>
                             </div>
                             <div className ="text-center">
                                 <GoogleLogin

@@ -6,8 +6,11 @@ from werkzeug.security import generate_password_hash, check_password_hash,safe_s
 from flask import Flask,request,make_response,redirect,jsonify
 
 from flask_jwt_extended import create_access_token,current_user,jwt_required,JWTManager
-
-
+import os
+import pandas as pd
+import csv
+import random
+import requests
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -15,6 +18,10 @@ Bootstrap(app)
 db = SQLAlchemy(app)
 
 app.config["JWT_SECRET_KEY"] = "A0Zr98j/3yX R~XLH!tmN]LWk/,?RT"
+
+UPLOAD_FOLDER = 'static/files'
+app.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
+
 
 jwt = JWTManager(app)
 
@@ -60,7 +67,6 @@ def protected():
     )
 
 
-
 @app.route('/forgot_password_respuesta', methods=["POST"])
 def forgot_password_respuesta():
     from aplicacion.models import User
@@ -76,6 +82,9 @@ def forgot_password_respuesta():
         return jsonify("El email o la respuesta dada no coinciden, intentelo de nuevo"),401
 
     user.password = generate_password_hash(new_password, method='sha256')
+
+    db.session.add(user)
+    db.session.commit()
 
     return jsonify('Se cambio la contraseña con exito')
 
@@ -96,6 +105,149 @@ def forgot_password_pregunta():
     #articulos = Articulos.query.all()
     #return render_template("inicio.html", articulos=articulos)
     return jsonify("El usuario con ese correo no existe"),401
+
+
+
+@app.route('/contactenos', methods=["POST"])
+def contactenos():
+    from aplicacion.models import contacto
+    datos = request.get_json()
+
+    nombre = datos.get("nombre")
+    email = datos.get("email")
+    asunto = datos.get("asunto")
+    mensaje = datos.get("mensaje")
+
+    if email is None:
+        return jsonify("No ingreso un correo al cual dar respuesta"),401
+
+    mensaje = contacto(nombre=nombre, email=email, asunto=asunto, mensaje=mensaje)
+    db.session.add(mensaje)
+    db.session.commit()
+
+    return jsonify("Mensaje enviado con exito")
+
+@app.route('/listar_contactenos')
+def listar_contactenos():
+    from aplicacion.models import contacto
+
+    consulta = contacto.query.all()
+    contactos = []
+
+    for dato in consulta:
+        temporal = []
+        temporal.append(dato.nombre)
+        temporal.append(dato.email)
+        temporal.append(dato.asunto)
+        temporal.append(dato.mensaje)
+        contactos.append(temporal)
+
+    return jsonify(contactos)
+
+
+@app.route('/listar_usuarios')
+def listar_usuarios():
+    from aplicacion.models import User
+
+    consulta = User.query.all()
+    usuarios = []
+
+    for usuario in consulta:
+        temporal = []
+        temporal.append(usuario.nombre)
+        temporal.append(usuario.apellido)
+        temporal.append(usuario.email)
+        temporal.append(usuario.telefono)
+        temporal.append(usuario.pregunta)
+        temporal.append(usuario.respuesta)
+        usuarios.append(temporal)
+
+    return jsonify(usuarios)
+
+@app.route('/listar_tickets') ##REFERENCIA PARA ACOMODAR LOS JSON DE LAS ACCIONES
+def listar_tickets():
+    from aplicacion.models import tickets
+
+    consulta = tickets.query.all()
+    resultados = []
+
+    for dato in consulta:
+        temporal = {"ticket":dato.ticket}
+        resultados.append(temporal)
+
+    return jsonify(resultados)
+
+
+@app.route('/consulta_historial', methods=['POST'])
+def consulta_historial():
+    IEX_CLOUD_API_TOKEN = 'Tpk_059b97af715d417d9f49f50b51b1c448'
+    informacion = request.get_json()
+    ticket = informacion.get('ticket')
+    periodo = informacion.get('periodo')
+    historico = []
+
+    api_url = f'https://sandbox.iexapis.com/stable/stock/{ticket}/chart/{periodo}?token={IEX_CLOUD_API_TOKEN}'
+    data = requests.get(api_url).json()
+    for row in data:
+        temporal = {row['date']:row['open']}
+        historico.append(temporal)
+
+    return jsonify(historico)
+
+
+
+
+@app.route('/aleatorio_ticket')
+def aleatorio_ticket():
+    from aplicacion.models import tickets
+
+    consulta = tickets.query.all()
+
+    rand = random.randrange(0,len(consulta)-1)
+
+    try:
+        accion = consulta[rand].ticket
+        return jsonify(ticket=accion)
+    except:
+        return jsonify("Hubo un error en el sistetma")
+
+
+
+
+
+@app.route('/datos_usuario', methods=["POST"])
+def datos_usuario():
+    from aplicacion.models import User
+
+    usuario = request.get_json()
+    email = usuario.get("email")
+
+    usuario = User.query.filter_by(email=email).first()
+    return jsonify(email=usuario.email, nombre=usuario.nombre, pregunta=usuario.pregunta, respuesta=usuario.respuesta)
+
+@app.route('/agregar_tickets')
+def agregar_tickets():
+    from aplicacion.models import tickets
+    import pandas as pd
+    #THIS_FOLDER = os.path.dirname(os.path.abspath('sp_500_stocks.csv'))
+    #filename_path = os.path.join(THIS_FOLDER,'sp_500_stocks.csv')
+    #print(filename_path)
+    #stocks = pd.read_csv(filename_path)
+
+    stocks = pd.read_csv('/home/alejo/Escritorio/JANJ-WEB/back/aplicacion/sp_500_stocks.csv')
+
+    try:
+        for stock in stocks['Ticker']:
+            new_ticket = tickets(ticket=stock)
+            db.session.add(new_ticket)
+            db.session.commit()
+
+        return jsonify("Se agregaron los tickets con exito")
+
+    except:
+        return jsonify("Hubo un error al agregar"),501
+
+    return jsonify("Algo sucedio en el proceso"),501
 
 
 

@@ -16,14 +16,14 @@ from werkzeug.security import safe_str_cmp
 class correo(db.Model):
     __tablename__='Correos'
     id = db.Column(db.Integer, primary_key=True)
-    correo = db.Column(db.String(128))
+    email = db.Column(db.String(128))
 
 
 class contacto(db.Model):
     __tablename__='Contactos'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(128))
-    correo = db.Column(db.String(128))
+    email = db.Column(db.String(128))
     asunto = db.Column(db.String(128))
     mensaje = db.Column(db.String(500))
 
@@ -43,3 +43,9 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return safe_str_cmp(password, "password")
+
+
+class tickets(db.Model):
+    __tablename__='tickets'
+    id = db.Column(db.Integer, primary_key=True)
+    ticket = db.Column(db.String(1000))

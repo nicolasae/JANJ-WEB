@@ -1,22 +1,22 @@
 export const MenuItemsRegister = [
     {
       title: 'Predicción',
-      path: '/prediccionr',
+      path: '/register/prediccion',
       cName: 'dropdown-link'
     },
     {
       title: 'Simulación',
-      path: '/simulacionr',
+      path: '/register/simulacion',
       cName: 'dropdown-link'
     },
     {
       title: 'Seguimiento',
-      path: '/seguimientor',
+      path: '/register/seguimiento',
       cName: 'dropdown-link'
     },
     {
       title: 'Educación',
-      path: '/educacionr',
+      path: '/register/educacion',
       cName: 'dropdown-link'
     } 
     
@@ -25,22 +25,22 @@ export const MenuItemsRegister = [
   export const MenuItemsPremium = [
     {
       title: 'Predicción',
-      path: '/prediccionp',
+      path: '/premium/prediccion',
       cName: 'dropdown-link'
     },
     {
       title: 'Simulación',
-      path: '/simulacionp',
+      path: '/premium/simulacion',
       cName: 'dropdown-link'
     },
     {
       title: 'Seguimiento',
-      path: '/seguimientop',
+      path: '/premium/seguimiento',
       cName: 'dropdown-link'
     },
     {
       title: 'Educación',
-      path: '/educacionp',
+      path: '/premium/educacion',
       cName: 'dropdown-link'
     } 
     

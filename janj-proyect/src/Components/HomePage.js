@@ -34,7 +34,9 @@ function Query_text(){
 }
 
 
-export default function HomePage(){
+const HomePage=props=>{
+    
+    console.log(props)
     return(
         <div>
         <div>
@@ -45,7 +47,8 @@ export default function HomePage(){
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet" />
             {/* Template Main CSS File */}
             <link href="../assets/css/style.css" rel="stylesheet" />
-            <NavBar/>
+            <NavBar {...props}/>
+            {/* <NavBar setRol={props.setRol} setToken={props.setToken} setIdusuario={props.setIdusuario} setNombre={props.setNombre}/> */}
             <Hero/>
             <About/>
             <Services/>
@@ -68,3 +71,5 @@ export default function HomePage(){
         </div>
     );
 }
+
+export default HomePage

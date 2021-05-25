@@ -36,14 +36,14 @@ export default function NavBar(idpermisos) {
 
 
   // Usuario Premium 
-  if(idpermisos==1){
+  if(idpermisos=='premium'){
     return (
       /* ======= Header ======= */
       <header id="header">
         <div className="row">
         <div className="container col-lg-11">
           <div id="logo">
-          <Link to='/homep' >
+          <Link to='/premium' >
             <img src="janj-symbol-redu.png" />
           </Link>
           </div>
@@ -56,7 +56,7 @@ export default function NavBar(idpermisos) {
                     <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
                     {dropdown && <Dropdown permiso={'premium'}/>}
                 </li> 
-                <li><Link to="/subscriptionp">Suscripción A Divisas</Link></li>
+                <li><Link to="/premium/subscription">Suscripción A Divisas</Link></li>
                 {/* <li 
                   onMouseEnter={onMouseEnter}
                   onMouseLeave={onMouseLeave}>
@@ -79,14 +79,14 @@ export default function NavBar(idpermisos) {
   }
 
   // Usuario Registrado
-  if(idpermisos==2){
+  if(idpermisos=='register'){
     return (
        /* ======= Header ======= */
        <header id="header">
        <div className="row">
        <div className="container col-lg-11">
          <div id="logo">
-         <Link to='/homer' >
+         <Link to='/register' >
            <img src="janj-symbol-redu.png" />
          </Link>
          </div>
@@ -97,7 +97,7 @@ export default function NavBar(idpermisos) {
                onMouseLeave={onMouseLeave} 
                >
                    <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
-                   {dropdown && <Dropdown permiso='register' />}
+                   {dropdown && <Dropdown permiso={'register'} />}
                </li> 
                <li><Link to="/subscriptionr">Suscripción A Divisas</Link></li>
                <li 
