@@ -186,10 +186,14 @@ def consulta_historial():
     periodo = informacion.get('periodo')
     historico = []
 
+    if periodo == None:
+        periodo = "1m"
+
     api_url = f'https://sandbox.iexapis.com/stable/stock/{ticket}/chart/{periodo}?token={IEX_CLOUD_API_TOKEN}'
     data = requests.get(api_url).json()
     for row in data:
-        temporal = {row['date']:row['open']}
+        #temporal = {row['date']:row['open']}
+        temporal = {"fecha":row['date'],"value":row['open']}
         historico.append(temporal)
 
     return jsonify(historico)
@@ -235,7 +239,7 @@ def agregar_tickets():
     #stocks = pd.read_csv(filename_path)
 
     stocks = pd.read_csv('/home/alejo/Escritorio/JANJ-WEB/back/aplicacion/sp_500_stocks.csv')
-    
+
     try:
         for stock in stocks['Ticker']:
             new_ticket = tickets(ticket=stock)
