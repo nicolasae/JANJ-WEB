@@ -38,13 +38,13 @@ export default class Login extends React.Component {
             },
             data: data
           };
-        console.log(config)
         await axios(config)
-        .then(response => {
-			this.props.setNombre(response.data.nombre + ' ' + response.data.apellido)
-			this.props.setIdusuario(response.data.id_usuario)
-			this.props.setToken(response.data.access_token)
-			this.props.setRol(response.data.rol)
+        .then(async(response) => {
+            console.log(response)
+			await this.props.setNombre(response.data.nombre + ' ' + response.data.apellido)
+			await this.props.setIdusuario(response.data.id_usuario)
+			await this.props.setToken(response.data.access_token)
+			await this.props.setRol(response.data.rol)
 			
 		})
     }

@@ -46,7 +46,7 @@ const App= props=> {
 			{/* USUARIOs*/}
 			<Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
 			{/* USUARIO REGISTRADO */}
-			<Route path='/register' exact component={Homer}/>
+			<Route path='/register' exact render={propiedades => (<Homer {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
 			<Route path='/register/educacion' exact render={propiedades => (  <Educacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
 			<Route path='/register/seguimiento' exact render={propiedades => (<Seguimientor {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
 			<Route path='/register/simulacion' exact render={propiedades => ( <Simulacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>

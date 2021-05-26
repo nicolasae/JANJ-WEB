@@ -72,6 +72,8 @@ export default class Prediccion extends React.Component {
             grafico:'',
 			estado:'',
             currencyAvailable:[],
+            dates:[],
+            values:[],
         }
         this.currencyAvailable()
     }
@@ -131,27 +133,67 @@ export default class Prediccion extends React.Component {
     setInputValue = (inputValueCurrency) => {
         this.setState({inputValue:inputValueCurrency })
     }
-    graphController = () => {
-        if (currencyAvailableGraph.length > 0){
-            for (const i in currencyAvailableGraph){
-                if (currencyAvailableGraph[i].name == this.state.value){
-                    console.log(currencyAvailableGraph[i].data)
-                    var dataValues = currencyAvailableGraph[i].data
-                    console.log(dataValues)
-                    var html = <Line data={dataValues} options={options} />
-                    console.log(html)
-                    this.setState({grafico:html})                
-                }
-            }          
-        }
-        else{
-            var html = <></>
-            console.log(html)
-            this.setState({grafico:html})    
-        } 
-		this.statusController()
+    
+    graphController =async () => {
+		var baseurl = String(process.env.REACT_APP_API_URL)
+        var url = baseurl+'/consulta_historial'
+		var data = JSON.stringify({
+			ticket:this.state.value,
+			periodo:'1m',
+		})	
+		var config = {
+            method: 'post',
+            url: url,
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data: data
+          };
+        await axios(config)
+        .then(response => response.data) 
+		.then(data => {
+            console.log(data)
+			var fecha=[];var value=[];
+			for(const i in data){
+				fecha.push(data[i].fecha)
+				value.push(data[i].value)
+			}
+			this.setState({ dates: fecha, values: value });
+		})
+		await this.buildDataset()
+   
     }
-
+    buildDataset=async()=>{
+        console.log(this.state.dates)
+        console.log(this.state.values)
+		const data = {
+			labels: this.state.dates,
+			datasets: [
+				{
+					label: this.state.value,
+					data: this.state.values,
+					fill: false,
+					backgroundColor: '#2dc997',
+					borderColor: '#2dc997',
+				},
+			],
+		}
+		
+		const options = {
+			scales: {
+				yAxes: [
+					{
+						ticks: {
+							beginAtZero: true,
+						},
+					},
+				],
+			},
+		}
+        var html = <Line data={data} options={options} />
+		await this.setState({ grafico:html})
+	
+	}
 	statusController = () => {
         if (prediccion.length > 0){
             for (const i in prediccion){

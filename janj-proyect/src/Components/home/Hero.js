@@ -18,7 +18,7 @@ export default function Hero(){
                         de brindar información acerca
                         del estado actual de las divisas
                     </h2>            
-                    <Link to='#' >
+                    <Link to='/premiumInfo' >
                         <a type="button" className='btn-get-started'>Aprende con nosotros</a>
                     </Link>
                     </div >
