@@ -235,7 +235,7 @@ def agregar_tickets():
     #stocks = pd.read_csv(filename_path)
 
     stocks = pd.read_csv('/home/alejo/Escritorio/JANJ-WEB/back/aplicacion/sp_500_stocks.csv')
-
+    
     try:
         for stock in stocks['Ticker']:
             new_ticket = tickets(ticket=stock)
