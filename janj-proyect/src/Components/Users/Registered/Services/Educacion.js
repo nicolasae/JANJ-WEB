@@ -114,7 +114,13 @@ function EducacionF(){
       );
     
     
+    const position =()=> {
+        if(window.innerWidth < 1024)
+        return 'bottom';
+        else 
+        return 'right';
 
+    }
     return(
         <section id="educacion">
             {/* <Navbar/> */}
@@ -125,7 +131,7 @@ function EducacionF(){
                     <Paper square elevation={6} className={classes.header}>
                         <Typography style={{"font-size":"2rem"}}>{tutorialSteps[activeStep].label}</Typography>
                     </Paper>
-                    <OverlayTrigger trigger="click" placement="right" overlay={popover}
+                    <OverlayTrigger trigger="click" placement={position()} overlay={popover}
                     >
                         <img
                             style={{"margin-left":"2%"}}

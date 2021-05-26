@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Logo from '../../assets/img/janj-symbol-redu.png'
 // Estilos 
 // import '../../styles/navbar/Navbar.css';
 import '../../assets/vendor/bootstrap/css/bootstrap.css';
@@ -87,7 +87,7 @@ export default function NavBar(idpermisos) {
        <div className="container col-lg-11">
          <div id="logo">
          <Link to='/register' >
-           <img src="janj-symbol-redu.png" />
+           <img src={Logo} />
          </Link>
          </div>
            <nav id="nav-menu-container">
@@ -113,30 +113,5 @@ export default function NavBar(idpermisos) {
          </div>
      </header>
    );
-  }
-  if(idpermisos==3){
-    return (
-      /* ======= Header ======= */
-      <header id="header">
-        <div className="row">
-        <div className="container col-lg-11">
-          <div id="logo">
-          <Link to='/' >
-            <img src="janj-symbol-redu.png" />
-          </Link>
-          </div>
-            <nav id="nav-menu-container">
-              <ul className="nav-menu ">
-                <li><Link to="/">Premium</Link></li>
-                <li><Link to="/login">Iniciar Sesion</Link></li>
-                <li><Link to="/signup">Registrarse</Link></li>
-              </ul>
-            </nav>
-              {/* #nav-menu-container */}
-          </div>
-          </div>
-      </header>
-    );
-  }
-  
+  }  
 }

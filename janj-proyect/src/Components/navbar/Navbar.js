@@ -34,7 +34,7 @@ const NavBar = props => {
           </div>
             <nav id="nav-menu-container">
               <ul className="nav-menu ">
-                <li><Link to="/premium">Premium</Link></li>
+                <li><Link to="/premiumInfo">Premium</Link></li>
                 <li><Link to="/converter">Conversor</Link></li>
                 <li><Link onClick={openModalLogin}>Iniciar Sesion</Link></li>
                 <li><Link onClick={openModalRegistro} >Registrarse</Link></li>                               
