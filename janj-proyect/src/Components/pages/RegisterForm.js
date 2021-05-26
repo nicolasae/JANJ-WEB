@@ -28,9 +28,9 @@ export default class Register extends React.Component {
              }
         })
     }
-    register=()=>{
+    register=async()=>{
         if(this.state.register.question === "")
-            this.setState({ register:{ ...this.state.register, question: "¿En qué ciudad se conocieron tus padres?"}})
+            await this.setState({ register:{ ...this.state.register, question: "¿En qué ciudad se conocieron tus padres?"}})
         var data = JSON.stringify({
             nombre:this.state.register.name,
             apellido:this.state.register.lastname,
@@ -72,11 +72,11 @@ export default class Register extends React.Component {
                             </div>
                             <div className="row px-3"> 
                                 <select className="mb-4" type="text"onChange={this.onChange} name="question">
-                                    <option>¿En qué ciudad se conocieron tus padres?</option>
-                                    <option>Nombre mejor amigo de la infancia</option>
-                                    <option>Nombre de su primera mascota</option>
-                                    <option>Personaje histórico favorito</option>
-                                    <option>Ocupación de su abuelo</option>
+                                    <option value="¿En qué ciudad se conocieron tus padres?">¿En qué ciudad se conocieron tus padres?</option>
+                                    <option value="Nombre mejor amigo de la infancia">Nombre mejor amigo de la infancia</option>
+                                    <option value="Nombre de su primera mascota">Nombre de su primera mascota</option>
+                                    <option value="Personaje histórico favorito">Personaje histórico favorito</option>
+                                    <option value="Ocupación de su abuelo">Ocupación de su abuelo</option>
                                 </select>
                             </div>
                             <div className="row px-3"> 

@@ -84,6 +84,7 @@ export default class Simulacion extends React.Component{
             isOpen : false,
             idCurrency:'',
             nameCurrency:'',
+            currencyAvailable:[],
             value:'',
             inputValue:'',
             grafico:'',

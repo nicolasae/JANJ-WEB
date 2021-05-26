@@ -79,7 +79,7 @@ export default function NavBar(idpermisos) {
   }
 
   // Usuario Registrado
-  if(idpermisos=='register'){
+  if(idpermisos==='register'){
     return (
        /* ======= Header ======= */
        <header id="header">
@@ -99,7 +99,7 @@ export default function NavBar(idpermisos) {
                    <Link to="#">Servicios<i className='fas fa-caret-down' /></Link>
                    {dropdown && <Dropdown permiso={'register'} />}
                </li> 
-               <li><Link to="/subscriptionr">Suscripción A Divisas</Link></li>
+               <li><Link to="/register/subscription">Suscripción A Divisas</Link></li>
                <li 
                  onMouseEnter={onMouseEnter}
                  onMouseLeave={onMouseLeave} 

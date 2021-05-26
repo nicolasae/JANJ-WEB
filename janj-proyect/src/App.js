@@ -59,8 +59,6 @@ const App= props=> {
 			<Route path='/premium/simulacion' exact render={propiedades => (<Simulacionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
 			<Route path='/premium/prediccion' exact render={propiedades => (<Prediccionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
 			<Route path='/premium/subscription' exact render={propiedades => ( <Subscriptionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
-
-
 		</Switch>
 	  </div>
   );
