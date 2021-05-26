@@ -19,6 +19,12 @@ import mercadoDivisa from '../../../../assets/img/mercado.png'
 import operaciones from '../../../../assets/img/kpi.png'
 import sp from '../../../../assets/img/actuacion.png'
 import bursatil from '../../../../assets/img/bursatil.png'
+import money from '../../../../assets/img/divisas.png'
+import broker from '../../../../assets/img/broker.png'
+import depreciacion from '../../../../assets/img/depreciacion.png'
+import inflacion from '../../../../assets/img/inflacion.png'
+import operarCorto from '../../../../assets/img/operarCorto.png'
+
 
 
 const tutorialSteps = [
@@ -33,6 +39,12 @@ const tutorialSteps = [
         imgPath: divisa,
         title:'Definición:',
         info: 'Una acción es una unidad de propiedad en una empresa: si posee una acción, eso lo convierte en accionista, lo que significa que puede ser elegible para recibir dividendos si la empres tiene éxito y puede tener voto en algunas decisiones de la empresa.'
+    },
+    {
+        label: '¿Qué es una divisa ?',
+        imgPath: money,
+        title:'Definición:',
+        info: 'Una divisa es toda moneda extranjera, es decir, monedas oficiales distintas de la moneda legal en el propio país.'
     },
     {
         label: '¿Qué es el mercado de divisas ?',
@@ -58,6 +70,30 @@ const tutorialSteps = [
         title: 'Definición:',
         info: 'Un índice bursátil es un valor numérico, que se calcula según los precios de mercado de cada uno de los valores que componen ese índice en un momento determinado. La rentabilidad de un índice es la variación de su valor de un periodo a otro.',
       },
+    {
+        label: '¿Qué es un bróker ?',
+        imgPath: broker,
+        title: 'Definición:',
+        info: 'Un bróker o agente de bolsa es un individuo o empresa que realiza operaciones bursátiles en nombre de un inversor. Pueden hacerlo con diferentes clases de activos, como acciones, forex, bienes raíces o seguros. Un bróker cobrará, normalmente, una comisión para que la orden se ejecute.',
+    },
+    {
+        label: '¿Qué es la depreciación ?',
+        imgPath: depreciacion,
+        title: 'Definición:',
+        info: 'La depreciación de la divisa es la disminución del valor de una divisa en relación con otra. Se refiere específicamente a las divisas en un tipo de cambio flexible: un sistema en el que el mercado de forex fija el valor de una divisa, basándose en la oferta y la demanda.',
+    },
+    {
+        label: '¿Qué es la inflación ?',
+        imgPath: inflacion,
+        title: 'Definición:',
+        info: 'La inflación es el aumento del coste de los bienes y servicios en una economía. Como eso a su vez significa que cada unidad de la moneda de una economía ha perdido valor respecto a esos bienes y servicios, también es un indicador de la devaluación de una moneda.',
+    },
+    {
+        label: '¿Qué es operar en corto ?',
+        imgPath: operarCorto,
+        title: 'Definición:',
+        info: 'Operar en corto es vender un activo que no se posee con la esperanza de que su precio baje y poder cerrar la operación con beneficios. También se denomina ir corto o adoptar una posición corta.',
+    },
   ];
 
   const useStyles = makeStyles((theme) => ({
