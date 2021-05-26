@@ -6,6 +6,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 
 import {Line} from 'react-chartjs-2';
+const axios = require('axios');
 
 const currencyAvailable= [ 'AMZN', 'APPL', 'BTC', 'USD', 'GBP']
 
@@ -70,7 +71,23 @@ export default class Prediccion extends React.Component {
             inputValue:'',
             grafico:'',
 			estado:'',
+            currencyAvailable:[]
         }
+        this.currencyAvailable()
+    }
+
+    currencyAvailable = async()=>{
+        var baseurl = String(process.env.REACT_APP_API_URL)
+		var url = baseurl+'/listar_tickets'
+		await axios.get(url)
+		.then(response => response.data)
+        .then(data => {
+            var currency = [];
+            for(const i in data ){
+                currency.push(data[i].ticket)
+            }
+            this.setState({currencyAvailable:currency})
+        })
     }
 
     Navbar=()=>{
@@ -93,7 +110,7 @@ export default class Prediccion extends React.Component {
                 this.setInputValue(newInputValue);
                 }}
                 id="controllable-states-demo"
-                options={currencyAvailable}
+                options={this.state.currencyAvailable}
                 style={{ "width": "25%"}}
                 renderInput={(params) =><TextField
                     // classes={{ 

@@ -41,7 +41,7 @@ const App= props=> {
 		<Switch>
 			<Route exact path='/' exact render={propiedades => (<HomePage {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
 			<Route path='/converter' exact render={propiedades => (<Converter {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
-			<Route path='/premium' exact render={propiedades => (<Premium {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
+			<Route path='/premiumInfo' exact render={propiedades => (<Premium {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
 			<Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
 			{/* USUARIOs*/}
 			<Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>

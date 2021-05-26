@@ -6,6 +6,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import {Line} from 'react-chartjs-2';
+const axios = require('axios');
 
 
 const useStyles = makeStyles({
@@ -92,7 +93,23 @@ export default class Seguimiento extends React.Component{
             value:'',
             inputValue:'',
             grafico:'',
+            currencyAvailable:[]
         }
+        this.currencyAvailable()
+    }
+
+    currencyAvailable = async()=>{
+        var baseurl = String(process.env.REACT_APP_API_URL)
+		var url = baseurl+'/listar_tickets'
+		await axios.get(url)
+		.then(response => response.data)
+        .then(data => {
+            var currency = [];
+            for(const i in data ){
+                currency.push(data[i].ticket)
+            }
+            this.setState({currencyAvailable:currency})
+        })
     }
 
     RenderAutoCompleted = () =>{
@@ -111,7 +128,7 @@ export default class Seguimiento extends React.Component{
                         this.setInputValue(newInputValue);
                         }}
                         id="controllable-states-demo"
-                        options={currencyAvailable}
+                        options={this.state.currencyAvailable}
                         renderInput={(params) =><TextField
                             // classes={{ 
                             //     root:classes.root, 
