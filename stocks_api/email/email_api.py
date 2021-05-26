@@ -5,13 +5,14 @@ from flask import render_template
 from flask import request
 import os
 import json
-
+print(os.curdir)
 template = ''' <!DOCTYPE html>
                 <html>
                 <body>
 
-                <h1>Su acción en JANJ-WEB tiene buenas predicciones</h1>
-                <p>El sistema automaticamente le informa que la acción ECOPETROL</p>
+                <h1 style="color:#ff471a;">Su acción en JANJ-WEB tiene buenas predicciones</h1>
+                <p>El sistema de suscripción le informa que la acción de: </p> 
+                <p style="color:#0000FF; font-weight: bold;">ECOPETROL </p>
 
                 </body>
                 </html> '''
@@ -37,7 +38,7 @@ def index():
     emails = list(request.get_json(force=True).keys())
     print(emails, type(emails))
     with app.app_context():
-        msg = Message(subject="Hello",
+        msg = Message(subject="ATENCIÓN: Su acción en JANJ tiene buenas proyecciones",
                     sender=app.config.get("MAIL_USERNAME"),
                     recipients=emails, # use your email for testing
         )
@@ -45,7 +46,7 @@ def index():
         # print(render_template(template+'.txt', **kwargs))
         # msg.html = render_template(template+'.html', **kwargs)
         mail.send(msg)
-        return "Hello"
+        return "Se envió email correctamente"
 
 if __name__ == '__main__':
     app.run(debug=True)

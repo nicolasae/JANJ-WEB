@@ -1,0 +1,9 @@
+flask-restful
+flask
+requests
+Flask-Mail
+flask-sqlalchemy
+mysqlclient
+sqlalchemy_utils
+marshmallow
+marshmallow_sqlalchemy

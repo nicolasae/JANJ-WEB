@@ -1,18 +1,56 @@
-version: '3.6'
-services: 
-    notifications_api:
-        build: .\stocks_api
-        container_name: notifications
-        ports: 
-            - 5001:5001
-    # db:
-    #     image: postgres:9.6
-    #     container_name: janj
-    #     restart: always
-    #     environment:
-    #         - POSTGRES_PASSWORD=JANJ
-    #     ports:
-    #         - 5432:5432
-    #     volumes:
-    #         - ./:/home/
-    #         - ./../postgres-data:/var/lib/postgresql/data
+version: "3.9"
+x-services-volume: &services-volume
+  type: bind
+  source: ./
+  target: /home
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3307:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+    networks:
+      - janj_networks
+  email_api:
+    build: ./stocks_api/email
+    container_name: email
+    environment:
+      - PYTHONPATH=${PYTHONPATH}
+    ports:
+      - 5001:5001
+    networks:
+      - janj_networks
+    volumes:
+      - *services-volume
+  notifications_api:
+    build: ./stocks_api/notifications
+    container_name: notifications
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URI=mysql://root:example@db:3306/notifications
+      - PYTHONPATH=${PYTHONPATH}
+    ports:
+      - 5000:5000
+    networks:
+      - janj_networks
+    volumes:
+      - *services-volume
+  frontend_api:
+    build: ./janj-proyect
+    container_name: frontend
+    environment:
+      - PYTHONPATH=${PYTHONPATH}
+    ports:
+      - 3000:3000
+    networks:
+      - janj_networks
+    volumes:
+      - *services-volume
+networks:
+  janj_networks:
+    driver: bridge
