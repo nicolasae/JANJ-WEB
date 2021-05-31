@@ -37,7 +37,7 @@ def user_lookup_callback(_jwt_header, jwt_data):
 
 @app.route("/")
 def inicial():
-    return "pagina inicial"
+    return jsonify("pagina inicial")
 
 
 @app.route("/login", methods=["POST"])
