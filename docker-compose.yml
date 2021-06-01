@@ -26,6 +26,18 @@ services:
       - janj_networks
     volumes:
       - *services-volume
+  back:
+    build: ./back
+    container_name: back
+    environment:
+      - PYTHONPATH=${PYTHONPATH}
+    ports:
+      - 5006:5006
+    networks:
+      - janj_networks
+    volumes:
+      - *services-volume
+      
   notifications_api:
     build: ./stocks_api/notifications
     container_name: notifications
@@ -45,8 +57,9 @@ services:
     container_name: frontend
     environment:
       - PYTHONPATH=${PYTHONPATH}
+      - REACT_APP_API_URL=${REACT_APP_API_URL}
     ports:
-      - 3000:3000
+      - 80:80
     networks:
       - janj_networks
     volumes:

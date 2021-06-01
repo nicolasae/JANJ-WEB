@@ -1,24 +1,18 @@
-# pull official base image
-FROM node:13.12.0
+FROM node:alpine as build
 
-
-EXPOSE 3000
-
-# set working directory
 WORKDIR /app
 
+COPY . /app
+RUN yarn add node-sass
+RUN yarn
+RUN yarn build
 
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install 
-
-# add app
-COPY . ./
-
-# start app
-CMD ["npm", "start"]
+# Nginx
+FROM nginx:alpine
+# copy the build folder from react to the root of nginx (www)
+COPY --from=build /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+# start nginx 
+CMD ["nginx", "-g", "daemon off;"]
