@@ -11,6 +11,7 @@ import pandas as pd
 import csv
 import random
 import requests
+import math
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -326,10 +327,21 @@ def prediccion():
 
     prediccion = prediccion_acciones(ticket)
     valor_final = []
+    promedio = 0
+    varianza = 0
     for row in prediccion:
         valor_final.append(float(row[0]))
+        promedio = float(row[0])+promedio
 
-    return jsonify(valor_final)
+    promedio = promedio/(len(prediccion)+1)
+    for row in prediccion:
+        varianza = (float(row[0])-promedio)**2 + varianza
+
+    varianza = math.sqrt(varianza/(len(prediccion)+1))
+    print(promedio)
+    print(varianza)
+
+    return jsonify(valor_final, varianza)
 
 
 
