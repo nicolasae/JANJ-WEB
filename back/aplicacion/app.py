@@ -317,7 +317,7 @@ def signup_post():
 
 
 
-@app.route("/prediccion", methods=["POST"])
+@app.route("/back/prediccion", methods=["POST"])
 def prediccion():
     from aplicacion.prediccion import prediccion_acciones
 
@@ -325,8 +325,11 @@ def prediccion():
     ticket = datos.get('ticket')
 
     prediccion = prediccion_acciones(ticket)
+    valor_final = []
+    for row in prediccion:
+        valor_final.append(float(row[0]))
 
-    return jsonify(prediccion)
+    return jsonify(valor_final)
 
 
 

@@ -5,6 +5,7 @@ import pandas as pd
 import pandas_datareader as web
 import datetime as dt
 import tensorflow as tf
+from tensorflow import keras
 from tensorflow.keras import Sequential
 
 from sklearn.preprocessing import MinMaxScaler
@@ -31,6 +32,7 @@ def graficar_predicciones(real, prediccion):
 #dataset = pd.read_csv('AAPL_2006-01-01_to_2018-01-01.csv', index_col='Date', parse_dates=['Date'])
 #dataset.head()
 def prediccion_acciones(company):
+    #company = 'TSLA'
 
     start = dt.datetime(2012,1,1)
     end = dt.datetime(2020,12,31)
@@ -101,3 +103,5 @@ def prediccion_acciones(company):
     prediccion = modelo.predict(X_test)
     prediccion = sc.inverse_transform(prediccion)
     return prediccion
+
+#prediccion_acciones()
