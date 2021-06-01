@@ -132,6 +132,7 @@ def contactenos():
     return jsonify("Mensaje enviado con exito")
 
 @app.route('/listar_contactenos')
+@jwt_required()
 def listar_contactenos():
     from aplicacion.models import contacto
 
@@ -150,6 +151,7 @@ def listar_contactenos():
 
 
 @app.route('/listar_usuarios')
+@jwt_required()
 def listar_usuarios():
     from aplicacion.models import User
 
@@ -314,6 +316,89 @@ def signup_post():
         return jsonify("No se mandaron los datos correctos"),401
 
     return jsonify("Hubo un problema al agregar"),401
+
+
+
+@app.route("/prediccion", method=["POST"])
+def prediccion():
+    import numpy as np
+    np.random.seed(4)
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import pandas_datareader as web
+    import datetime as dt
+
+    from sklearn.preprocessing import MinMaxScaler
+    from keras.models import Sequential
+    from keras.layers import Dense, LSTM
+    import requests
+
+
+    datos = request.get_json()
+    ticket = datos.get('ticket')
+
+    start = dt.datetime(2012,1,1)
+    end = dt.datetime(2020,12,31)
+
+    dataset = web.DataReader(company,'yahoo',start,end) #el yahoo es para usar la api de yahoo
+
+    set_entrenamiento = dataset[:'2019'].iloc[:,1:2]
+    set_validacion = dataset['2020':].iloc[:,1:2]
+
+    # Normalización del set de entrenamiento
+    sc = MinMaxScaler(feature_range=(0,1))
+    set_entrenamiento_escalado = sc.fit_transform(set_entrenamiento)
+
+    # La red LSTM tendrá como entrada "time_step" datos consecutivos, y como salida 1 dato (la predicción a
+    # partir de esos "time_step" datos). Se conformará de esta forma el set de entrenamiento
+    time_step = 90
+    X_train = []
+    Y_train = []
+    m = len(set_entrenamiento_escalado)
+
+    for i in range(time_step,m):
+        # X: bloques de "time_step" datos: 0-time_step, 1-time_step+1, 2-time_step+2, etc
+        X_train.append(set_entrenamiento_escalado[i-time_step:i,0])
+
+        # Y: el siguiente dato
+        Y_train.append(set_entrenamiento_escalado[i,0])
+    X_train, Y_train = np.array(X_train), np.array(Y_train)
+
+    # Reshape X_train para que se ajuste al modelo en Keras
+    X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
+
+    #
+    # Red LSTM
+    #
+    dim_entrada = (X_train.shape[1],1)
+    dim_salida = 1
+    na = 50
+
+    modelo = Sequential()
+    modelo.add(LSTM(units=na, input_shape=dim_entrada))
+    modelo.add(Dense(units=dim_salida))
+    modelo.compile(optimizer='rmsprop', loss='mse')
+    modelo.fit(X_train,Y_train,epochs=10,batch_size=32)
+
+
+    #
+    # Validación (predicción del valor de las acciones)
+    #
+    x_test = set_validacion.values
+    x_test = sc.transform(x_test)
+
+    X_test = []
+    for i in range(time_step,len(x_test)):
+        X_test.append(x_test[i-time_step:i,0])
+    X_test = np.array(X_test)
+    X_test = np.reshape(X_test, (X_test.shape[0],X_test.shape[1],1))
+
+    prediccion = modelo.predict(X_test)
+    prediccion = sc.inverse_transform(prediccion)
+
+    return jsonify(prediccion)
+
+
 
 @app.after_request
 def after_request(response):

@@ -15,6 +15,7 @@ start = dt.datetime(2012,1,1)
 end = dt.datetime(2020,1,1)
 
 data = web.DataReader(company,'yahoo',start,end) #el yahoo es para usar la api de yahoo
+print(data)
 
 #Prepare data
 scaler = MinMaxScaler(feature_range=(0,1))
@@ -77,8 +78,6 @@ x_test = np.array(x_test)
 x_test = np.reshape(x_test,(x_test.shape[0], x_test.shape[1], 1))
 
 predicted_prices = model.predict(x_test)
-print(len(predicted_prices))
-print(predicted_prices)
 predicted_prices = scaler.inverse_transform(predicted_prices)
 
 #Plot the test prediction
