@@ -338,6 +338,7 @@ def prediccion():
         varianza = (float(row[0])-promedio)**2 + varianza
 
     varianza = math.sqrt(varianza/(len(prediccion)+1))
+    valor_final = valor_final[len(valor_final)-1]
     print(promedio)
     print(varianza)
 
