@@ -42,6 +42,7 @@ export default class Login extends React.Component {
         .then(async(response) => {
             console.log(response)
 			await this.props.setNombre(response.data.nombre + ' ' + response.data.apellido)
+			await this.props.setEmail(response.data.email)
 			await this.props.setIdusuario(response.data.id_usuario)
 			await this.props.setToken(response.data.access_token)
 			await this.props.setRol(response.data.rol)
@@ -50,59 +51,73 @@ export default class Login extends React.Component {
     }
     responseGoogleSuccess=async(response)=>{
         console.log(response.profileObj)
-        // var data = JSON.stringify({
-        //     nombre:response.profileObj.givenName,
-        //     apellidos: response.profileObj.familyName,
-        //     email:response.profileObj.email,
-        //     password:response.profileObj.googleId
-        // });
-        // var baseurl = String(process.env.REACT_APP_API_URL)
-        // const url = baseurl+'/signup'
-        // var config = {
-        //     method: 'post',
-        //     url: url,
-        //     headers: { 
-        //       'Content-Type': 'application/json'
-        //     },
-        //     data: data
-        //   };
-        // try{
-        //     await axios(config)
-        //     .then(register => {
-        //         if(register.status == 200){
-        //             axios.post(url+"/login",{},{
-        //             data:{
-        //                 email: response.profileObj.email,
-        //                 password: response.profileObj.googleId
-        //             }
-        //             })
-        //             .then(login => {
-        //                 console.log(login)
-        //                 // this.setState({responseLogin:login, redirect: login.data.body.userData.rolName})
-        //                 // this.props.setIduser(login.data.body.userData._id)
-        //                 // window.location.href = login.data.body.userData.rolName;
-        //             })
-        //         }
-        //     })
+        var data = JSON.stringify({
+            nombre:response.profileObj.givenName,
+            apellido: response.profileObj.familyName,
+            email:response.profileObj.email,
+            pregunta:'Usted se Registro con Google, Por favor inicie sesión con Google',
+            password:response.profileObj.googleId,
+        });
+        var baseurl = String(process.env.REACT_APP_API_URL)
+        const url = baseurl+'/signup'
+        var config = {
+            method: 'post',
+            url: url,
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data: data
+        };
+        try{
+            await axios(config)
+            .then(register => {
+                if(register.status == 200){
+                    axios.post(baseurl+"/login",{},{
+                    data:{
+                        email: response.profileObj.email,
+                        password: response.profileObj.googleId
+                    }
+                    })
+                    .then(async login => {
+                        console.log(login)
+                        await this.props.setNombre(login.data.nombre + ' ' + login.data.apellido)
+                        await this.props.setIdusuario(login.data.id_usuario)
+            			await this.props.setEmail(login.data.email)
+                        await this.props.setToken(login.data.access_token)
+                        await this.props.setRol(login.data.rol)
+                    })
+                }
+            })
 
-        // }
-        // catch(error){
-        //     // console.log(error)
-        //     await axios.post(url+"/login",{},{
-        //     data:{
-        //         email: response.profileObj.email,
-        //         password: response.profileObj.googleId
-        //     }
-        //     })
-        //     .then(login => {
-        //         console.log(login)
-        //         // this.setState({redirect: login.data.body.userData.rolName})
-        //         // this.props.setRol(login.data.body.userData.rolName)
-        //         // this.props.setNombre(login.data.body.userData.nombre)
-        //         // this.props.setIduser(login.data.body.userData._id)
-        //         // window.location.href = login.data.body.userData.rolName;
-        //     })
-        // }
+        }
+        catch(error){
+            console.log(error)
+            var data = {
+                email: response.profileObj.email,
+                password: response.profileObj.googleId  
+            }
+            console.log(data)
+            var body = JSON.stringify(data)
+            let url3= baseurl+"/login"
+            let config2 = {
+                method: 'post',
+                url: url3,
+                headers: { 
+                'Content-Type': 'application/json'
+                },
+                data: body
+            }
+            console.log(config2)
+            axios(config2)
+            .then(async login => {
+                console.log(login)
+                await this.props.setNombre(login.data.nombre + ' ' + login.data.apellido)
+                await this.props.setIdusuario(login.data.id_usuario)
+                await this.props.setEmail(login.data.email)
+                await this.props.setToken(login.data.access_token)
+                await this.props.setRol(login.data.rol)
+            })
+        }
     }
     responseGoogleFail=(repsonse)=>{
         

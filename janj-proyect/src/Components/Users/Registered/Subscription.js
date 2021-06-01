@@ -5,6 +5,7 @@ import NavBar from '../../navbar/NavbarU'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+const axios= require('axios')
 
 const useStyles = makeStyles({
     root: {
@@ -99,8 +100,10 @@ export default class Subscription extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            
+            tickets:[],
+            mytickets:[],
         }
+        this.initial_state()
     }  
 
     Navbar=()=>{
@@ -110,7 +113,34 @@ export default class Subscription extends React.Component {
         {html}
         </>)
     }
-
+    getTickets=async()=>{
+		var url = 'notifications_api:5000/listar_tickets'
+        var baseurl = String(process.env.REACT_APP_API_URL)
+		url = baseurl+'/user_subscriptions'
+		await axios.get(url)
+		.then(response => response.data)
+        .then(data => {
+            var currency = [];
+            for(const i in data ){
+                currency.push(data[i].ticket)
+            }
+            this.setState({tickets:currency})
+        })
+    }
+    getMyTickets=async()=>{
+        var baseurl = String(process.env.REACT_APP_API_URL)
+        console.log((this.props))
+		var url = 'notifications_api:5000/'+this.props.email
+		await axios.get(url)
+		.then(response => response.data)
+        .then(data => {
+            console.log(data)
+        })
+    }
+    initial_state=async()=>{
+        await this.getTickets()
+        await this.getMyTickets()
+    }
     render(){
     return(
         <section className="subscription">

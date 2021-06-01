@@ -35,7 +35,7 @@ def prediccion_acciones(company):
     #company = 'TSLA'
 
     start = dt.datetime(2012,1,1)
-    end = dt.datetime(2020,12,32)
+    end = dt.datetime(2020,12,31)
 
     dataset = web.DataReader(company,'yahoo',start,end) #el yahoo es para usar la api de yahoo
     #
@@ -57,7 +57,7 @@ def prediccion_acciones(company):
 
     # La red LSTM tendrá como entrada "time_step" datos consecutivos, y como salida 1 dato (la predicción a
     # partir de esos "time_step" datos). Se conformará de esta forma el set de entrenamiento
-    time_step = 90
+    time_step = 60
     X_train = []
     Y_train = []
     m = len(set_entrenamiento_escalado)
@@ -104,4 +104,4 @@ def prediccion_acciones(company):
     prediccion = sc.inverse_transform(prediccion)
     return prediccion
 
-#prediccion_acciones()
+prediccion_acciones()

@@ -1,15 +1,5 @@
 export const MenuItemsRegister = [
     {
-      title: 'Predicción',
-      path: '/register/prediccion',
-      cName: 'dropdown-link'
-    },
-    {
-      title: 'Simulación',
-      path: '/register/simulacion',
-      cName: 'dropdown-link'
-    },
-    {
       title: 'Seguimiento',
       path: '/register/seguimiento',
       cName: 'dropdown-link'
@@ -17,6 +7,10 @@ export const MenuItemsRegister = [
     {
       title: 'Educación',
       path: '/register/educacion',
+      cName: 'dropdown-link'
+    },{
+      title: 'Prediccion',
+      path: '/register/prediccion',
       cName: 'dropdown-link'
     } 
     

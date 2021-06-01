@@ -4,7 +4,7 @@ import '../../../../assets/css/style.css';
 import NavBar from '../../../navbar/NavbarU'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
-
+import Spinner from 'react-bootstrap/Spinner'
 import {Line} from 'react-chartjs-2';
 const axios = require('axios');
 
@@ -74,6 +74,8 @@ export default class Prediccion extends React.Component {
             currencyAvailable:[],
             dates:[],
             values:[],
+            prediccion:null,
+            varianza:null,
         }
         this.currencyAvailable()
     }
@@ -160,12 +162,36 @@ export default class Prediccion extends React.Component {
 			}
 			this.setState({ dates: fecha, values: value });
 		})
-		await this.buildDataset()
+        url = baseurl+'/prediccion'
+		var data = JSON.stringify({
+			ticket:this.state.value,
+		})	
+		config = {
+            method: 'post',
+            url: url,
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data: data
+          };
+          var waiter =<p>
+                <Spinner animation="border" variant="success" />
+                Cargando
+          </p> 
+
+        this.setState({estado: waiter})
+        await this.buildDataset()
+        await axios(config)
+        .then(response => response.data)
+        .then(data => {
+            console.log(data)
+            var prediccion = data.body.valor_final;
+            var varianza = data.body.varianza;
+            this.setState({prediccion: prediccion, varianza:varianza})
+        })
    
     }
     buildDataset=async()=>{
-        console.log(this.state.dates)
-        console.log(this.state.values)
 		const data = {
 			labels: this.state.dates,
 			datasets: [
@@ -195,17 +221,37 @@ export default class Prediccion extends React.Component {
 	
 	}
 	statusController = () => {
-        if (prediccion.length > 0){
-            for (const i in prediccion){
-                if (prediccion[i].name == this.state.value){
-                    var color = prediccion[i].color
-                    var html = <div className="row">
-						 Estado: <br/> <div className="col-lg-6" style={{background:color}}/> <br/>
-						 Diferencia en un futuro cercano: {prediccion[i].valor}
-					 </div>
-                    this.setState({estado:html})                
-                }
-            }          
+        if (this.state.prediccion && this.state.varianza){
+            if(this.state.varianza > 0){
+                var html = <div className="row">
+                        Estado: <br/> <div className="col-lg-6" style={{background:'#F00'}}/> <br/>
+                        Predicción Aproximada: {this.state.prediccion}
+                        Varinza : {this.state.varianza}
+                        <br/>
+                        La varianza actualmente se encuentra por encima de los valores reales de la divisa por lo que se determina que actualmente no es un buen momento para invertir
+                    </div>
+                this.setState({estado:html})                
+            }
+            if(this.state.varianza < 0){
+                var html = <div className="row">
+                        Estado: <br/> <div className="col-lg-6" style={{background:'#F00'}}/> <br/>
+                        Predicción Aproximada: {this.state.prediccion}
+                        Varinza : {this.state.varianza}
+                        <br/>
+                        La varianza actualmente se encuentra por debajo de los valores reales de la divisa por lo que se determina que actualmente es un buen momento para invertir
+                    </div>
+                this.setState({estado:html})                
+            }
+            if(this.state.varianza === 0){
+                var html = <div className="row">
+                        Estado: <br/> <div className="col-lg-6" style={{background:'#F00'}}/> <br/>
+                        Predicción Aproximada: {this.state.prediccion}
+                        Varinza : {this.state.varianza}
+                        <br/>
+                        La varianza actualmente está muy cercana a los valores reales de la divisa por lo que el riesgo de inversión es desconocido
+                    </div>
+                this.setState({estado:html})                
+            }
         }
         else{
             var html = <></>
@@ -229,7 +275,7 @@ export default class Prediccion extends React.Component {
 						<div className="col-lg-5">
 							<div className="row">
 								<this.RenderAutoCompleted/>
-								<button className="btn-get-started " onClick={this.graphController}>Graficar
+								<button className="btn-get-started " onClick={(e)=>this.graphController(e)}>Graficar
 								</button>
 							</div>
 						{this.state.grafico}
