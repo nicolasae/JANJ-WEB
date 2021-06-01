@@ -67,11 +67,11 @@ class Notify(Resource):
         # print(requests.post('http://localhost:5001', data=payload))
         return response, 201
 
-api.add_resource(Subscription, '/subscribe')
-api.add_resource(UserSubscription, '/user_subscriptions/<string:user_email>')
-api.add_resource(SubscriptionIds, '/stocks_ids')
-api.add_resource(Unsubscription, '/unsubscribe')
-api.add_resource(Notify, '/notify')
+api.add_resource(Subscription, '/subscribe/subscribe')
+api.add_resource(UserSubscription, '/subscribe/user_subscriptions/<string:user_email>')
+api.add_resource(SubscriptionIds, '/subscribe/stocks_ids')
+api.add_resource(Unsubscription, '/subscribe/unsubscribe')
+api.add_resource(Notify, '/subscribe/notify')
 
 
 if __name__ == '__main__':

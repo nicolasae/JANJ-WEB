@@ -35,12 +35,12 @@ def user_lookup_callback(_jwt_header, jwt_data):
     identity = jwt_data["sub"]
     return User.query.filter_by(id=identity).one_or_none()
 
-@app.route("/")
+@app.route("/back/")
 def inicial():
     return jsonify("pagina inicial")
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/back/login", methods=["POST"])
 def login():
     from aplicacion.models import User
     usuario = request.get_json()
@@ -58,7 +58,7 @@ def login():
 
 
 
-@app.route("/who_am_i", methods=["GET"])
+@app.route("/back/who_am_i", methods=["GET"])
 @jwt_required()
 def protected():
     from aplicacion.models import User
@@ -71,7 +71,7 @@ def protected():
     )
 
 
-@app.route('/forgot_password_respuesta', methods=["POST"])
+@app.route('/back/forgot_password_respuesta', methods=["POST"])
 def forgot_password_respuesta():
     from aplicacion.models import User
     usuario = request.get_json()
@@ -94,7 +94,7 @@ def forgot_password_respuesta():
 
 
 
-@app.route('/forgot_password_pregunta', methods=["POST"])
+@app.route('/back/forgot_password_pregunta', methods=["POST"])
 def forgot_password_pregunta():
     from aplicacion.models import User
     usuario = request.get_json()
@@ -112,7 +112,7 @@ def forgot_password_pregunta():
 
 
 
-@app.route('/contactenos', methods=["POST"])
+@app.route('/back/contactenos', methods=["POST"])
 def contactenos():
     from aplicacion.models import contacto
     datos = request.get_json()
@@ -131,7 +131,7 @@ def contactenos():
 
     return jsonify("Mensaje enviado con exito")
 
-@app.route('/listar_contactenos')
+@app.route('/back/listar_contactenos')
 def listar_contactenos():
     from aplicacion.models import contacto
 
@@ -149,7 +149,7 @@ def listar_contactenos():
     return jsonify(contactos)
 
 
-@app.route('/listar_usuarios')
+@app.route('/back/listar_usuarios')
 def listar_usuarios():
     from aplicacion.models import User
 
@@ -168,7 +168,7 @@ def listar_usuarios():
 
     return jsonify(usuarios)
 
-@app.route('/listar_tickets') ##REFERENCIA PARA ACOMODAR LOS JSON DE LAS ACCIONES
+@app.route('/back/listar_tickets') ##REFERENCIA PARA ACOMODAR LOS JSON DE LAS ACCIONES
 def listar_tickets():
     from aplicacion.models import tickets
 
@@ -182,7 +182,7 @@ def listar_tickets():
     return jsonify(resultados)
 
 
-@app.route('/consulta_historial', methods=['POST'])
+@app.route('/back/consulta_historial', methods=['POST'])
 def consulta_historial():
     IEX_CLOUD_API_TOKEN = 'Tpk_059b97af715d417d9f49f50b51b1c448'
     informacion = request.get_json()
@@ -205,7 +205,7 @@ def consulta_historial():
 
 
 
-@app.route('/aleatorio_ticket')
+@app.route('/back/aleatorio_ticket')
 def aleatorio_ticket():
     from aplicacion.models import tickets
 
@@ -223,7 +223,7 @@ def aleatorio_ticket():
 
 
 
-@app.route('/datos_usuario', methods=["POST"])
+@app.route('/back/datos_usuario', methods=["POST"])
 def datos_usuario():
     from aplicacion.models import User
 
@@ -233,7 +233,7 @@ def datos_usuario():
     usuario = User.query.filter_by(email=email).first()
     return jsonify(email=usuario.email, nombre=usuario.nombre, pregunta=usuario.pregunta, respuesta=usuario.respuesta)
 
-@app.route('/agregar_tickets')
+@app.route('/back/agregar_tickets')
 def agregar_tickets():
     from aplicacion.models import tickets
     import pandas as pd
@@ -259,7 +259,7 @@ def agregar_tickets():
 
 
 
-@app.route('/signup', methods=['POST'])
+@app.route('/back/signup', methods=['POST'])
 def signup_post():
     from aplicacion.models import User
     try:
