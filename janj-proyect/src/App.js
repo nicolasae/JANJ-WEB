@@ -35,30 +35,31 @@ const App= props=> {
   const [idusuario, setIdusuario] = useState("")
   const [nombre, setNombre] = useState("")
   const [rol, setRol] = useState("")
+  const [email, setEmail] = useState("")
   return (
 	  <div>
 		{ idusuario !== "" ?( rol !== "" ? <Redirect push to={"/"+rol}/> : null): null}
 		<Switch>
-			<Route exact path='/' exact render={propiedades => (<HomePage {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
-			<Route path='/converter' exact render={propiedades => (<Converter {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
-			<Route path='/premiumInfo' exact render={propiedades => (<Premium {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
-			<Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre}/>)}/>
+			<Route exact path='/' exact render={propiedades => (<HomePage {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre} setEmail={setEmail}/>)}/>
+			<Route path='/converter' exact render={propiedades => (<Converter {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre} setEmail={setEmail}/>)}/>
+			<Route path='/premiumInfo' exact render={propiedades => (<Premium {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre} setEmail={setEmail}/>)}/>
+			<Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre} setEmail={setEmail}/>)}/>
 			{/* USUARIOs*/}
-			<Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
+			<Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
 			{/* USUARIO REGISTRADO */}
-			<Route path='/register' exact render={propiedades => (<Homer {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/register/educacion' exact render={propiedades => (  <Educacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
-			<Route path='/register/seguimiento' exact render={propiedades => (<Seguimientor {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/register/simulacion' exact render={propiedades => ( <Simulacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/register/prediccion' exact render={propiedades => ( <Prediccionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/register/subscription' exact render={propiedades => ( <Subscriptionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
+			<Route path='/register' exact render={propiedades => (<Homer {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/register/educacion' exact render={propiedades => (  <Educacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email}/>)}/>
+			<Route path='/register/seguimiento' exact render={propiedades => (<Seguimientor {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/register/simulacion' exact render={propiedades => ( <Simulacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/register/prediccion' exact render={propiedades => ( <Prediccionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/register/subscription' exact render={propiedades => ( <Subscriptionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email}/>)}/>
 			{/* USUARIO PREMIUM */}
-			<Route path='/premium' exact render={propiedades => (<Homep {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/premium/educacion' exact render={propiedades => (<Educacionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/premium/seguimiento' exact render={propiedades => (<Seguimientop {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/premium/simulacion' exact render={propiedades => (<Simulacionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/premium/prediccion' exact render={propiedades => (<Prediccionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} />)}/>
-			<Route path='/premium/subscription' exact render={propiedades => ( <Subscriptionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol}/>)}/>
+			<Route path='/premium' exact render={propiedades => (<Homep {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/premium/educacion' exact render={propiedades => (<Educacionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/premium/seguimiento' exact render={propiedades => (<Seguimientop {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/premium/simulacion' exact render={propiedades => (<Simulacionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/premium/prediccion' exact render={propiedades => (<Prediccionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/premium/subscription' exact render={propiedades => ( <Subscriptionp {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email}/>)}/>
 		</Switch>
 	  </div>
   );
