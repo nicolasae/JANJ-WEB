@@ -35,7 +35,7 @@ def prediccion_acciones(company):
     #company = 'TSLA'
 
     start = dt.datetime(2012,1,1)
-    end = dt.datetime(2020,12,32)
+    end = dt.datetime(2020,12,31)
 
     dataset = web.DataReader(company,'yahoo',start,end) #el yahoo es para usar la api de yahoo
     #
@@ -43,7 +43,7 @@ def prediccion_acciones(company):
     # La LSTM se entrenará con datos de 2016 hacia atrás. La validación se hará con datos de 2017 en adelante.
     # En ambos casos sólo se usará el valor más alto de la acción para cada día
     #
-    set_entrenamiento = dataset[:'2020'].iloc[:,1:2]
+    set_entrenamiento = dataset[:'2019'].iloc[:,1:2]
     set_validacion = dataset['2020':].iloc[:,1:2]
 
     #set_entrenamiento['High'].plot(legend=True)
