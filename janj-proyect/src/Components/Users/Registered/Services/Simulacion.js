@@ -239,7 +239,7 @@ export default class Simulacion extends React.Component{
                             <div className="row" style={{"margin-left":"0.2%"}}>
                                 <input className="input-start col-lg-3" placeholder="Precio a Invertir"/>
                                 <div className="col-lg-1"></div>
-                                <input className="input-start col-lg-3" placeholder="Fecha de Inversión"/>
+                                <input className="input-start col-lg-3 date" type="date"  min="2012-01-01" max="2021-04-01" placeholder="Fecha de Inversión"/>
                                 <div className="col-lg-3">
                                     <button className="btn-get-started" onClick={this.toggle} aria-controls="example-collapse-text" aria-expanded={this.state.isOpen}>Calcular</button>
                                 </div>

@@ -45,7 +45,7 @@ const App= props=> {
 			<Route path='/premiumInfo' exact render={propiedades => (<Premium {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre} setEmail={setEmail}/>)}/>
 			<Route path='/recover' exact render={propiedades => (<RecoverPassword {...propiedades} setRol={setRol} setToken={setToken} setIdusuario={setIdusuario} setNombre={setNombre} setEmail={setEmail}/>)}/>
 			{/* USUARIOs*/}
-			<Route path='/editprofile' exact render={propiedades => (  <EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/editprofile' exact render={propiedades => (<EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
 			{/* USUARIO REGISTRADO */}
 			<Route path='/register' exact render={propiedades => (<Homer {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
 			<Route path='/register/educacion' exact render={propiedades => (  <Educacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email}/>)}/>
