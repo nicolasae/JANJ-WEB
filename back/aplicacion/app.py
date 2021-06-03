@@ -203,6 +203,33 @@ def consulta_historial():
 
     return jsonify(historico)
 
+@app.route("/back/simulacion", methods=["POST"])
+def simulacion():
+    IEX_CLOUD_API_TOKEN = 'Tpk_059b97af715d417d9f49f50b51b1c448'
+    informacion = request.get_json()
+
+    ticket = informacion.get('ticket')
+    fecha_inversion = informacion.get('fecha_inversion')
+    dinero_invertido = informacion.get('dinero_invertido')
+    dinero_invertido = float(dinero_invertido)
+    fecha_final='20210401'
+
+    api_url_inversion = f'https://sandbox.iexapis.com/stable/stock/{ticket}/chart/date/{fecha_inversion}?token={IEX_CLOUD_API_TOKEN}'
+    api_url_final = f'https://sandbox.iexapis.com/stable/stock/{ticket}/chart/date/{fecha_final}?token={IEX_CLOUD_API_TOKEN}'
+
+    data_inversion = requests.get(api_url_inversion).json()
+    data_final = requests.get(api_url_final).json()
+    print(data_inversion)
+    close_inversion = data_inversion[len(data_inversion)-1]['close']
+    close_final = data_final[len(data_final)-1]['close']
+
+    acciones_iniciales = dinero_invertido/close_inversion
+    dinero_final = acciones_iniciales*close_final
+    print(acciones_iniciales)
+    print(dinero_final)
+
+    return jsonify(close_final=close_final, close_inversion=close_inversion, dinero_final=dinero_final)#
+
 
 
 
@@ -218,7 +245,7 @@ def aleatorio_ticket():
         accion = consulta[rand].ticket
         return jsonify(ticket=accion)
     except:
-        return jsonify("Hubo un error en el sistetma")
+        return jsonify("Hubo un error en el sistema"),401
 
 
 

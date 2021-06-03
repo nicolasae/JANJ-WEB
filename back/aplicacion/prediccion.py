@@ -13,20 +13,6 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.layers import Dense, LSTM
 import requests
 
-#
-# Funciones auxiliares
-#
-'''
-def graficar_predicciones(real, prediccion):
-    plt.plot(real[0:len(prediccion)],color='red', label='Valor real de la acción')
-    plt.plot(prediccion, color='blue', label='Predicción de la acción')
-    plt.ylim(1.1 * np.min(prediccion)/2, 1.1 * np.max(prediccion))
-    plt.xlabel('Tiempo')
-    plt.ylabel('Valor de la acción')
-    plt.legend()
-    plt.show()
-'''
-#
 # Lectura de los datos
 #
 #dataset = pd.read_csv('AAPL_2006-01-01_to_2018-01-01.csv', index_col='Date', parse_dates=['Date'])
