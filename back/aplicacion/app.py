@@ -13,36 +13,11 @@ import random
 import requests
 import math
 
-from flask_mail import Mail, Message
-from credentials import Credentials
-
-template = ''' <!DOCTYPE html>
-                <html>
-                <body>
-
-                <h1 style="color:#ff471a;">Su acción en JANJ-WEB tiene buenas predicciones</h1>
-                <p>El sistema de suscripción le informa que la acción de: </p> 
-                <p style="color:#0000FF; font-weight: bold;">ECOPETROL </p>
-
-                </body>
-                </html> '''
-
 app = Flask(__name__)
-credentials = Credentials()
 
-mail_settings = {
-    "MAIL_SERVER": 'smtp.gmail.com',
-    "MAIL_PORT": 465,
-    "MAIL_USE_TLS": False,
-    "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": credentials.get_user(),
-    "MAIL_PASSWORD": credentials.get_password()
-}
 app.config.from_object(config)
-app.config.update(mail_settings)
 Bootstrap(app)
 db = SQLAlchemy(app)
-mail = Mail(app)
 
 app.config["JWT_SECRET_KEY"] = "A0Zr98j/3yX R~XLH!tmN]LWk/,?RT"
 
@@ -68,6 +43,31 @@ def inicial():
 
 @app.route("/send_email", methods=['POST'])
 def send_email():
+    from flask_mail import Mail, Message
+    from credentials import Credentials
+
+    template = ''' <!DOCTYPE html>
+                    <html>
+                    <body>
+
+                    <h1 style="color:#ff471a;">Su acción en JANJ-WEB tiene buenas predicciones</h1>
+                    <p>El sistema de suscripción le informa que la acción de: </p> 
+                    <p style="color:#0000FF; font-weight: bold;">ECOPETROL </p>
+
+                    </body>
+                    </html> '''
+    credentials = Credentials()
+
+    mail_settings = {
+        "MAIL_SERVER": 'smtp.gmail.com',
+        "MAIL_PORT": 465,
+        "MAIL_USE_TLS": False,
+        "MAIL_USE_SSL": True,
+        "MAIL_USERNAME": credentials.get_user(),
+        "MAIL_PASSWORD": credentials.get_password()
+    }
+    app.config.update(mail_settings)
+    mail = Mail(app)
     print(request.get_json(force=True))
     emails = list(request.get_json(force=True)["emails"])
     print(emails, type(emails))
