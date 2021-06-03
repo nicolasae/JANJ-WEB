@@ -49,3 +49,9 @@ class tickets(db.Model):
     __tablename__='tickets'
     id = db.Column(db.Integer, primary_key=True)
     ticket = db.Column(db.String(1000))
+
+class divisas(db.Model):
+    __tablename__="Divisas"
+    id = db.Column(db.Integer, primary_key=True)
+    ticket = db.Column(db.String(1000))
+    userId = Column(db.Integer, ForeignKey('Usuarios.id'), nullable=False)

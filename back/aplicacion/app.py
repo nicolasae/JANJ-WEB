@@ -58,6 +58,54 @@ def login():
     return jsonify(access_token=access_token,id_usuario=user.id,email=user.email,nombre=user.nombre,apellido=user.apellido,rol=user.rol)
 
 
+@app.route("/back/agregar_suscripcion", methods=["POST"])
+@jwt_required()
+def agregar_suscripcion():
+    from aplicacion.models import User, divisas
+
+    datos = request.get_json()
+    tickets = datos.get('tickets')
+    try:
+        for ticket in tickets:
+            divisa = divisas(ticket=ticket,userId=current_user.id)
+            db.session.add(divisa)
+            db.session.commit()
+        return jsonify("Exito")
+    except:
+        return jsonify("Error"),401
+
+
+@app.route("/back/eliminar_suscripcion", methods=["POST"])
+@jwt_required()
+def eliminar_suscripcion():
+    from aplicacion.models import User, divisas
+
+    datos = request.get_json()
+    tickets = datos.get('tickets')
+    try:
+        for ticket in tickets:
+            divisa = divisas.query.filter_by(userId=current_user.id).first()
+            db.session.delete(divisa)
+            db.session.commit()
+        return jsonify("Exito")
+    except:
+        return jsonify("Error"),401
+
+@app.route("/back/listar_suscripcion", methods=["POST"])
+@jwt_required()
+def listar_suscripcion():
+    from aplicacion.models import User, divisas
+    consulta = divisas.query.filter_by(userId=current_user.id).all()
+    divisas = []
+    try:
+        for divisa in consulta:
+            divisas.append(divisa.ticket)
+
+        return jsonify(divisas=divisas)
+    except:
+        return jsonify("Error"),401
+
+
 
 @app.route("/back/who_am_i", methods=["GET"])
 @jwt_required()
