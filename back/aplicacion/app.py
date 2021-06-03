@@ -226,7 +226,7 @@ def simulacion():
     acciones_iniciales = dinero_invertido/close_inversion
     dinero_final = acciones_iniciales*close_final
 
-    return jsonify(close_final=close_final, close_inversion=close_inversion, dinero_final=dinero_final)#
+    return jsonify(dinero_final=dinero_final)#
 
 
 
