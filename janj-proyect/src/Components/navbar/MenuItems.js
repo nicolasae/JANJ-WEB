@@ -12,6 +12,10 @@ export const MenuItemsRegister = [
       title: 'Prediccion',
       path: '/register/prediccion',
       cName: 'dropdown-link'
+    },{
+      title: 'Simulación',
+      path: '/register/simulacion',
+      cName: 'dropdown-link'
     } 
     
   ];

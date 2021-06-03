@@ -92,6 +92,7 @@ export default class Simulacion extends React.Component{
             grafico:'',
             price:'',
             date:'',
+            cuantoGane:null,
         }
         this.currencyAvailable()
     }
@@ -109,11 +110,45 @@ export default class Simulacion extends React.Component{
             this.setState({currencyAvailable:currency})
         })
     }
-    toggle = () => {
+    toggle =async () => {
         this.setState({isOpen: !this.state.isOpen});
+        console.log(this.state.price, this.state.date)
+        var body = JSON.stringify({
+            ticket:this.state.value,
+            fecha_inversion:this.state.date,
+            dinero_invertido:this.state.price
+            
+        })
+        var baseurl = String(process.env.REACT_APP_API_URL)
+		var url = baseurl+'/simulacion'
+        var config2 = {
+            method: 'post',
+            url: url,
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data: body
+          };
+
+		await axios(config2)
+		.then(response => response.data)
+        .then(data => {
+            console.log(data)
+            var html = <p> De haber invertido la cantidad de <strong>{this.state.price}</strong> USD en la divisa <strong> {this.state.value}</strong>  y la fecha indicada a día de hoy tendría <strong> {data.dinero_final}</strong> USD  </p>
+            this.setState({ cuantoGane:html })
+        })
       }
       
+    onChangeDate = (e) =>{
+        var Date = String(e.target.value)
+        Date = Date.replace(/-/g, '');
+        this.setState({ date: Date})
 
+    }
+      
+    onChange = (e) =>{
+        this.setState({ price: e.target.value})
+    }
     RenderAutoCompleted = () =>{
 
         return (
@@ -237,9 +272,9 @@ export default class Simulacion extends React.Component{
                         <div className="simulacion-grid-item">
                             <this.RenderAutoCompleted/>
                             <div className="row" style={{"margin-left":"0.2%"}}>
-                                <input className="input-start col-lg-3" placeholder="Precio a Invertir"/>
+                                <input className="input-start col-lg-3" name="price" value={this.state.price} type="number" placeholder="Precio a Invertir" onChange={(e)=>this.onChange(e)}/>
                                 <div className="col-lg-1"></div>
-                                <input className="input-start col-lg-3 date" type="date"  min="2012-01-01" max="2021-04-01" placeholder="Fecha de Inversión"/>
+                                <input className="input-start col-lg-3 date" type="date" name="date"  min="2019-06-01" max="2021-04-01" onChange={(e)=>this.onChangeDate(e)}/>
                                 <div className="col-lg-3">
                                     <button className="btn-get-started" onClick={this.toggle} aria-controls="example-collapse-text" aria-expanded={this.state.isOpen}>Calcular</button>
                                 </div>
@@ -249,17 +284,7 @@ export default class Simulacion extends React.Component{
 
                             <Collapse in={this.state.isOpen}>
                                 <div className="simulacion-grid-item" style={{"margin-top": "3%"}}>
-                                    <p>
-                                        De haber invertido la
-                                        cantidad de $ 50 en
-                                        Bitcoin para la fecha de
-                                        15/02/2021 a día de
-                                        hoy tendrías $ 62.15
-                                        generando una
-                                        ganancia de
-                                        aproximadamente el
-                                        20% de lo invertido
-                                    </p>
+                                    {this.state.cuantoGane}
                                 </div>
                             </Collapse>
 
@@ -274,7 +299,7 @@ export default class Simulacion extends React.Component{
                                 <ol style={{"margin-left":"10%","margin-top":"5%","text-align":"justify"}}>
                                     <li>Seleccione una de las divisas</li>
                                     <li>Oprima el botón de "Gráficar"</li>
-                                    <li>Seleccione una fecha anterior a la actual y un valor invertido</li>
+                                    <li>Seleccione una fecha anterior a la actual (Y superior al 1 de junio de 2019 )y un valor invertido</li>
                                     <li>Oprima el botón de "Calcular"</li>
                                     
                                 </ol>
