@@ -89,5 +89,3 @@ def prediccion_acciones(company):
     prediccion = modelo.predict(X_test)
     prediccion = sc.inverse_transform(prediccion)
     return prediccion
-
-prediccion_acciones()
