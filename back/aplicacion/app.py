@@ -44,27 +44,27 @@ def inicial():
 @app.route("/send_email", methods=['POST'])
 def send_email():
     from flask_mail import Mail, Message
-    from credentials import Credentials
+    #from credentials import Credentials
 
     template = ''' <!DOCTYPE html>
                     <html>
                     <body>
 
                     <h1 style="color:#ff471a;">Su acción en JANJ-WEB tiene buenas predicciones</h1>
-                    <p>El sistema de suscripción le informa que la acción de: </p> 
+                    <p>El sistema de suscripción le informa que la acción de: </p>
                     <p style="color:#0000FF; font-weight: bold;">ECOPETROL </p>
 
                     </body>
                     </html> '''
-    credentials = Credentials()
+    #credentials = Credentials()
 
     mail_settings = {
         "MAIL_SERVER": 'smtp.gmail.com',
         "MAIL_PORT": 465,
         "MAIL_USE_TLS": False,
         "MAIL_USE_SSL": True,
-        "MAIL_USERNAME": credentials.get_user(),
-        "MAIL_PASSWORD": credentials.get_password()
+        "MAIL_USERNAME": "web.janj@gmail.com",
+        "MAIL_PASSWORD": "Ingesoft4@"
     }
     app.config.update(mail_settings)
     mail = Mail(app)
@@ -293,6 +293,7 @@ def consulta_historial():
     return jsonify(historico)
 
 @app.route("/back/simulacion", methods=["POST"])
+@jwt_required()
 def simulacion():
     IEX_CLOUD_API_TOKEN = 'Tpk_059b97af715d417d9f49f50b51b1c448'
     informacion = request.get_json()
@@ -434,6 +435,7 @@ def signup_post():
 
 
 @app.route("/back/prediccion", methods=["POST"])
+@jwt_required()
 def prediccion():
     from aplicacion.prediccion import prediccion_acciones
 
