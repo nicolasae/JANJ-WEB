@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from '../navbar/Navbar';
 import '../../assets/css/style.css'
 import Collapse from 'react-bootstrap/Collapse'
+const axios = require('axios');
 
 
 const { convert } = require('exchange-rates-api');
@@ -53,7 +54,22 @@ class Converter extends React.Component{
           };
           console.log(this.state.form.hacia);
 
-          let amount = await convert(Number(this.state.form.cantidad), String(this.state.form.desde), String(this.state.form.hacia),'2021-04-18' );          // '2018-01-01'
+          let amount;
+          var url = 'http://api.currencies.zone/v1/quotes/'+this.state.form.desde+'/'+this.state.form.hacia+'/json'
+          var config = {
+              method: 'post',
+              url: url,
+              headers: { 
+                'Content-Type': 'application/json',
+                
+              },
+              params:{
+                qty:this.state.form.cantidad,
+                key:'9010|7kUD*cFEStaVpMUxR5DOKoLJ*c_C^_en'
+              }
+            };
+          await axios(config)
+          .then(response => console.log(response))
           this.setState({valor_convertido:amount})
           console.log(amount);    // 1667.6394564000002
           this.toggle();
