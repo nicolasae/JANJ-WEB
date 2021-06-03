@@ -50,9 +50,9 @@ def send_email():
                     <html>
                     <body>
 
-                    <h1 style="color:#ff471a;">Su acción en JANJ-WEB tiene buenas predicciones</h1>
-                    <p>El sistema de suscripción le informa que la acción de: </p> 
-                    <p style="color:#0000FF; font-weight: bold;">ECOPETROL </p>
+                    <h1 style="color:#ff471a;">El sistema JANJ-WEB le da la</h1>
+                    <p style="color:#0000FF; font-weight: bold;">BIENVENIDA </p>
+                    <p>En los proximos días estara recibiendo más información </p> 
 
                     </body>
                     </html> '''
