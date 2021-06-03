@@ -219,14 +219,12 @@ def simulacion():
 
     data_inversion = requests.get(api_url_inversion).json()
     data_final = requests.get(api_url_final).json()
-    print(data_inversion)
+
     close_inversion = data_inversion[len(data_inversion)-1]['close']
     close_final = data_final[len(data_final)-1]['close']
 
     acciones_iniciales = dinero_invertido/close_inversion
     dinero_final = acciones_iniciales*close_final
-    print(acciones_iniciales)
-    print(dinero_final)
 
     return jsonify(close_final=close_final, close_inversion=close_inversion, dinero_final=dinero_final)#
 
