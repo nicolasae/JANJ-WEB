@@ -50,9 +50,9 @@ def send_email():
                     <html>
                     <body>
 
-                    <h1 style="color:#ff471a;">El sistema JANJ-WEB le da la</h1>
-                    <p style="color:#0000FF; font-weight: bold;">BIENVENIDA </p>
-                    <p>En los proximos días estara recibiendo más información </p> 
+                    <h1 style="color:#ff471a;">El sistema JANJ-WEB Finance For You</h1>
+                    <p style="color:#0000FF; font-weight: bold;">Estamos muy contentos de tenerte con nosotros </p>
+                    <p>En los proximos días estaras recibiendo más información de las divisas y acciones mas importantes en la actualidad</p>
 
                     </body>
                     </html> '''
@@ -72,7 +72,7 @@ def send_email():
     emails = list(request.get_json(force=True)["emails"])
     print(emails, type(emails))
     with app.app_context():
-        msg = Message(subject="ATENCIÓN: Su acción en JANJ tiene buenas proyecciones",
+        msg = Message(subject="Bienvedo a JANJ-WEB",
                     sender=app.config.get("MAIL_USERNAME"),
                     recipients=emails, # use your email for testing
         )
