@@ -23,27 +23,26 @@ class Suscription extends React.Component {
         })
     }
 
-    // directSuscription=()=>{
-    //     var data = JSON.stringify({
-    //         email:this.state.form.email,
-
-    //     });
-    //     console.log(this.state.form.email)
-
-    //     var baseurl = String(process.env.REACT_APP_API_URL)
-    //     const url = baseurl+'/contactenos'
-    //     var config = {
-    //         method: 'post',
-    //         url: url,
-    //         headers: { 
-    //           'Content-Type': 'application/json'
-    //         },
-    //         data: data
-    //       };
-    //     console.log(config)
-    //     axios(config)
-    //     .then(response => console.log(response))
-    // }
+    SendMail=()=>{
+        var body = {
+            emails: [ this.state.form.email ]
+        }
+        var data = JSON.stringify(body);
+        console.log(this.state.form.email)
+        var baseurl = String(process.env.REACT_APP_API_URL)
+        const url = baseurl+'/send_email'
+        var config = {
+            method: 'post',
+            url: url,
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data: data
+          };
+        console.log(config)
+        axios(config)
+        .then(response => console.log(response))
+    }
 
     render() {
 
@@ -59,8 +58,8 @@ class Suscription extends React.Component {
                         </div>
 
                         <div className="col-lg-3  text-center">
-                        <input placeholder="Correo Eléctronico"/>
-                        <a className="cta-btn align-middle" href="#">Enviar</a>
+                        <input type='email' name='email' placeholder="Correo Eléctronico" onChange={(e)=> this.onChange(e)}/>
+                        <a className="cta-btn align-middle" onClick={(e)=> this.SendMail(e)}>Enviar</a>
                         </div>
                     </div>
                 </div>

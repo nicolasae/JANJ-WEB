@@ -24,6 +24,7 @@ import Subscriptionp from './Components/Users/Premium/Subscription'
 
 // REGISTRADOS
 import Homer from './Components/Users/Registered/Home'
+import Reloader from './Components/Users/Registered/Reloader'
 import Educacionr from './Components/Users/Registered/Services/Educacion'
 import Prediccionr from './Components/Users/Registered/Services/Prediccion'
 import Seguimientor from './Components/Users/Registered/Services/Seguimiento'
@@ -48,6 +49,7 @@ const App= props=> {
 			<Route path='/editprofile' exact render={propiedades => (<EditProfile {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
 			{/* USUARIO REGISTRADO */}
 			<Route path='/register' exact render={propiedades => (<Homer {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
+			<Route path='/register/reloader' exact render={propiedades => (<Reloader {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
 			<Route path='/register/educacion' exact render={propiedades => (  <Educacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email}/>)}/>
 			<Route path='/register/seguimiento' exact render={propiedades => (<Seguimientor {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>
 			<Route path='/register/simulacion' exact render={propiedades => ( <Simulacionr {...propiedades} token={token} idusuario={idusuario} nombre={nombre}  rol={rol} email={email} />)}/>

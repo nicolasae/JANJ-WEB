@@ -4,104 +4,22 @@ import '../../../assets/css/style.css';
 import NavBar from '../../navbar/NavbarU'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 const axios= require('axios')
 
-const useStyles = makeStyles({
-    root: {
-        // "padding": "10px 12px 10px 12px",
-        // "border": "1px solid rgb(0,255,119,0.5)",
-        // "border-radius": "2px",
-        // "margin-bottom": "5px",
-        // "margin-top": "2px",
-        // "width": "100%",
-        // "box-sizing": "border-box",
-        // "font-size": "14px",
-        // "letter-spacing": "1px",
-        // "background":"white",
-        "width": "150%",
-        "margin-left": "40%"
-    },
-
-  });
-//divisas disponibles para los clientes
-const currencyAvailable =[
-    { name: 'Apple', id: 1 },
-    { name: 'Amazon', id: 2 },
-    { name: 'BitCoin', id: 3 },
-]
-
-//divisas suscriptas 
-const currencyList =[
-    { name: 'Apple', id: 1 },
-    { name: 'Amazon', id: 2 },
-    { name: 'BitCoin', id: 3 },
-    { name: 'Tesla', id:4 },
-]
-
-
-function AutoCompleteFunction(){
-    const classes = useStyles();  
-    return(
-        <Autocomplete
-        id="combo-box-demo"
-        options={currencyAvailable}
-        getOptionLabel={(option) => option.name}
-        style={{ "width": "40%"}}
-        renderInput={(params) => <TextField
-            classes={{ 
-                root:classes.root, 
-                label: classes.label,
-            }}
-            style={{"border":"none","margin-bottom":"10%"}}
-            {...params} label="Buscar Divisas"  />}
-        />
-    );
-}
-
-function CurrencyMap(){    
-    const listItems = currencyList.map((number) => <li>{number.name}</li>);
-    return listItems
-}
-
-function CurrencyMapDelete(){    
-    const listItems = currencyList.map((number) =>
-            <div className="row">
-                <div className="col-lg-1">
-
-                </div>
-                <div className="col-lg-2">
-                    <input type="checkbox"/>
-                </div>
-                <div className="col-lg-6">
-                <p>{number.name}</p>
-            </div>
-        </div>);
-    return listItems
-}
-
-function CurrencyMapAdd(){    
-    const listItems = currencyAvailable.map((number) =>
-            <div className="row">
-                <div className="col-lg-1">
-
-                </div>
-                <div className="col-lg-2">
-                    <input type="checkbox"/>
-                </div>
-                <div className="col-lg-6">
-                <p>{number.name}</p>
-            </div>
-        </div>);
-    return listItems
-}
 
 export default class Subscription extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            tickets:[],
+            currencyAvailable:[],
+            inputValue:'',
+            values:[],
+            value:'',
+            inputValue:'',
             mytickets:[],
+            deletetickets:[],
+            addtickets:[],
         }
         this.initial_state()
     }  
@@ -113,10 +31,65 @@ export default class Subscription extends React.Component {
         {html}
         </>)
     }
-    getTickets=async()=>{
-		var url = 'notifications_api:5000/listar_tickets'
+    getMyTickets=async()=>{
         var baseurl = String(process.env.REACT_APP_API_URL)
-		url = baseurl+'/user_subscriptions'
+		var url = baseurl+'/listar_suscripcion'
+        var config = {
+            url: url,
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + this.props.token
+            }
+        }
+		await axios(config)
+		.then(response => response.data)
+        .then(data => {
+            this.setState({mytickets:data.divisas})
+        })
+    }
+    
+    addMyTickets=async()=>{
+        var baseurl = String(process.env.REACT_APP_API_URL)
+		var url = baseurl+'/agregar_suscripcion'
+        var data = JSON.stringify({tickets: [this.state.value]})
+        var config = {
+            url: url,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization':'Bearer ' + this.props.token
+            },
+            data:data
+        }
+		await axios(config)
+		.then(response => response.data)
+        .then(data => {
+            console.log(data)
+        })
+    }
+    delMyTickets=async()=>{
+        var baseurl = String(process.env.REACT_APP_API_URL)
+        var deleted = this.state.deletetickets
+        var body = JSON.stringify({tickets: deleted})
+		var url = baseurl+'/eliminar_suscripcion'
+        var config = {
+            url: url,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization':'Bearer ' + this.props.token
+            },
+            data:body
+        }
+		await axios(config)
+		.then(response => response.data)
+        .then(data => {
+            console.log(data)
+        })
+    }
+    getTickets=async()=>{
+        var baseurl = String(process.env.REACT_APP_API_URL)
+		var url = baseurl+'/listar_tickets'
 		await axios.get(url)
 		.then(response => response.data)
         .then(data => {
@@ -124,23 +97,78 @@ export default class Subscription extends React.Component {
             for(const i in data ){
                 currency.push(data[i].ticket)
             }
-            this.setState({tickets:currency})
+            this.setState({currencyAvailable:currency})
         })
     }
-    getMyTickets=async()=>{
-        var baseurl = String(process.env.REACT_APP_API_URL)
-        console.log((this.props))
-		var url = 'notifications_api:5000/'+this.props.email
-		await axios.get(url)
-		.then(response => response.data)
-        .then(data => {
-            console.log(data)
-        })
+    setValue= (valueCurrency) => {
+        this.setState({value:valueCurrency })
+        
+    }
+
+    setInputValue = (inputValueCurrency) => {
+        this.setState({inputValue:inputValueCurrency })
     }
     initial_state=async()=>{
         await this.getTickets()
         await this.getMyTickets()
     }
+    renderMyTickets=()=>{
+        const listItems = this.state.mytickets.map((number) => <li>{number}</li>);
+        return listItems
+    }
+    RenderAutoCompleted = () =>{
+        return (
+            <> 
+                    <Autocomplete
+                        value={this.state.value}
+                        onChange={(event, newValue) => {
+                        this.setValue(newValue);
+                        }}
+                        inputValue={this.state.inputValue}
+                        onInputChange={(event, newInputValue) => {
+                        this.setInputValue(newInputValue);
+                        }}
+                        id="controllable-states-demo"
+                        options={this.state.currencyAvailable}
+                        renderInput={(params) =><TextField
+                            style={{"border":"none","margin-bottom":"10%"}}
+                            {...params} label="Buscar Divisa"  />}
+                    />    
+            </> 
+        );
+        
+    }
+    renderForDeletedTickets=()=>{
+        const onChange =(e,i)=>{
+            if(e.target.checked){
+                var deleted = this.state.deletetickets
+                deleted.push(e.target.value)
+                this.setState({deletetickets:deleted})
+            }
+            if(!e.target.checked){
+                var deleted = this.state.deletetickets
+                var newDel =[]
+                for(const i in deleted){
+                    if(deleted[i] !== e.target.value)
+                        newDel.push(deleted[i])
+                }
+                this.setState({deletetickets:newDel})
+            }
+        }
+        const listItems = this.state.mytickets.map((number,i) =>
+        <div className="row">
+            <div className="col-lg-6">
+                <input type='checkbox' name='deleteTickets' onChange={(e)=> onChange(e,i)}/> 
+            </div>
+            <div className="col-lg-6">
+                <p>
+                    {number}
+                </p>
+            </div>
+        </div> );
+        return listItems
+    }
+
     render(){
     return(
         <section className="subscription">
@@ -152,7 +180,7 @@ export default class Subscription extends React.Component {
                         Estas son las suscripciones de divisas que están
                         asociadas al correo electrónico:
                     </p>
-                    <CurrencyMap/>
+                    {this.renderMyTickets()}
                     <p>
                         En el momento en que hayan cambios drásticos
                         impredecibles o favorables en una de estas divisas
@@ -163,21 +191,24 @@ export default class Subscription extends React.Component {
                     <h2>Divisas Suscriptas:</h2>
                     <div className="row">
                         <div className="col-lg-6">
-                            <CurrencyMapDelete/>
+                            {this.renderForDeletedTickets()}
                         </div>
                         <div className="col-lg-6">
-                            <button className="btn-get-started">Eliminar Suscripción</button>
+                            <Link to={{pathname:"/register/reloader"}}>
+                                <button onClick={(e) =>this.delMyTickets(e)} className="btn-get-started">Eliminar Suscripción</button>
+                            </Link>
                         </div>
                     </div>
 
                     <h2>Divisas por Suscribir:</h2>
-                    <AutoCompleteFunction/>
                     <div className="row">
                         <div className="col-lg-6">
-                            <CurrencyMapAdd/>
+                        <this.RenderAutoCompleted/>
                         </div>
                         <div className="col-lg-6">
-                            <button className="btn-get-started">Agregar Suscripción</button>
+                            <Link to={{pathname:"/register/reloader"}}> 
+                                <button onClick={(e) => this.addMyTickets(e)} className="btn-get-started">Agregar Suscripción</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

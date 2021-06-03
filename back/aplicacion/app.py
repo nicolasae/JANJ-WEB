@@ -41,7 +41,7 @@ def user_lookup_callback(_jwt_header, jwt_data):
 def inicial():
     return jsonify("pagina inicial")
 
-@app.route("/send_email", methods=['POST'])
+@app.route("/back/send_email", methods=['POST'])
 def send_email():
     from flask_mail import Mail, Message
     #from credentials import Credentials
