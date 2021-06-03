@@ -225,6 +225,7 @@ def simulacion():
 
     acciones_iniciales = dinero_invertido/close_inversion
     dinero_final = acciones_iniciales*close_final
+    dinero_final = round(dinero_final,2)
 
     return jsonify(dinero_final=dinero_final)#
 
@@ -364,8 +365,8 @@ def prediccion():
 
     varianza = math.sqrt(varianza/(len(prediccion)+1))
     valor_final = valor_final[len(valor_final)-1]
-    print(promedio)
-    print(varianza)
+    varianza = round(varianza,2)
+    valor_final = round(valor_final,2)
 
     return jsonify(valor_final, varianza)
 
