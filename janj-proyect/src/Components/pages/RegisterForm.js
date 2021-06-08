@@ -53,6 +53,7 @@ export default class Register extends React.Component {
         axios(config)
         .then(response => {
             console.log(response)
+            alert('Se registró correctamente')
         }) 
     }
     render(){
