@@ -51,22 +51,6 @@ function Dropdown(data) {
               </li>
             );
           })}
-          {/* {
-      title: 'Predicción',
-      path: '/premium/prediccion',
-      cName: 'dropdown-link'
-    },
-    {
-      title: 'Simulación',
-      path: '/premium/simulacion',
-      cName: 'dropdown-link disabled'
-    }, */}
-          <li>
-            <button className="btn text-left" disabled> Predicción</button>
-          </li>
-          <li>
-            <button className="btn text-left" disabled> Simulación</button>
-          </li>
         </ul>
       </>
     );
