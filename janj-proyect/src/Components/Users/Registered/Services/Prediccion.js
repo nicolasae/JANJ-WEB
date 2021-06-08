@@ -171,7 +171,8 @@ export default class Prediccion extends React.Component {
             method: 'post',
             url: url,
             headers: { 
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer '+ this.props.token
             },
             data: data
           };

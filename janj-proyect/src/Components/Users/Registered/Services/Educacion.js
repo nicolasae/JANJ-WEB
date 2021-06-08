@@ -160,8 +160,8 @@ function EducacionF(){
     return(
         <section id="educacion">
             {/* <Navbar/> */}
-            <div>
-                <h1>Educación</h1>
+            <div style={{"margin-left":"4%"}}>
+                <h1 >Educación</h1>
                 
                 <div style={{"margin-left":"4%"}}className={classes.root}>
                     <Paper square elevation={6} className={classes.header}>

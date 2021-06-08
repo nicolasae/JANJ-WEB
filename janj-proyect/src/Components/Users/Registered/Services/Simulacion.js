@@ -125,7 +125,8 @@ export default class Simulacion extends React.Component{
             method: 'post',
             url: url,
             headers: { 
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer '+ this.props.token
             },
             data: body
           };
