@@ -14,7 +14,7 @@ export default function Hero(){
                     <h1>JANJ</h1>
                     <h2>                    
                         Permitimos el seguimiento,
-                        preddicción, simulación además
+                        predicción, simulación además
                         de brindar información acerca
                         del estado actual de las divisas
                     </h2>            
