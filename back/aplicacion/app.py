@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask_bootstrap import Bootstrap
+#from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from aplicacion import config
 from werkzeug.security import generate_password_hash, check_password_hash,safe_str_cmp
@@ -16,7 +16,7 @@ import math
 app = Flask(__name__)
 
 app.config.from_object(config)
-Bootstrap(app)
+#Bootstrap(app)
 db = SQLAlchemy(app)
 
 app.config["JWT_SECRET_KEY"] = "A0Zr98j/3yX R~XLH!tmN]LWk/,?RT"
